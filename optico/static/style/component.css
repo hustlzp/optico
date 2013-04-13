@@ -1,0 +1,34 @@
+.navbar #btn-s2t{margin-top:7px;margin-right:10px;background-image:none;}
+.navbar #douban-icon{float:right;margin-top:8px;margin-left:2px;cursor:pointer;}
+.alert-error ul{margin:0 0 0 20px;list-style:square;}.alert-error ul li{margin:0 0 5px 0;}.alert-error ul li:last-child{margin:0;}
+.link-more a{margin-left:5px;font-size:12px;font-family:'微软雅黑';font-weight:normal;color:#37a;cursor:pointer;}
+.work-item{margin-bottom:8px;border-bottom:1px dashed #DDD;padding-bottom:8px;}.work-item .work-header .work-title{font-size:16px;line-height:32px;font-weight:bold;letter-spacing:1px;}
+.work-item .work-header .work-author{font-size:12px;font-weight:normal;margin-left:3px;}.work-item .work-header .work-author a{color:#333;}
+.work-item .work-content{font-size:14px;line-height:22px;}
+.author-item{margin-bottom:8px;}.author-item .author{font-size:16px;line-height:22px;font-weight:bold;letter-spacing:1px;}
+.author-item .author-dynasty{font-size:12px;font-weight:normal;margin-left:3px;}.author-item .author-dynasty a{color:#333;}
+.author-item .author-quote{font-size:12px;line-height:22px;}
+.review-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed #DDD;}.review-item .user-avatar{float:left;margin-top:3px;}
+.review-item .review-wap{margin-left:60px;}.review-item .review-wap .review-title{font-size:16px;font-weight:bold;letter-spacing:1px;}
+.review-item .review-wap .review-content{font-size:12px;line-height:22px;}
+.review-item .review-wap .review-extra-info{font-size:12px;line-height:22px;}.review-item .review-wap .review-extra-info .review-time{color:gray;}
+.user-item{margin-bottom:10px;}.user-item .user-avatar{float:left;display:block;margin-top:6px;}
+.user-item .user-info{margin-left:60px;}.user-item .user-info .user-name{font-size:13px;}
+.user-item .user-info .user-signature{color:#666;font-size:12px;line-height:14px;}
+.user-item .user-info .reviews-num{color:#666;font-size:12px;line-height:24px;}
+.node-info a{color:#999;text-decoration:none;}.node-info a:hover{color:darkred;}
+.node-info .new-topic{float:right;margin:0 10px 0 0;color:#777;}.node-info .new-topic:hover{color:#555;}
+.topic-item{border-bottom:1px dashed #DDD;margin-top:10px;padding-bottom:18px;position:relative;clear:both;}.topic-item .topic-user-avatar{float:left;margin-top:3px;}
+.topic-item .topic-info{margin-left:60px;}.topic-item .topic-info .topic-title{font-size:16px;margin-bottom:6px;font-weight:bold;letter-spacing:1px;}
+.topic-item .topic-info .topic-extra-info{font-size:12px;line-height:12px;}.topic-item .topic-info .topic-extra-info .topic-node{font-size:12px;display:inline-block;padding:0px 0px;border-radius:2px;color:#999;margin-right:5px;}
+.topic-item .topic-info .topic-extra-info .topic-launcher{margin-right:5px;color:gray;font-weight:bold;font-size:12px;}
+.topic-item .topic-info .topic-extra-info .topic-time{color:#999;}
+.topic-item .topic-comment-num{position:absolute;top:15px;right:15px;font-size:12px;line-height:12px;font-weight:bold;color:gray;background-color:#e5e5e5;display:inline-block;padding:3px 12px;border-radius:12px;cursor:pointer;}
+.node-list{list-style:none;margin:0;}.node-list .node{font-size:12px;line-height:12px;display:inline-block;margin:0 6px 6px 0;background-color:#f3f3f3;border-radius:2px;border:1px solid #e5e5e5;}.node-list .node a{color:#62686b;text-decoration:none;padding:4px 10px;display:inline-block;cursor:pointer;}.node-list .node a:hover{color:#4d5256;}
+.type-item{clear:both;margin-bottom:10px;padding-bottom:8px;border-bottom:1px dashed #DDD;}.type-item .node-type{float:left;font-size:12px;font-weight:bold;}
+.type-item .node-list{float:left;margin:0 0 0 25px;}
+.comment-item{margin-bottom:15px;clear:both;width:530px;}.comment-item .comment-user-avatar{float:left;margin-top:5px;}
+.comment-item .comment-wap{margin-left:60px;font-size:12px;}.comment-item .comment-wap .comment-extra-info{line-height:22px;margin-bottom:2px;}.comment-item .comment-wap .comment-extra-info .comment-time{color:#999;margin-left:5px;}
+.comment-item .comment-wap .comment-extra-info .btn-reply-somebody{cursor:pointer;display:none;color:#999;margin-left:5px;}
+.comment-item .comment-wap .comment-body{line-height:20px;}.comment-item .comment-wap .comment-body .replyee{color:#333;margin-right:5px;}
+.textarea-comment{display:block;margin-top:20px;}

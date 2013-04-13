@@ -1,0 +1,797 @@
+body{
+	font-family: 'arial', '宋体';
+
+	#main-wap{
+		font-size: 14px;
+		line-height: 26px;
+		min-height: 700px;
+
+		h1{
+			font-size: 25px;
+			line-height: 35px;
+			margin: 20px 0 10px 0;
+		}
+
+	h2{
+			font-size: 15px;
+			line-height: 15px;
+			font-family: '微软雅黑';
+			font-weight: normal;
+			margin: 20px 0 15px 0;
+			color: rgb(173,22,22);
+			clear: both;
+		}
+	}
+
+	#footer{
+		text-align: center;
+		font-size: 12px;
+		font-family: '微软雅黑';
+		margin:60px 0 10px 0;
+
+		a{
+			color: #37a;
+		}
+
+		img{
+			margin-left: 7px;
+			margin-top: -1px;
+		}
+	}
+
+	// hide the unknown div of 20 px height
+	#footer + div{
+		display: none;
+	}
+}
+
+// fix bootstrap css
+//-----------------------------------------------------
+
+// nav
+.navbar-search .search-query{
+	line-height: 1.2;
+	font-size: 12px;
+	padding: 2px 0px 2px 16px;
+	margin-top: 2px;
+}
+
+.form-horizontal .input-append{
+	display: block;
+}
+
+// modal
+.modal{
+	border: 8px solid rgba(0, 0, 0, 0.35);
+	box-shadow: none;
+	border-radius: 3px;
+
+	h4{font-size: 18px;}
+}
+
+// tooltip
+.tooltip{
+	font-family: 'arial', '宋体';
+	text-indent: 0;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 22px;
+}
+.tooltip-inner{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+// page index
+//-----------------------------------------------------
+#page-index{
+	.work-item{
+		.work-type{
+			background-color: lighten(darkred, 5%);
+			padding: 2px 2px 3px 3px;
+			border: 1px solid lighten(darkred, 5%);
+			font-size: 12px;
+			line-height: 12px;
+			font-weight: normal;
+			border-radius: 2px;
+			margin-right: 5px;
+			display: inline-block;
+			vertical-align: 2px;
+			text-decoration: none;
+			color: #FBFBFB;
+
+			&:hover{
+				background-color: white;
+				color: lighten(darkred, 5%);
+			}
+		}
+	}
+
+	#dynasties-wap{
+		margin: 0;
+		list-style: none;
+
+		.dynasty-item{
+			float: left;
+			font-size: 16px;
+			margin-bottom: 5px;
+
+			a{
+				font-weight: bold;
+			}
+
+			span{
+				margin-right: 5px;
+			}
+		}
+	}
+
+}
+
+// page add work
+//-----------------------------------------------------
+#page-works{
+	.work-item{
+		margin-right: 30px;
+	}
+
+	#type-selector,
+	#dynasty-selector{
+		list-style: none;
+		margin: 0;
+
+		li{
+			margin-bottom: 8px;
+			margin-right: 2px;
+			display: inline-block;
+
+			a{
+				font-size: 12px;
+				line-height: 12px;
+				background-color: #EEE;
+				padding: 4px 12px 5px 12px;
+				text-decoration: none;
+				color: #777;
+			}
+
+			&:hover{
+				background-color: #DDD;
+				a{
+					color: #333;
+				}
+			}
+
+			&.active{
+				
+				a{
+					background-color: #0088cc;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+// page single work
+//-----------------------------------------------------
+#page-single-work{
+	.span8{
+		width: 600px;
+		margin-right: 20px;
+	}
+
+	.work-title{
+		font-size: 25px;
+		line-height: 35px;
+		margin-top: 30px;
+		margin-bottom: 12px;
+		font-weight: bold;
+		text-align: center;
+		clear: both;
+	}
+
+	.work-author{
+		text-align: center;
+		margin-bottom: 16px;
+		padding-right: 10px;
+		font-size: 16px;
+	}
+
+	.work-foreword{
+		font-size: 17px;
+		font-family: 'kaiti';
+		margin-bottom: 10px;
+	}
+
+	.work-content{
+		font-family: '宋体';
+		font-size: 17px;
+		margin-bottom: 30px;
+
+		sup{
+			font-family: '黑体';
+			font-size: 12px;
+			font-weight: normal;
+			padding: 5px 0px;
+			cursor: pointer;
+			color: #666;
+		}
+	}
+	.work-type-shi{
+		text-align: center;
+		p{
+		}
+	}
+	.work-type-ci{
+		text-indent: 2em;
+		line-height: 30px;
+		padding: 0 2em;
+	}
+	.work-type-qu{
+		text-indent: 2em;
+		line-height: 30px;
+		padding: 0 2em;
+	}
+	.work-type-wen{
+		text-indent: 2em;
+		font-size: 16px;
+		line-height: 30px;
+		padding: 0 0.5em;
+
+		p{	
+			margin-bottom: 18px;
+		}
+	}
+
+	#work-cmds{
+		margin-right: 15px;
+		
+		.dropdown-toggle .caret{
+			margin-top: 8px;
+		}
+	}
+
+	.work-collection{
+		font-weight: bold;
+		font-size: 16px;
+		margin-bottom: 5px;
+	}
+
+	.work-collection-introduction{
+	}
+
+	.work-tags{
+		list-style: none;
+		margin: 0;
+
+		li{
+			list-style: none;
+			display: inline-block;
+
+			a{
+				text-decoration: none;
+				font-size: 12px;
+				line-height: 12px;
+				padding: 5px 5px;
+				margin: 0 2px 0 2px;
+				cursor: pointer;
+
+				color: #666;
+				background-color: #F2F2F2;
+				box-shadow: 1px 1px 0px #bbb;
+				&:hover{
+					background-color: #EbEbEb;
+				}
+
+				// color: rgb(167, 35, 35);
+				// background-color: rgb(247, 231, 231);
+				// box-shadow: 1px 1px 0 rgb(192, 154, 154);
+				// &:hover{
+				// 	background-color: rgb(240, 221, 221);
+				// }
+			}
+		}		
+	}
+
+	.other-work-item{
+		margin-bottom: 5px;
+		border-bottom: 1px dashed #DDD;
+		padding-bottom: 5px;
+
+		&:last-child{
+			border: 0;
+		}
+
+		.other-work-title{
+		}
+
+		.other-work-content{
+			font-size: 12px;
+			margin-left: 5px;
+			color: gray;
+		}
+	}
+
+	.ad{
+		display: block;
+		margin-top: 20px;
+	}
+
+	#modal-tags{
+		#input-tags{
+			font-size: 12px;
+			margin-bottom: 15px;
+			width: 350px;
+			font-family: '宋体';
+		}
+
+		.tags-wap{
+			clear: both;
+			margin-bottom: 10px;
+
+			.tags-title{
+				float: left;
+			}
+
+			ul{
+				margin: 0 0 0 10px;
+				float: left;
+				width: 450px;
+
+				li{
+					list-style: none;
+					display: inline-block;
+					font-size: 12px;
+					line-height: 12px;
+					padding: 5px 5px;
+					margin: 0 5px 5px 0;
+					cursor: pointer;
+
+					// color: #666;
+					// background-color: #F2F2F2;
+					// box-shadow: 1px 1px 0px #bbb;
+					// &:hover{
+					// 	background-color: #EbEbEb;
+					// }
+
+					color: rgb(167, 35, 35);
+					background-color: rgb(247, 231, 231);
+					box-shadow: 1px 1px 0 rgb(192, 154, 154);
+					&:hover{
+						background-color: rgb(240, 221, 221);
+					}
+				}			
+			}
+		}
+	}
+}
+
+// page single collection
+//-----------------------------------------------------
+#page-single-collection{
+	.collection-author{
+		font-size: 16px;
+	}
+
+	.work-item .work-author{
+		display: none;
+	}
+}
+
+
+// page authors
+//-----------------------------------------------------
+#page-authors{
+	.author-wap{
+		border-top: 1px dashed lightgray;
+		padding-top: 15px;
+
+		.author-dynasty{
+			font-size: 15px;
+			line-height: 15px;
+			color: rgb(29, 86, 172);
+			font-family: '微软雅黑';
+			width: 100px;
+			float: left;
+			display: inline-block;
+		}
+
+		.author-group{
+			list-style: none;
+			margin: 0 0 0 100px;
+
+			li{
+				float: left;
+				margin-bottom: 15px;
+
+				&.author{
+					font-size: 16px;
+					line-height: 20px;
+					width: 100px;
+				}
+			}
+		}
+	}
+}
+
+// page single author
+//-----------------------------------------------------
+#page-single-author{
+	.author{
+		h1{display: inline-block;}
+
+		.author-quote{
+			font-size: 12px;
+			font-weight: normal;
+			color: gray;
+			margin-left: 12px;
+			text-decoration: none;
+		}		
+	}
+
+	.author-period{
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+
+	.works-num-wap{
+		display: inline-block;
+		margin-left: 10px;
+
+		span{
+			font-size: 12px;
+			line-height: 12px;
+			cursor: pointer;
+			margin-right: 3px;
+			padding: 0px 7px 1px 8px;
+			color: gray;
+			letter-spacing: 1px;
+
+			&.active{
+				background-color: #0088cc;
+				color: white;				
+			}
+		}
+	}
+
+	.collection-item{
+		margin-bottom: 10px;
+		
+		.collection{
+			font-weight: bold;
+			font-size: 16px;
+		}
+	}
+
+	.work-item{
+		float: left;
+		display: block;
+		width: 120px;
+		height: 120px;
+		border: 1px solid #E8E8E8;
+		margin: 5px 15px 10px 0;
+		padding: 5px 5px 5px 10px;
+		overflow: hidden;
+		text-decoration: none;
+
+		&:hover{
+			background-color: #FBFBFB;
+			
+			.work-content{
+				color: #333;
+			}
+		}
+
+		.work-title{
+			font-size: 14px;
+			padding-bottom: 3px;
+			font-family: '微软雅黑';
+			color: rgb(39, 125, 221);
+			line-height: 24px;
+		}
+
+		.work-content{
+			font-size: 13px;
+			line-height: 22px;
+			color: #666;
+		}
+	}
+}
+
+// page single dynasty
+//-----------------------------------------------------
+#page-single-dynasty{
+	#dyn-selector{
+		margin: 0;
+		position: absolute;
+		top: 40px;
+		left: 0px;
+		list-style: none;
+
+		li{
+			float: left;
+
+			a{
+				display: block;
+				text-align: center;
+				color: white;
+				font-size: 12px;
+				line-height: 22px;
+				opacity: 1;
+				text-decoration: none;
+				cursor: pointer;
+
+				&:hover{
+				}
+			}
+		}
+	}
+
+	.row{
+		margin-top: 22px;
+
+		#dynasty-wap{
+			.dynasty-period{
+				font-size: 16px;
+			}
+
+			.dynasty-introduction{
+				padding-right: 1.5em;
+			}
+
+			.dynasty-extra{
+
+				h3{
+					font-size: 15px;
+					font-family: '微软雅黑';
+				}
+				
+				p{
+					margin-bottom: 15px;
+				}
+			}
+		}
+
+		.author-item .author-dynasty{
+			display: none;
+		}
+	}
+}
+
+
+// page add review
+//-----------------------------------------------------
+#page-add-review,
+#page-edit-review{
+	.control-label{
+		width: 50px;
+	}
+
+	.controls{
+		margin-left: 70px;
+	}
+}
+
+// page single review
+//-----------------------------------------------------
+#page-single-review{
+	.user-avatar{
+		float: right;
+		margin-top: 20px;
+	}
+
+	.review-title{
+		margin-bottom: 10px;
+	}
+
+	.review-extra-info{
+		margin-bottom: 15px;
+		border-bottom: 1px solid #EEE;
+		padding-bottom: 15px;
+		line-height: 14px;
+		color: #999;
+
+		.btn-edit-review{
+			margin-left: 10px;
+		}
+
+		.review-time{
+			color: #999;
+		}
+	}
+
+	.review-content{
+		margin-bottom: 15px;
+	}
+}
+
+// page reviews
+//-----------------------------------------------------
+#page-reviews{
+	.reviewer-item{
+		margin-bottom: 10px;
+
+		.reviewer-avatar{
+			float: left;
+			display: block;
+			margin-top: 6px;
+		}
+
+		.reviewer-info{
+			margin-left: 60px;
+
+			.reviewer{
+				font-size: 13px;
+			}
+
+			.reviewer-signature{
+				color: #666;
+				font-size: 12px;
+				line-height: 14px;
+			}
+
+			.reviews-num{
+				color: #666;
+				font-size: 12px;
+				line-height: 24px;
+			}
+		}
+	}
+}
+
+// page people
+//-----------------------------------------------------
+#page-people{
+	#user-avatar{
+		float: left;
+		margin-top: 15px;
+	}
+
+	.user-info{
+		margin-left: 60px;
+
+		.user-name{
+			font-size: 25px;
+			line-height: 30px;
+			margin-top: 15px;
+			font-weight: bold;
+			font-family: '微软雅黑';
+		}
+
+		.user-signature{
+			font-size: 12px;
+			color: #666;
+		}
+	}
+}
+
+// page shop
+//-----------------------------------------------------
+#page-shop{
+	.products-wap{margin-top: 15px;position: relative;
+		
+		.product-item{
+		
+			.product-image{ opacity: 0.9;
+				&:hover{
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+// page single product
+//-----------------------------------------------------
+#page-single-product{
+	.product-image{
+		margin-top: 15px;
+	}
+
+	.product-introduction{
+		margin-bottom: 10px;
+	}
+}
+
+// page forum
+//-----------------------------------------------------
+#page-forum{
+
+	.ht-item{
+		margin-bottom: 8px;
+		padding-bottom: 8px;
+		border-bottom: 1px dashed #ddd;
+
+		.ht-user-avatar img{
+			width: 24px;
+			margin-left: 2px;
+			border-radius: 2px;
+		}
+
+		.ht-title{
+			margin-left: 6px;
+			font-size: 14px;
+		}
+	}
+}
+
+// page add topic
+//-----------------------------------------------------
+#page-add-topic,
+#page-edit-topic{
+	.control-label{
+		width: 50px;
+	}
+
+	.controls{
+		margin-left: 70px;
+	}
+}
+
+// page single topic
+//-----------------------------------------------------
+#page-single-topic{
+
+	.node-info{
+		color: #999;
+	}
+
+	.topic-user-avatar{float: right;margin-right: 5px;}
+
+	.topic-title{margin-top: 0px;}
+
+	.topic-extra-info{font-size: 14px;line-height: 14px;margin-bottom: 15px;border-bottom: 1px solid #eee;padding-bottom: 15px;color: #999;
+
+		.topic-node{font-size: 12px;background-color: #f5f5f5;display: inline-block;padding: 4px 5px;border-radius: 2px;text-decoration: none;color: #999;margin-right: 5px;
+
+			&:hover{background-color: #EAEAEA}
+		}
+
+		.topic-launcher{margin-right: 5px;color: #999;}
+
+		.topic-time{color: #999;}
+
+		.btn-edit-topic{
+			margin-left: 10px;
+		}
+	}
+}
+
+// page add topic
+//-----------------------------------------------------
+#page-add-topic,
+#page-edit-topic{
+	#node{
+		font-size: 14px;
+		line-height: 14px;
+		margin-right: 10px;
+		font-family: '微软雅黑';
+		vertical-align: middle;
+		color: darkred;
+	}
+}
+
+// page informs
+//-----------------------------------------------------
+#page-informs{
+	.inform-item{
+		clear: both;
+		margin-bottom: 10px;
+		padding-bottom: 15px;
+		border-bottom: 1px dashed #ddd;
+
+		.user-avatar{
+			margin-top: 5px;
+			float: left;
+		}
+
+		.inform-wap{
+			margin-left: 60px;
+
+			.inform-title{
+				font-size: 12px;
+				color: #999;
+			}
+		}
+	}
+}
