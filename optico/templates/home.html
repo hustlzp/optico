@@ -1,25 +1,34 @@
 {% extends "layout.html" %}
 
 {% block page_title %}Home{% endblock %}
-{% block page_id%}page-index{% endblock %}
+{% block page_id%}page-home{% endblock %}
 
 {% block body %}
 
 <script type="text/javascript">
 
 $(document).ready(function(){
-
+	$('#myCarousel').css({
+		display: 'block'
+	});
 });
 
 </script>
 
 <div class="row">
-	<div class="span8">
-		<div>home</div>
+	{% for mt in mtypes %}
+	<div class="mtype-item span3">
+		<a href="#"><img class="mt-image" src="{{ mt.ImageUrl }}" /></a>
 		
-	</div>
+		<div class="mt-name">{{ mt.Name }}</div>
 
-	<div class="span4"></div>
+		<ul class="stypes-list">
+			{% for st in mt.stypes %}
+			<li><a href="#">{{ st.Name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}		
 </div>
 
 {% endblock %}

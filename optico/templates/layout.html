@@ -4,30 +4,64 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>{% block page_title %}OPTICO{% endblock %}</title>
 		<link rel="Shortcut Icon" href="{{ url_for('static', filename='img/site.ico') }}">
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
 		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.9.0.min.js')}}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.css') }}">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
 	</head>
 
 	<body id="{% block page_id %}{% endblock %}">
-	
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
+		<div id="header" class="container">
+			<a id="brand" href="{{ url_for('home') }}">OPTICO</a>
 
-					<ul class="nav">
+			<div id="myCarousel" class="carousel slide">
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="active item"><img src="{{ url_for('static', filename='img/turn.png') }}" /></div>
+					<div class="item"><img src="{{ url_for('static', filename='img/turn.png') }}" /></div>
+					<div class="item"><img src="{{ url_for('static', filename='img/turn.png') }}" /></div>
+				</div>
+
+				<!-- Carousel nav -->
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+				<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+			</div>
+
+			<script type="text/javascript">
+				$('.carousel').carousel();
+			</script>
+
+			<div class="navbar">
+				<div class="navbar-inner">
+					<ul class="nav" id='navbar'>
 						<li><a href="{{ url_for('home') }}">Home</a></li>
 						<li><a href="{{ url_for('about') }}">About</a></li>
+						<li><a href="#">Products</a></li>
+						<li><a href="#">Solutions</a></li>
+						<li><a href="#">News</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Add <span class="caret"></span>
+							</a>
+
+							<ul class="dropdown-menu">
+								<li><a href="{{ url_for('add_product') }}">Product</a></li>
+								<li><a href="#">Main Type</a></li>
+								<li><a href="#">Sub Type</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
 		<div id="main-wap" class="container">
-		{% block body %}{% endblock %}
+			{% block body %}{% endblock %}
 		</div>
 
 		<div id="footer">©2013 OPTICO</script></div>

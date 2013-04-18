@@ -2,11 +2,9 @@
 
 import sys
 
-from flask import Flask, g, session
+from flask import Flask, g
 
-import MySQLdb
-import MySQLdb.cursors
-
+# config
 sys.path.append('/var/www/flaskconfig/optico')
 import config
 
@@ -21,11 +19,6 @@ app.config.update(
 	SESSION_COOKIE_NAME=config.SESSION_COOKIE_NAME,
 	PERMANENT_SESSION_LIFETIME=config.PERMANENT_SESSION_LIFETIME)
 
-# inject vars into template context
-@app.context_processor
-def inject_vars():
-	return dict()
-
 # send log msg using smtp
 if not app.debug:
 	import logging
@@ -35,14 +28,5 @@ if not app.debug:
 	mail_handler.setLevel(logging.ERROR)
 	app.logger.addHandler(mail_handler)
 
-# mysql
-@app.before_request
-def before_request():
-	g.conn = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER, passwd=config.DB_PASSWD, db=config.DB_NAME, use_unicode=True, charset='utf8', cursorclass=MySQLdb.cursors.DictCursor)
-	g.cursor = g.conn.cursor()
-
-@app.teardown_request
-def teardown_request(exception):
-	g.conn.close()
-
+import db
 import controllers

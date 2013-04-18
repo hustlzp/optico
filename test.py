@@ -4,8 +4,8 @@ engine = create_engine('mysql+mysqldb://root:xiaowangzi@localhost/optico', echo=
 
 metadata = MetaData(bind=engine)
 
-products = Table('product', metadata, autoload=True)
+product = Table('product', metadata, autoload=True)
 
 conn = engine.connect()
-result = conn.execute(products.insert(), ProductName='optico')
+result = conn.execute(product.insert(), ProductName='optico')
 print result.inserted_primary_key
