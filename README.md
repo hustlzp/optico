@@ -1,4 +1,4 @@
 optico
 ======
 
-website code for optico company
+Website for optico company.

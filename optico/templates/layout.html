@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>{% block page_title %}西窗烛{% endblock %}</title>
+		<title>{% block page_title %}OPTICO{% endblock %}</title>
 		<link rel="Shortcut Icon" href="{{ url_for('static', filename='img/site.ico') }}">
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
@@ -16,75 +16,12 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="{{ url_for('index') }}">西窗烛</a>
+					<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
 
 					<ul class="nav">
-						<li><a href="{{ url_for('index') }}">首页</a></li>
-						<li><a href="{{ url_for('forum') }}">社区</a></li>
-						<li><a href="{{ url_for('shop') }}">物品</a></li>
-						{% if session.user_id %}
-						<li><a href="{{ url_for('people', user_abbr=session.user_abbr) }}">主页</a></li>
-						{% endif %}
+						<li><a href="{{ url_for('home') }}">Home</a></li>
+						<li><a href="{{ url_for('about') }}">About</a></li>
 					</ul>
-
-					<form class="navbar-search">
-						<input type="text" class="search-query" title="按Enter键进行搜索" placeholder="作品  /  文学家  /  点评">
-					</form>
-
-					<script type="text/javascript">
-						$('.navbar-search').submit(function(){
-							var query = $('.search-query').val();
-							var url = "http://www.google.com.hk/search?q=site:xichuangzhu.com/work " + query;
-							window.open(url, "_blank")
-							return false;
-						});
-					</script>
-					
-					{% if session.user_id %}
-					
-					<ul class="nav pull-right">
-						<li>
-							<a href="{{ url_for('informs') }}">
-								提醒
-								{% if informs_num != 0 %}
-								<span class="label label-important">{{ informs_num }}</span>
-								{% endif %}
-							</a>
-						</li>
-
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								{{ session.user_name }} <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ url_for('logout') }}">退出</a></li>
-							</ul>
-						</li>
-					</ul>
-
-					{% if session.user_id == admin_id %}
-					<ul class="nav pull-right">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								添加 <span class="caret"></span>
-							</a>
-
-							<ul class="dropdown-menu">
-								<li><a href="{{ url_for('add_work') }}">作品</a></li>
-								<li><a href="{{ url_for('add_collection') }}">作品集</a></li>
-								<li><a href="{{ url_for('add_author') }}">文学家</a></li>
-								<li><a href="{{ url_for('add_dynasty') }}">朝代</a></li>
-								<li><a href="{{ url_for('add_product') }}">商品</a></li>
-							</ul>
-						</li>
-					</ul>
-					{% endif %}
-
-					{% else %}
-
-					<a href="{{ douban_login_url }}"><img id="douban-icon" title="用豆瓣帐号登陆" src="http://img3.douban.com/pics/douban-icons/login_with_douban_24.png" /></a>
-
-					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -93,6 +30,6 @@
 		{% block body %}{% endblock %}
 		</div>
 
-		<div id="footer"><a href="{{ url_for('about') }}">关于</a> ©2013 西窗烛<script src="http://s15.cnzz.com/stat.php?id=5192863&web_id=5192863&show=pic" language="JavaScript"></script></div>
+		<div id="footer">©2013 OPTICO</script></div>
 	</body>
 </html>

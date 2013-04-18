@@ -2,15 +2,15 @@
 
 from flask import render_template, request, redirect, url_for, json
 
-from xichuangzhu import app
+from optico import app
 
 # page home
 #--------------------------------------------------
 
 # view (public)
 @app.route('/')
-def index():
-	return render_template('index.html')
+def home():
+	return render_template('home.html')
 
 # page about
 #--------------------------------------------------

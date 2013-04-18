@@ -2,7 +2,7 @@
 
 from flask import render_template, request, redirect, url_for, json
 
-from xichuangzhu import app
+from optico import app
 
 @app.errorhandler(404)
 def page_404(error):
