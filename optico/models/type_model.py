@@ -9,7 +9,6 @@ from sqlalchemy.sql import select
 from optico.db import mtype
 from optico.db import stype
 
-
 class Type:
 
 # GET

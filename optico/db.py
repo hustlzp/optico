@@ -6,7 +6,7 @@ from optico import app
 
 from sqlalchemy import create_engine, MetaData, Table
 
-engine = create_engine('mysql+mysqldb://root:xiaowangzi@localhost/optico')
+engine = create_engine('mysql+mysqldb://root:xiaowangzi@localhost/optico?charset=utf8')
 
 # Open conn before request
 @app.before_request

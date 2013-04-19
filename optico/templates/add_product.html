@@ -7,27 +7,52 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+	var mtypes = {{ mtypes|safe }};
 
+	// init mtypes option and stypes option
+	$.each(mtypes, function(index, mt){
+		$("#mtype_id").append("<option value=" + mt.MainTypeID + ">" + mt.Name + "</option>");
+
+		if(index == 0){
+			$.each(mt.stypes, function(index, st){
+				$("#stype_id").append("<option value=" + st.SubTypeID + ">" + st.Name + "</option>");
+			});
+		}
+	});
+
+	// stypes changes with mtypes 
+	$("#mtype_id").change(function(){
+		var mtype_id = $(this)[0].options[$(this)[0].selectedIndex].value;
+
+		$.each(mtypes, function(index, mt){
+
+			if(mt.MainTypeID == mtype_id){
+				$("#stype_id").empty();
+				$.each(mt.stypes, function(index, st){
+					$("#stype_id").append("<option value=" + st.SubTypeID + ">" + st.Name + "</option>");
+				});
+			}
+		});		
+	});
 });
 </script>
 
-<form id="form-add-work" class="form-horizontal" method="post" action="{{ url_for('add_product') }}">
+<form id="form-add-product" class="form-horizontal" method="post" action="{{ url_for('add_product') }}">
 	<fieldset>
 		<legend>添加产品</legend>
 
 		<div class="control-group">
-			<label class="control-label">子类别</label>
+			<label class="control-label">类别</label>
 			<div class="controls">
-				<select name='type_id'>
-					<option value="10000">10000</option>
-				</select>
+				<select name='mtype_id' id="mtype_id"></select>
+				<select name='stype_id' id="stype_id"></select>
 			</div>
 		</div>
 
 		<div class="control-group">
 			<label class="control-label">产品名称</label>
 			<div class="controls">
-				<input type="text" class="input-xlarge" name="name" />
+				<input type="text" class="input-xxlarge" name="name" />
 			</div>
 		</div>
 
