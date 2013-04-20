@@ -1,0 +1,15 @@
+{% macro show_products(products) %}
+
+{% for p in products %}
+<div class="p-item clearfix">
+	<a href="{{ url_for('product', product_id=p.ProductID) }}"><img class="p-img" src="{{ p.ImageUrl }}" /></a>
+
+	<div class="p-info-wap">
+		<div class="p-name"><a href="{{ url_for('product', product_id=p.ProductID) }}">{{ p.Name }}</a></div>
+		<div class="p-desc">{{ p.Description|truncate(150, True) }}</div>
+		<a class="p-link-more btn btn-small" href="{{ url_for('product', product_id=p.ProductID) }}">Details</a>
+	</div>
+</div>
+{% endfor %}
+
+{% endmacro %}

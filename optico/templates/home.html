@@ -18,13 +18,13 @@ $(document).ready(function(){
 <div class="row">
 	{% for mt in mtypes %}
 	<div class="mtype-item span3">
-		<a href="#"><img class="mt-image" src="{{ mt.ImageUrl }}" /></a>
+		<a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}"><img class="mt-image" src="{{ mt.ImageUrl }}" /></a>
 		
 		<div class="mt-name">{{ mt.Name }}</div>
 
 		<ul class="stypes-list">
 			{% for st in mt.stypes %}
-			<li><a href="#">{{ st.Name }}</a></li>
+			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>

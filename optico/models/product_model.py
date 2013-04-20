@@ -13,8 +13,23 @@ class Product:
 	# get product by id
 	@staticmethod
 	def get_by_id(product_id):
-		s = select([product]).where(product.c.ProductID == product_id)
-		return g.conn.execute(s).fetchone()
+		return g.conn.execute(
+			select([product])
+			.where(product.c.ProductID == product_id)).fetchone()
+
+	# get products by main type
+	@staticmethod
+	def get_by_mtype(mtype_id):
+		return g.conn.execute(
+			select([product])
+			.where(product.c.MainTypeID == mtype_id)).fetchall()
+
+	# get products by sub type
+	@staticmethod
+	def get_by_stype(stype_id):
+		return g.conn.execute(
+			select([product])
+			.where(product.c.SubTypeID == stype_id)).fetchall()
 
 # NEW
 

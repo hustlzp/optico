@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ mt.Name }}{% endblock %}
+{% block page_id%}page-mtype{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span3">
+		<b>Products</b>
+	</div>
+
+	<div class="span9">
+		<div class="btn-group pull-right">
+			<a href="{{ url_for('edit_mtype', mtype_id=mt.MainTypeID) }}" class="btn btn-small">编辑</a>
+			<a href="#" class="btn btn-small">删除</a>
+		</div>
+
+		<h1>{{ mt.Name }}</h1>
+
+		{% from 'products.widget' import show_products %}
+		{{ show_products(products)|safe }}
+	</div>	
+</div>
+
+{% endblock %}
