@@ -18,7 +18,14 @@ from optico.utils import check_admin
 def mtype(mtype_id):
 	mt = Type.get_mtype_by_id(mtype_id)
 	products = Product.get_by_mtype(mtype_id)
-	return render_template('mtype.html', mt=mt, products=products)
+
+	# build products sidebar
+	ps = Type.get_mtypes()
+	for mt in ps:
+		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
+		for st in mt['stypes']:
+			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	return render_template('mtype.html', mt=mt, products=products, ps=ps)
 
 # page add main type
 #--------------------------------------------------
@@ -68,7 +75,14 @@ def stype(stype_id):
 	st = Type.get_stype_by_id(stype_id)
 	mt = Type.get_mtype_by_id(st['MainTypeID'])
 	products = Product.get_by_stype(stype_id)
-	return render_template('stype.html', st=st, mt=mt, products=products)
+
+	# build products sidebar
+	ps = Type.get_mtypes()
+	for mt in ps:
+		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
+		for st in mt['stypes']:
+			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	return render_template('stype.html', st=st, mt=mt, products=products, ps=ps)
 
 # page add sub type
 #--------------------------------------------------

@@ -2,3 +2,9 @@
 .p-item{margin-bottom:30px;padding-bottom:30px;border-bottom:1px dashed #ccc;}.p-item .p-img{border:1px solid #999;width:200px;float:left;}
 .p-item .p-info-wap{margin-left:220px;}.p-item .p-info-wap .p-name{font-weight:bold;font-size:18px;line-height:18px;margin-bottom:10px;}
 .p-item .p-info-wap .p-desc{font-size:12px;line-height:20px;margin-bottom:10px;}
+.ps-mtypes-list{margin-left:0px;}.ps-mtypes-list ul{margin-left:0px;}
+.ps-mtypes-list li{list-style:none;font-size:13px;margin:10px 0;}.ps-mtypes-list li a{display:inline-block;color:#333;}
+.ps-mtypes-list .li-header{display:inline-block;background-repeat:no-repeat;padding-right:8px;cursor:pointer;}
+.ps-mtypes-list .li-header-right{background-image:url('../img/arrow-right.gif');width:7px;height:10px;}
+.ps-mtypes-list .li-header-down{background-image:url('../img/arrow-down.gif');width:7px;height:7px;}
+.ps-mtypes-list .ps-stypes-wap{margin-left:15px;display:none;}.ps-mtypes-list .ps-stypes-wap .ps-stypes-list .ps-products-wap{margin-left:30px;display:none;}.ps-mtypes-list .ps-stypes-wap .ps-stypes-list .ps-products-wap .ps-products-list li{list-style-image:url('../img/arrow-gray.gif');}

@@ -21,7 +21,14 @@ def product(product_id):
 	p['Details'] = markdown2.markdown(p['Details'])
 	st = Type.get_stype_by_id(p['SubTypeID'])
 	mt = Type.get_mtype_by_id(p['MainTypeID'])
-	return render_template('product.html', p=p, mt=mt, st=st)
+	
+	# build products sidebar
+	ps = convert_dict(Type.get_mtypes())
+	for mt in ps:
+		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
+		for st in mt['stypes']:
+			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	return render_template('product.html', p=p, mt=mt, st=st, ps=ps)
 
 # page products
 #--------------------------------------------------
@@ -41,9 +48,9 @@ def add_product():
 	check_admin()
 	if request.method == 'GET':
 		# all types
-		mtypes = convert_dict(Type.get_mtypes())
+		mtypes = Type.get_mtypes()
 		for mt in mtypes:
-			mt['stypes'] = convert_dict(Type.get_stypes(mt['MainTypeID']))
+			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('add_product.html', mtypes=json.dumps(mtypes))
 	elif request.method == 'POST':
 		mtype_id = request.form['mtype_id']

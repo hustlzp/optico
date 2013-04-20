@@ -1,0 +1,32 @@
+{% macro show_ps(ps) %}
+
+<ul class="ps-mtypes-list">
+	<!-- mtypes -->
+	{% for mt in ps %}
+	<li class="ps-mtype" data-mtype-id="{{ mt.MainTypeID }}">
+		<span class="li-header li-header-mtype li-header-right"></span><a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a>
+	</li>
+	<li class="ps-stypes-wap">
+		<!-- stypes -->
+		<ul class="ps-stypes-list">
+		{% for st in mt.stypes %}
+			<li class="ps-stype" data-stype-id="{{ st.SubTypeID }}">
+				<span class="li-header li-header-stype li-header-right"></span><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name|truncate(18, True) }}</a>
+			</li>
+			<li class="ps-products-wap">
+				<!-- products -->
+				<ul class="ps-products-list">
+					{% for p in st.products %}
+					<li class="ps-product" data-p-id="{{ p.ProductID }}">
+						<a href="{{ url_for('product', product_id=p.ProductID) }}">{{ p.Name|truncate(18, True) }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endmacro %}
