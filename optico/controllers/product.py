@@ -37,7 +37,14 @@ def product(product_id):
 @app.route('/products')
 def products():
 	products = Product.get_all()
-	return render_template('products.html', products=products)
+
+	# build products sidebar
+	ps = convert_dict(Type.get_mtypes())
+	for mt in ps:
+		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
+		for st in mt['stypes']:
+			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	return render_template('products.html', products=products, ps=ps)
 
 # page add product
 #--------------------------------------------------

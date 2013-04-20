@@ -21,10 +21,10 @@ def mtype(mtype_id):
 
 	# build products sidebar
 	ps = Type.get_mtypes()
-	for mt in ps:
-		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-		for st in mt['stypes']:
-			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	for m in ps:
+		m['stypes'] = Type.get_stypes(m['MainTypeID'])
+		for s in m['stypes']:
+			s['products'] = Product.get_by_stype(s['SubTypeID'])
 	return render_template('mtype.html', mt=mt, products=products, ps=ps)
 
 # page add main type
@@ -78,10 +78,10 @@ def stype(stype_id):
 
 	# build products sidebar
 	ps = Type.get_mtypes()
-	for mt in ps:
-		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-		for st in mt['stypes']:
-			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	for m in ps:
+		m['stypes'] = Type.get_stypes(m['MainTypeID'])
+		for s in m['stypes']:
+			s['products'] = Product.get_by_stype(s['SubTypeID'])
 	return render_template('stype.html', st=st, mt=mt, products=products, ps=ps)
 
 # page add sub type

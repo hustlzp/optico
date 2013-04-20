@@ -5,9 +5,13 @@
 
 {% block body %}
 
+<script type="text/javascript" src="{{ url_for('static', filename='js/optico-ps.js') }}"></script>
+
 <div class="row">
 	<div class="span3">
 		<b>Products</b>
+		{% from 'products_sidebar.widget' import show_ps %}
+		{{ show_ps(ps)|safe }}
 	</div>
 
 	<div class="span9">
