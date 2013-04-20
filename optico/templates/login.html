@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}登陆{% endblock %}
+{% block page_id%}page-login{% endblock %}
+
+{% block body %}
+
+<form id="form-login" class="form-horizontal" method="post" action="{{ url_for('login') }}">
+	<fieldset>
+		<legend>管理员登陆</legend>
+
+		<div class="control-group">
+			<label class="control-label">用户名</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="user" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">密码</label>
+			<div class="controls">
+				<input type="password" class="input-xxlarge" name="pwd" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}

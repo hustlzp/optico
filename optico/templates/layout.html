@@ -43,6 +43,7 @@
 						<li><a href="{{ url_for('contact') }}">Contact</a></li>
 					</ul>
 
+					{% if session.user_id == admin_id %}
 					<ul class="nav pull-right">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -56,6 +57,7 @@
 							</ul>
 						</li>
 					</ul>
+					{% endif %}
 				</div>
 			</div>
 		</div>

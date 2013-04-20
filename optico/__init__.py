@@ -19,6 +19,11 @@ app.config.update(
 	SESSION_COOKIE_NAME=config.SESSION_COOKIE_NAME,
 	PERMANENT_SESSION_LIFETIME=config.PERMANENT_SESSION_LIFETIME)
 
+# inject vars into template context
+@app.context_processor
+def inject_vars():
+	return dict(admin_id = config.ADMIN_ID)
+
 # send log msg using smtp
 if not app.debug:
 	import logging

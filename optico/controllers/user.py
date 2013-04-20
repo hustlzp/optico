@@ -13,13 +13,20 @@ from optico.utils import check_admin
 # proc - login
 #--------------------------------------------------
 
-@app.route('/login')
-def auth():
-	if User.check_exist_by_id(user_id):
-		# set session
-		session.permanent = True
-		session['user_id'] = user_id
-	return redirect(url_for('index'))
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+	if request.method == 'GET':
+		return render_template('login.html')
+	elif request.method == 'POST':
+		user = request.form['user']
+		pwd = request.form['pwd']
+		if user == config.ADMIN and pwd == config.PWD:
+			# set session
+			session.permanent = True
+			session['user_id'] = config.ADMIN_ID
+			return redirect(url_for('home'))
+		else:
+			return redirect(url_for('login'))
 
 # proc - logout
 #--------------------------------------------------
