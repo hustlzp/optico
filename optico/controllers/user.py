@@ -6,8 +6,6 @@ from optico import app
 
 import config
 
-from optico.models.user_model import User
-
 from optico.utils import check_admin
 
 # proc - login
