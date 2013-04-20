@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Products{% endblock %}
+{% block page_id%}page-products{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span3">
+		<b>Products</b>
+	</div>
+
+	<div class="span9">
+
+		<h1>Products</h1>
+
+		{% from 'products.widget' import show_products %}
+		{{ show_products(products)|safe }}
+	</div>	
+</div>
+
+{% endblock %}

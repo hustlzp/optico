@@ -29,9 +29,9 @@ class Type:
 	# get all sub types
 	@staticmethod
 	def get_stypes(mtype_id):
-		return g.conn.execute(
+		return convert_dict(g.conn.execute(
 			select([stype])
-			.where(stype.c.MainTypeID == mtype_id)).fetchall()
+			.where(stype.c.MainTypeID == mtype_id)).fetchall())
 
 	# get sub type by id
 	@staticmethod
@@ -49,6 +49,14 @@ class Type:
 			mtype.insert()
 			.values(Name=name, ImageUrl=img_url))
 
+
+	# add sub type
+	@staticmethod
+	def add_stype(mtype_id, name):
+		return g.conn.execute(
+			stype.insert()
+			.values(MainTypeID=mtype_id, Name=name)).inserted_primary_key[0]
+
 # UPDETE
 
 	# edit main type
@@ -58,3 +66,27 @@ class Type:
 			mtype.update()
 			.where(mtype.c.MainTypeID == mtype_id)
 			.values(Name=name, ImageUrl=img_url))
+
+	# edit sub type
+	@staticmethod
+	def edit_stype(stype_id, mtype_id, name):
+		return g.conn.execute(
+			stype.update()
+			.where(stype.c.SubTypeID == stype_id)
+			.values(MainTypeID=mtype_id, Name=name))
+
+# DELETE
+
+	# delete main type
+	@staticmethod
+	def delete_mtype(mtype_id):
+		return g.conn.execute(
+			mtype.delete()
+			.where(mtype.c.MainTypeID == mtype_id))
+
+	# delete sub type
+	@staticmethod
+	def delete_stype(stype_id):
+		return g.conn.execute(
+			stype.delete()
+			.where(stype.c.SubTypeID == stype_id))

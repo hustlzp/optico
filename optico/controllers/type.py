@@ -51,6 +51,14 @@ def edit_mtype(mtype_id):
 		Type.edit_mtype(mtype_id, name, img_url)
 		return redirect(url_for('mtype', mtype_id=mtype_id))
 
+# proc delete main type
+#--------------------------------------------------
+@app.route('/maintype/delete/<int:mtype_id>')
+def delete_mtype(mtype_id):
+	check_admin()
+	Type.delete_mtype(mtype_id)
+	return redirect(url_for('home'))
+
 # page sub type
 #--------------------------------------------------
 
@@ -58,8 +66,9 @@ def edit_mtype(mtype_id):
 @app.route('/subtype/<int:stype_id>')
 def stype(stype_id):
 	st = Type.get_stype_by_id(stype_id)
+	mt = Type.get_mtype_by_id(st['MainTypeID'])
 	products = Product.get_by_stype(stype_id)
-	return render_template('stype.html', st=st, products=products)
+	return render_template('stype.html', st=st, mt=mt, products=products)
 
 # page add sub type
 #--------------------------------------------------
@@ -69,12 +78,12 @@ def stype(stype_id):
 def add_stype():
 	check_admin()
 	if request.method == 'GET':
-		return render_template('add_stype.html')
+		mtypes = Type.get_mtypes()
+		return render_template('add_stype.html', mtypes=mtypes)
 	elif request.method == 'POST':
 		mtype_id = request.form['mtype_id']
 		name = request.form['name']
-		img_url = request.form['img_url']
-		new_id = Type.add_mtype(mtype_id, name, img_url)
+		new_id = Type.add_stype(mtype_id, name)
 		return redirect(url_for('stype', stype_id=new_id))
 
 # page edit sub type
@@ -85,11 +94,19 @@ def add_stype():
 def edit_stype(stype_id):
 	check_admin()
 	if request.method == 'GET':
+		mtypes = Type.get_mtypes()
 		st = Type.get_stype_by_id(stype_id)
-		return render_template('edit_stype.html', st=st)
+		return render_template('edit_stype.html', st=st, mtypes=mtypes)
 	elif request.method == 'POST':
 		mtype_id = request.form['mtype_id']
 		name = request.form['name']
-		img_url = request.form['img_url']
-		Type.edit_mtype(stype_id, mtype_id, name, img_url)
-		return redirect(url_for('mtype', mtype_id=mtype_id))
+		Type.edit_stype(stype_id, mtype_id, name)
+		return redirect(url_for('stype', stype_id=stype_id))
+
+# proc delete main type
+#--------------------------------------------------
+@app.route('/subtype/delete/<int:stype_id>')
+def delete_stype(stype_id):
+	check_admin()
+	Type.delete_stype(stype_id)
+	return redirect(url_for('home'))

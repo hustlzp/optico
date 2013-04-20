@@ -37,10 +37,10 @@
 					<ul class="nav" id='navbar'>
 						<li><a href="{{ url_for('home') }}">Home</a></li>
 						<li><a href="{{ url_for('about') }}">About</a></li>
-						<li><a href="#">Products</a></li>
-						<li><a href="#">Solutions</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="{{ url_for('products') }}">Products</a></li>
+						<!-- <li><a href="#">Solutions</a></li> -->
+						<!-- <li><a href="#">News</a></li> -->
+						<li><a href="{{ url_for('contact') }}">Contact</a></li>
 					</ul>
 
 					<ul class="nav pull-right">
@@ -51,8 +51,8 @@
 
 							<ul class="dropdown-menu">
 								<li><a href="{{ url_for('add_product') }}">产品</a></li>
-								<li><a href="#">主类别</a></li>
-								<li><a href="#">子类别</a></li>
+								<li><a href="{{ url_for('add_mtype') }}">主类别</a></li>
+								<li><a href="{{ url_for('add_stype') }}">子类别</a></li>
 							</ul>
 						</li>
 					</ul>

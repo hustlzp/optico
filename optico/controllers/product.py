@@ -1,7 +1,8 @@
 #-*- coding: UTF-8 -*-
 
-from flask import render_template, request, redirect, url_for, json, session, jsonify
+import markdown2
 
+from flask import render_template, request, redirect, url_for, json, session, jsonify
 
 from optico import app
 
@@ -16,8 +17,20 @@ from optico.utils import check_admin
 # view (public)
 @app.route('/product/<int:product_id>')
 def product(product_id):
-	p = Product.get_by_id(product_id)
-	return render_template('product.html', p=p)
+	p = dict(Product.get_by_id(product_id))
+	p['Details'] = markdown2.markdown(p['Details'])
+	st = Type.get_stype_by_id(p['SubTypeID'])
+	mt = Type.get_mtype_by_id(p['MainTypeID'])
+	return render_template('product.html', p=p, mt=mt, st=st)
+
+# page products
+#--------------------------------------------------
+
+# view (public)
+@app.route('/products')
+def products():
+	products = Product.get_all()
+	return render_template('products.html', products=products)
 
 # page add product
 #--------------------------------------------------
@@ -25,6 +38,7 @@ def product(product_id):
 # view (admin)
 @app.route('/product/add', methods=['GET', 'POST'])
 def add_product():
+	check_admin()
 	if request.method == 'GET':
 		# all types
 		mtypes = Type.get_mtypes()
@@ -49,6 +63,7 @@ def add_product():
 # view (admin)
 @app.route('/product/edit/<int:product_id>', methods=['GET', 'POST'])
 def edit_product(product_id):
+	check_admin()
 	if request.method == 'GET':
 		p = Product.get_by_id(product_id)
 		# all types

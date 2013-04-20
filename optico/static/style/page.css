@@ -5,9 +5,10 @@ body #main-wap{font-size:14px;line-height:24px;}body #main-wap h1{font-size:35px
 body #footer{text-align:center;font-size:12px;margin:60px 0 10px 0;}body #footer a{color:#37a;}
 body #footer img{margin-left:7px;margin-top:-1px;}
 body #footer+div{display:none;}
+.breadcrumb{padding-top:5px;padding-bottom:5px;margin-bottom:25px;}
 #page-home .mtype-item .mt-image{margin-bottom:10px;}
-#page-home .mtype-item .mt-name{font-weight:bold;}
+#page-home .mtype-item .mt-name{font-weight:bold;}#page-home .mtype-item .mt-name a{color:#333;}
 #page-home .mtype-item .stypes-list{list-style-type:none;margin:0;}#page-home .mtype-item .stypes-list li a{color:#333;font-size:12px;}
-#page-product .p-img{margin-bottom:25px;}
-#page-edit-product .p-img{margin-top:20px;border:1px solid gray;}
+#page-product .p-img{margin-bottom:25px;border:1px solid #999;}
+#page-edit-product .p-img{margin-top:20px;border:1px solid #999;}
 #page-mtype .mtype-name{font-size:35px;line-height:35px;margin-bottom:35px;}

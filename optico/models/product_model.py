@@ -6,6 +6,8 @@ from sqlalchemy.sql import select
 
 from optico.db import product
 
+from optico.utils import convert_dict
+
 class Product:
 
 # GET
@@ -31,6 +33,12 @@ class Product:
 			select([product])
 			.where(product.c.SubTypeID == stype_id)).fetchall()
 
+	# get all products
+	@staticmethod
+	def get_all():
+		return g.conn.execute(
+			select([product])).fetchall()
+
 # NEW
 
 	# add product
@@ -39,7 +47,7 @@ class Product:
 		result = g.conn.execute(
 			product.insert()
 			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
-		return result.inserted_primary_key
+		return result.inserted_primary_key[0]
 
 # UPDATE
 

@@ -15,10 +15,22 @@
 			<a href="{{ url_for('edit_product', product_id=p.ProductID) }}" class="btn btn-small">编辑</a>
 			<a href="#" class="btn btn-small">删除</a>
 		</div>
+
+		<ul class="breadcrumb">
+			<li>
+				<a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a> >
+			</li>
+			<li>
+				<a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name }}</a> >
+			</li>
+			<li>
+				{{ p.Name }}
+			</li>
+		</ul>
 		
 		<h1>{{ p.Name }}</h1>
 		<img class="p-img" src="{{ p.ImageUrl }}" />
-		<div class="p-details">{{ p.Details }}</div>
+		<div class="p-details">{{ p.Details|safe }}</div>
 	</div>	
 </div>
 

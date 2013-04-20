@@ -5,7 +5,7 @@ import sys
 from flask import Flask, g
 
 # config
-sys.path.append('/var/www/flaskconfig/optico')
+sys.path.append('/var/www/flaskconfig/optico/')
 import config
 
 # convert python's encoding to utf8

@@ -5,6 +5,14 @@
 
 {% block body %}
 
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#btn-delete-stype').click(function(){
+		return confirm("确认删除子分类：{{ st.Name }} ?")? true: false;
+	})
+});
+</script>
+
 <div class="row">
 	<div class="span3">
 		<b>Products</b>
@@ -13,8 +21,17 @@
 	<div class="span9">
 		<div class="btn-group pull-right">
 			<a href="{{ url_for('edit_stype', stype_id=st.SubTypeID) }}" class="btn btn-small">编辑</a>
-			<a href="#" class="btn btn-small">删除</a>
+			<a href="{{ url_for('delete_stype', stype_id=st.SubTypeID) }}" id="btn-delete-stype" class="btn btn-small">删除</a>
 		</div>
+
+		<ul class="breadcrumb">
+			<li>
+				<a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a> >
+			</li>
+			<li>
+				<a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name }}</a> >
+			</li>			
+		</ul>
 
 		<h1>{{ st.Name }}</h1>
 

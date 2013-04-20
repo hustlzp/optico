@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}编辑主类别{% endblock %}
+{% block page_id%}page-edit-mtype{% endblock %}
+
+{% block body %}
+
+<form id="form-edit-mtype" class="form-horizontal" method="post" action="{{ url_for('edit_mtype', mtype_id=mt.MainTypeID) }}">
+	<fieldset>
+		<legend>编辑主类别</legend>
+
+		<div class="control-group">
+			<label class="control-label">主类别名称</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="name" value="{{ mt.Name }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">图片</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="img_url" value="{{ mt.ImageUrl }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}

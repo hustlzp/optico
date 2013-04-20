@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}编辑子类别{% endblock %}
+{% block page_id%}page-edit-stype{% endblock %}
+
+{% block body %}
+
+<form id="form-edit-stype" class="form-horizontal" method="post" action="{{ url_for('edit_stype', stype_id=st.SubTypeID) }}">
+	<fieldset>
+		<legend>编辑子类别</legend>
+
+		<div class="control-group">
+			<label class="control-label">所属主类别</label>
+			<div class="controls">
+				<select name="mtype_id">
+					{% for mt in mtypes %}
+					<option value="{{ mt.MainTypeID }}"
+						{% if st.MainTypeID == mt.MainTypeID %}
+						selected="selected"
+						{% endif %}
+					>{{ mt.Name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">子类别名称</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="name" value="{{ st.Name }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}
