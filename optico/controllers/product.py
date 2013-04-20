@@ -24,10 +24,10 @@ def product(product_id):
 	
 	# build products sidebar
 	ps = convert_dict(Type.get_mtypes())
-	for mt in ps:
-		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-		for st in mt['stypes']:
-			st['products'] = Product.get_by_stype(st['SubTypeID'])
+	for m in ps:
+		m['stypes'] = Type.get_stypes(m['MainTypeID'])
+		for s in m['stypes']:
+			s['products'] = Product.get_by_stype(s['SubTypeID'])
 	return render_template('product.html', p=p, mt=mt, st=st, ps=ps)
 
 # page products

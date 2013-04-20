@@ -2,11 +2,13 @@
 
 from flask import g
 
+import config
+
 from optico import app
 
 from sqlalchemy import create_engine, MetaData, Table
 
-engine = create_engine('mysql+mysqldb://root:xiaowangzi@localhost/optico?charset=utf8')
+engine = create_engine('mysql+mysqldb://%s:%s@%s/%s?charset=utf8' % (config.DB_USER, config.DB_PWD, config.DB_HOST, config.DB_NAME))
 
 # Open conn before request
 @app.before_request
