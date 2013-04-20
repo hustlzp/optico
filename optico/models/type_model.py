@@ -2,8 +2,6 @@
 
 from flask import g
 
-from optico.utils import convert_dict
-
 from sqlalchemy.sql import select
 
 from optico.db import mtype
@@ -16,8 +14,8 @@ class Type:
 	# get all main types
 	@staticmethod
 	def get_mtypes():
-		return convert_dict(g.conn.execute(
-			select([mtype])).fetchall())
+		return g.conn.execute(
+			select([mtype])).fetchall()
 
 	# get main type by id
 	@staticmethod
@@ -29,9 +27,9 @@ class Type:
 	# get all sub types
 	@staticmethod
 	def get_stypes(mtype_id):
-		return convert_dict(g.conn.execute(
+		return g.conn.execute(
 			select([stype])
-			.where(stype.c.MainTypeID == mtype_id)).fetchall())
+			.where(stype.c.MainTypeID == mtype_id)).fetchall()
 
 	# get sub type by id
 	@staticmethod

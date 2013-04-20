@@ -6,15 +6,17 @@ from optico import app
 
 from optico.models.type_model import Type
 
+from optico.utils import convert_dict
+
 # page home
 #--------------------------------------------------
 
 # view (public)
 @app.route('/')
 def home():
-	mtypes = Type.get_mtypes()
+	mtypes = convert_dict(Type.get_mtypes())
 	for mt in mtypes:
-		mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
+		mt['stypes'] = convert_dict(Type.get_stypes(mt['MainTypeID']))
 	return render_template('home.html', mtypes=mtypes)
 
 # page about

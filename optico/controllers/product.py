@@ -9,7 +9,7 @@ from optico import app
 from optico.models.product_model import Product
 from optico.models.type_model import Type
 
-from optico.utils import check_admin
+from optico.utils import check_admin, convert_dict
 
 # page product
 #--------------------------------------------------
@@ -41,9 +41,9 @@ def add_product():
 	check_admin()
 	if request.method == 'GET':
 		# all types
-		mtypes = Type.get_mtypes()
+		mtypes = convert_dict(Type.get_mtypes())
 		for mt in mtypes:
-			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
+			mt['stypes'] = convert_dict(Type.get_stypes(mt['MainTypeID']))
 		return render_template('add_product.html', mtypes=json.dumps(mtypes))
 	elif request.method == 'POST':
 		mtype_id = request.form['mtype_id']
@@ -82,3 +82,13 @@ def edit_product(product_id):
 		
 		Product.edit(product_id, mtype_id, stype_id, name, image_url, desc, details, src_url)
 	return redirect(url_for('product', product_id=product_id))
+
+# page add product
+#--------------------------------------------------
+
+# view (admin)
+@app.route('/product/delete/<int:product_id>')
+def delete_product(product_id):
+	check_admin()
+	Product.delete(product_id)
+	return redirect(url_for('home'))

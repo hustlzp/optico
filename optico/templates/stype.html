@@ -19,10 +19,12 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span9">
+		{% if session.user_id == admin_id %}
 		<div class="btn-group pull-right">
-			<a href="{{ url_for('edit_stype', stype_id=st.SubTypeID) }}" class="btn btn-small">编辑</a>
-			<a href="{{ url_for('delete_stype', stype_id=st.SubTypeID) }}" id="btn-delete-stype" class="btn btn-small">删除</a>
+			<a href="{{ url_for('delete_stype', stype_id=st.SubTypeID) }}" id="btn-delete-stype" class="btn btn-small"><span class="icon-remove"></span> 删除</a>
+			<a href="{{ url_for('edit_stype', stype_id=st.SubTypeID) }}" class="btn btn-small"><span class="icon-edit"></span> 编辑</a>
 		</div>
+		{% endif %}
 
 		<ul class="breadcrumb">
 			<li>

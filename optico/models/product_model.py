@@ -6,8 +6,6 @@ from sqlalchemy.sql import select
 
 from optico.db import product
 
-from optico.utils import convert_dict
-
 class Product:
 
 # GET
@@ -58,3 +56,12 @@ class Product:
 			product.update()
 			.where(product.c.ProductID == product_id)
 			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
+
+# DELETE
+
+	# delete product
+	@staticmethod
+	def delete(product_id):
+		return g.conn.execute(
+			product.delete()
+			.where(product.c.ProductID == product_id))
