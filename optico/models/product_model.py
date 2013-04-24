@@ -1,10 +1,10 @@
 #-*- coding: UTF-8 -*-
 
 from flask import g
-
 from sqlalchemy.sql import select
-
 from optico.db import product
+from optico.db import para
+from optico.utils import convert_dict
 
 class Product:
 
@@ -37,6 +37,20 @@ class Product:
 		return g.conn.execute(
 			select([product])).fetchall()
 
+	# get all paramters of a product
+	@staticmethod
+	def get_paras_by_product(product_id):
+		return convert_dict(g.conn.execute(
+			select([para])
+			.where(para.c.ProductID == product_id)).fetchall())
+
+	# get paramter by id
+	@staticmethod
+	def get_para_by_id(para_id):
+		return g.conn.execute(
+			select([para])
+			.where(para.c.ParamterID == para_id)).fetchone()
+
 # NEW
 
 	# add product
@@ -46,6 +60,13 @@ class Product:
 			product.insert()
 			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
 		return result.inserted_primary_key[0]
+
+	# add paramter to a product
+	@staticmethod
+	def add_para(product_id, title, content):
+		return g.conn.execute(
+			para.insert()
+			.values(ProductID=product_id, Title=title, Content=content))
 
 # UPDATE
 
@@ -57,6 +78,14 @@ class Product:
 			.where(product.c.ProductID == product_id)
 			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
 
+	# edit para
+	@staticmethod
+	def edit_para(para_id, title, content):
+		return g.conn.execute(
+			para.update()
+			.where(para.c.ParamterID == para_id)
+			.values(Title=title, Content=content))
+
 # DELETE
 
 	# delete product
@@ -65,3 +94,10 @@ class Product:
 		return g.conn.execute(
 			product.delete()
 			.where(product.c.ProductID == product_id))
+
+	# delete paramter
+	@staticmethod
+	def delete_para(para_id):
+		return g.conn.execute(
+			para.delete()
+			.where(para.c.ParamterID == para_id))

@@ -31,6 +31,4 @@ def login():
 @app.route('/logout')
 def logout():	
 	session.pop('user_id', None)
-	session.pop('user_name', None)
-	session.pop('user_abbr', None)
-	return redirect(url_for('index'))
+	return redirect(url_for('home'))

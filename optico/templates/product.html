@@ -46,6 +46,59 @@ $(document).ready(function(){
 		<h1>{{ p.Name }}</h1>
 		<img class="p-img" src="{{ p.ImageUrl }}" />
 		<div class="p-details">{{ p.Details|safe }}</div>
+
+		<div class="tabbable">
+			<ul class="nav nav-tabs">
+				{% for p in paras %}
+				<li 
+				{% if loop.first %}class="active"{% endif %}
+				><a href="#{{ p.Title }}" data-toggle="tab">{{ p.Title }}</a></li>
+				{% endfor %}
+			</ul>
+
+			<div class="tab-content">
+				{% for p in paras %}
+				<div class="tab-pane
+				{% if loop.first %}active{% endif %} 
+				" id="{{ p.Title }}">
+					<div class="btn-group pull-right">
+						<a class="btn btn-small" href="{{ url_for('edit_para', para_id=p.ParamterID) }}"><span class="icon-edit"></span> 编辑</a>
+						<a class="btn btn-small" href="{{ url_for('delete_para', para_id=p.ParamterID) }}"><span class="icon-edit"></span> 删除</a>
+					</div>
+					<div class="para-content">{{ p.Content|safe }}</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		{% if session.user_id == admin_id %}
+		<form id="form-add-para" class="form-horizontal" method="post" action="{{ url_for('add_para', product_id=p.ProductID) }}">
+			<fieldset>
+				<legend>添加参数</legend>
+
+				<div class="control-group">
+					<label class="control-label">参数项</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" name="title" />
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">内容</label>
+					<div class="controls">
+						<textarea class="input-xxlarge" rows="10" name="content"></textarea>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+						<input type="submit" value="提交" class="btn btn-primary" />
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+		{% endif %}
 	</div>	
 </div>
 

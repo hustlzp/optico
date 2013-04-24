@@ -1,14 +1,11 @@
 #-*- coding: UTF-8 -*-
 
 import markdown2
-
+import textile
 from flask import render_template, request, redirect, url_for, json, session, jsonify
-
 from optico import app
-
 from optico.models.product_model import Product
 from optico.models.type_model import Type
-
 from optico.utils import check_admin, convert_dict
 
 # page product
@@ -28,7 +25,13 @@ def product(product_id):
 		m['stypes'] = Type.get_stypes(m['MainTypeID'])
 		for s in m['stypes']:
 			s['products'] = Product.get_by_stype(s['SubTypeID'])
-	return render_template('product.html', p=p, mt=mt, st=st, ps=ps)
+
+	# product paramters
+	paras = Product.get_paras_by_product(product_id)
+	for pa in paras:
+		pa['Content'] = textile.textile(pa['Content'])
+
+	return render_template('product.html', p=p, mt=mt, st=st, ps=ps, paras=paras)
 
 # page products
 #--------------------------------------------------
@@ -71,7 +74,7 @@ def add_product():
 		new_id = Product.add(mtype_id, stype_id, name, image_url, desc, details, src_url)
 	return redirect(url_for('product', product_id=new_id))
 
-# page add product
+# page edit product
 #--------------------------------------------------
 
 # view (admin)
@@ -97,7 +100,7 @@ def edit_product(product_id):
 		Product.edit(product_id, mtype_id, stype_id, name, image_url, desc, details, src_url)
 	return redirect(url_for('product', product_id=product_id))
 
-# page add product
+# page delete product
 #--------------------------------------------------
 
 # view (admin)
@@ -106,3 +109,42 @@ def delete_product(product_id):
 	check_admin()
 	Product.delete(product_id)
 	return redirect(url_for('home'))
+
+# page manage product parameters
+#--------------------------------------------------
+
+# view (admin)
+@app.route('/add_paras/<int:product_id>', methods=['POST'])
+def add_para(product_id):
+	check_admin()
+	title = request.form['title']
+	content = request.form['content']
+	Product.add_para(product_id, title, content)
+	return redirect(url_for('product', product_id=product_id))
+
+# page edit product parameter
+#--------------------------------------------------
+
+# view (public)
+@app.route('/edit_para/<int:para_id>', methods=['GET', 'POST'])
+def edit_para(para_id):
+	check_admin()
+	para = Product.get_para_by_id(para_id)
+	if request.method == 'GET':
+		return render_template('edit_para.html', para=para)
+	else:
+		title = request.form['title']
+		content = request.form['content']
+		Product.edit_para(para_id, title, content)
+		return redirect(url_for('product', product_id=para.ProductID))
+
+# page delete product parameter
+#--------------------------------------------------
+
+# view (admin)
+@app.route('/delete_para/<int:para_id>')
+def delete_para(para_id):
+	check_admin()
+	product_id = Product.get_para_by_id(para_id)['ProductID']
+	Product.delete_para(para_id)
+	return redirect(url_for('product', product_id=product_id))
