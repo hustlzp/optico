@@ -37,7 +37,7 @@ $(document).ready(function(){
 });
 </script>
 
-<form id="form-add-product" class="form-horizontal" method="post" action="{{ url_for('add_product') }}">
+<form id="form-add-product" class="form-horizontal" method="post" action="{{ url_for('add_product') }}" enctype="multipart/form-data">
 	<fieldset>
 		<legend>添加产品</legend>
 
@@ -59,7 +59,7 @@ $(document).ready(function(){
 		<div class="control-group">
 			<label class="control-label">图片</label>
 			<div class="controls">
-				<input type="text" class="input-xxlarge" name="image_url" />
+				<input type="file" name="image" />
 			</div>
 		</div>
 

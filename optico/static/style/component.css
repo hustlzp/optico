@@ -8,4 +8,4 @@
 .ps-lv1-list .li-header-right{background-image:url('../img/arrow-right.gif');width:7px;height:10px;}
 .ps-lv1-list .li-header-grayright{background-image:url('../img/arrow-gray.gif');width:7px;height:10px;}
 .ps-lv1-list .li-header-down{background-image:url('../img/arrow-down.gif');width:7px;height:7px;}
-.ps-lv1-list .ps-lv2-list{margin-left:15px;display:none;}.ps-lv1-list .ps-lv2-list .ps-lv3-list{margin-left:30px;display:none;}
+.ps-lv1-list .ps-lv2-list{margin-left:15px;display:none;}.ps-lv1-list .ps-lv2-list .ps-lv3-list{margin-left:15px;display:none;}

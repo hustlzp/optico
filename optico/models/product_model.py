@@ -55,10 +55,10 @@ class Product:
 
 	# add product
 	@staticmethod
-	def add(mtype_id, stype_id, name, image_url, description, details, src_url):
+	def add(mtype_id, stype_id, name, description, details, src_url):
 		result = g.conn.execute(
 			product.insert()
-			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
+			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, Description=description, Details=details, SrcUrl=src_url))
 		return result.inserted_primary_key[0]
 
 	# add paramter to a product
@@ -77,6 +77,14 @@ class Product:
 			product.update()
 			.where(product.c.ProductID == product_id)
 			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
+
+	# Update image url
+	@staticmethod
+	def update_product_img_url(p_id, img_url):
+		return g.conn.execute(
+			product.update()
+			.where(product.c.ProductID == p_id)
+			.values(ImageUrl=img_url))
 
 	# edit para
 	@staticmethod

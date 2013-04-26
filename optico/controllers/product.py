@@ -4,6 +4,7 @@ import markdown2
 import textile
 from flask import render_template, request, redirect, url_for, json, session, jsonify
 from optico import app
+import config
 from optico.models.product_model import Product
 from optico.models.type_model import Type
 from optico.utils import check_admin, convert_dict
@@ -63,16 +64,25 @@ def add_product():
 			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('add_product.html', mtypes=json.dumps(mtypes))
 	elif request.method == 'POST':
+		# Add product
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
-		image_url = request.form['image_url']
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']
-		
-		new_id = Product.add(mtype_id, stype_id, name, image_url, desc, details, src_url)
-	return redirect(url_for('product', product_id=new_id))
+		new_id = Product.add(mtype_id, stype_id, name, desc, details, src_url)
+
+		# Save image
+		image = request.files['image']
+		image_filename = "p" + str(new_id) + "." + image.filename.split('.')[-1]
+		image.save("/var/www/opticoimgs/" + image_filename)
+
+		# Save image url
+		image_url = config.IMAGE_URL + image_filename
+		Product.update_product_img_url(new_id, image_url)
+
+		return redirect(url_for('product', product_id=new_id))
 
 # page edit product
 #--------------------------------------------------
@@ -89,16 +99,22 @@ def edit_product(product_id):
 			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('edit_product.html', p=p, mtypes=json.dumps(mtypes))
 	elif request.method == 'POST':
+		# Save image
+		image = request.files['image']
+		image_filename = "p" + str(product_id) + "." + image.filename.split('.')[-1]
+		image.save(config.IMAGE_PATH + image_filename)
+
+		# Add product
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
-		image_url = request.form['image_url']
+		image_url = config.IMAGE_URL + image_filename
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']
-		
 		Product.edit(product_id, mtype_id, stype_id, name, image_url, desc, details, src_url)
-	return redirect(url_for('product', product_id=product_id))
+
+		return redirect(url_for('product', product_id=product_id))
 
 # page delete product
 #--------------------------------------------------

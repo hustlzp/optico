@@ -53,7 +53,7 @@ $(document).ready(function(){
 });
 </script>
 
-<form id="form-edit-product" class="form-horizontal" method="post" action="{{ url_for('edit_product', product_id=p.ProductID) }}">
+<form id="form-edit-product" class="form-horizontal" method="post" action="{{ url_for('edit_product', product_id=p.ProductID) }}" enctype="multipart/form-data">
 	<fieldset>
 		<legend>编辑产品</legend>
 
@@ -75,7 +75,7 @@ $(document).ready(function(){
 		<div class="control-group">
 			<label class="control-label">图片</label>
 			<div class="controls">
-				<input type="text" class="input-xxlarge" name="image_url" value="{{ p.ImageUrl }}" />
+				<input type="file" name="image" />
 				<img class="p-img" src="{{ p.ImageUrl }}" />
 			</div>
 		</div>
