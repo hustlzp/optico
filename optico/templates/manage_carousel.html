@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block page_title %}管理轮播{% endblock %}
+{% block page_id%}page-manage-carousel{% endblock %}
+
+{% block body %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+	// confirm delete
+	$('#btn-delete-carousel').click(function(){
+		return confirm("确认删除 ?")? true: false;
+	});
+});
+</script>
+
+<h3>管理轮播</h3>
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<th>轮播图片</th>
+		<th>链接地址</th>
+		<th>操作</th>
+	</thead>
+
+	<tbody>
+		{% for c in carousels %}
+		<tr>
+			<td><img class="c-img" src="{{ c.ImageUrl }}" /></td>
+			<td><a href="{{ c.LinkUrl }}" target="_blank">{{ c.LinkUrl }}</a></td>
+			<td>
+				<a class="btn btn-small" href="{{ url_for('edit_carousel', c_id=c.CarouselID) }}"><span class="icon-edit"></span> 编辑</a>
+				<a class="btn btn-small" id="btn-delete-carousel" href="{{ url_for('delete_carousel', c_id=c.CarouselID) }}"><span class="icon-remove"></span> 删除</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<form id="form-add-carousel" class="form-horizontal" method="post" action="{{ url_for('manage_carousel') }}" enctype="multipart/form-data">
+	<fieldset>
+		<legend>添加轮播</legend>
+
+		<div class="control-group">
+			<label class="control-label">轮播图片</label>
+			<div class="controls">
+				<input type="file" name="image" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">链接地址</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="link" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}

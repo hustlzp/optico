@@ -15,22 +15,7 @@
 		<div id="header" class="container">
 			<a id="brand" href="{{ url_for('home') }}">OPTICO</a>
 
-			<div id="myCarousel" class="carousel slide">
-				<!-- Carousel items -->
-				<div class="carousel-inner">
-					<div class="active item"><img src="{{ url_for('static', filename='img/turn.png') }}" /></div>
-					<div class="item"><img src="{{ url_for('static', filename='img/turn.png') }}" /></div>
-					<div class="item"><img src="{{ url_for('static', filename='img/turn.png') }}" /></div>
-				</div>
-
-				<!-- Carousel nav -->
-				<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-				<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
-			</div>
-
-			<script type="text/javascript">
-				$('.carousel').carousel();
-			</script>
+			{% block carousel %}{% endblock %}
 
 			<div class="navbar">
 				<div class="navbar-inner">
@@ -38,8 +23,6 @@
 						<li><a href="{{ url_for('home') }}">Home</a></li>
 						<li><a href="{{ url_for('about') }}">About</a></li>
 						<li><a href="{{ url_for('products') }}">Products</a></li>
-						<!-- <li><a href="#">Solutions</a></li> -->
-						<!-- <li><a href="#">News</a></li> -->
 						<li><a href="{{ url_for('contact') }}">Contact</a></li>
 					</ul>
 
@@ -56,7 +39,7 @@
 								<li><a href="{{ url_for('add_stype') }}">子类别</a></li>
 							</ul>
 						</li>
-
+						<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
 						<li><a href="{{ url_for('logout') }}">登出</a></li>
 					</ul>
 					{% endif %}

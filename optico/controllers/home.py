@@ -1,11 +1,9 @@
 #-*- coding: UTF-8 -*-
 
 from flask import render_template, request, redirect, url_for, json
-
 from optico import app
-
 from optico.models.type_model import Type
-
+from optico.models.carousel_model import Carousel
 from optico.utils import convert_dict
 
 # page home
@@ -17,7 +15,8 @@ def home():
 	mtypes = convert_dict(Type.get_mtypes())
 	for mt in mtypes:
 		mt['stypes'] = convert_dict(Type.get_stypes(mt['MainTypeID']))
-	return render_template('home.html', mtypes=mtypes)
+	carousels = Carousel.get_all()
+	return render_template('home.html', mtypes=mtypes, carousels=carousels)
 
 # page about
 #--------------------------------------------------

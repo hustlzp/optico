@@ -3,6 +3,23 @@
 {% block page_title %}Home{% endblock %}
 {% block page_id%}page-home{% endblock %}
 
+{% block carousel %}
+<div id="myCarousel" class="carousel slide">
+	<!-- Carousel items -->
+	<div class="carousel-inner">
+		{% for c in carousels %}
+		<div class="
+		{% if loop.first %}active{% endif %}
+		item"><a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a></div>
+		{% endfor %}
+	</div>
+
+	<!-- Carousel nav -->
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+</div>
+{% endblock %}
+
 {% block body %}
 
 <script type="text/javascript">
@@ -11,6 +28,8 @@ $(document).ready(function(){
 	$('#myCarousel').css({
 		display: 'block'
 	});
+
+	$('.carousel').carousel();
 });
 
 </script>

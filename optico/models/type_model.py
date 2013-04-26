@@ -1,12 +1,9 @@
 #-*- coding: UTF-8 -*-
 
 from flask import g
-
 from sqlalchemy.sql import select
-
 from optico.db import mtype
 from optico.db import stype
-
 from optico.utils import convert_dict
 
 class Type:

@@ -98,14 +98,17 @@ def edit_product(product_id):
 	elif request.method == 'POST':
 		# Save image
 		image = request.files['image']
-		image_filename = build_pimg_filename(image.filename)
-		image.save(config.IMAGE_PATH + image_filename)
+		if image.filename:
+			image_filename = build_pimg_filename(image.filename)
+			image.save(config.IMAGE_PATH + image_filename)
+			image_url = config.IMAGE_URL + image_filename
+		else:
+			image_url = Product.get_by_id(product_id)['ImageUrl']
 
 		# Add product
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
-		image_url = config.IMAGE_URL + image_filename
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']

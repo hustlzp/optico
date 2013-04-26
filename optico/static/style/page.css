@@ -1,5 +1,5 @@
 body{font-family:'arial';}body #header #brand{display:block;margin:20px 0 15px 0;font-size:40px;line-height:40px;text-decoration:none;}
-body #header #myCarousel{display:none;margin-bottom:0;}
+body #header #myCarousel{margin-bottom:0;}
 body #header #navbar li a{padding-left:25px;padding-right:35px;}
 body #main-wap{font-size:14px;line-height:24px;}body #main-wap h1{font-size:35px;line-height:35px;margin-top:5px;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid #999;font-weight:normal;}
 body #main-wap input[type='file']{display:block;}
@@ -18,3 +18,4 @@ body #footer+div{display:none;}
 #page-product .tab-content table tr:first-child{font-weight:bold;}
 #page-edit-product .p-img{margin-top:20px;border:1px solid #999;}
 #page-mtype .mtype-name{font-size:35px;line-height:35px;margin-bottom:35px;}
+#page-manage-carousel .c-img{width:400px;}
