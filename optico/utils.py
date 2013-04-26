@@ -13,6 +13,10 @@ def check_admin():
 def convert_dict(row_proxy_list):
 	return [dict(r) for r in row_proxy_list]
 
-# build an unique image file name
+# build an unique product image file name
 def build_pimg_filename(filename):
 	return "p-" + str(uuid1()) + "." + filename.split('.')[-1]
+
+# build an unique mtype image file name
+def build_mimg_filename(filename):
+	return "m-" + str(uuid1()) + "." + filename.split('.')[-1]

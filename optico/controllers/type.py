@@ -1,14 +1,11 @@
 #-*- coding: UTF-8 -*-
 
 from flask import render_template, request, redirect, url_for, json, session, jsonify
-
-
 from optico import app
-
+import config
 from optico.models.product_model import Product
 from optico.models.type_model import Type
-
-from optico.utils import check_admin
+from optico.utils import check_admin, build_mimg_filename
 
 # page main type
 #--------------------------------------------------
@@ -37,9 +34,17 @@ def add_mtype():
 	if request.method == 'GET':
 		return render_template('add_mtype.html')
 	elif request.method == 'POST':
+		# Save image
+		image = request.files['image']
+		image_filename = build_mimg_filename(image.filename)
+		image.save(config.IMAGE_PATH + image_filename)
+
+		# Add mtype
 		name = request.form['name']
-		img_url = request.form['img_url']
-		Type.add_mtype(name, img_url)
+		order = int(request.form['order'])
+		img_url = config.IMAGE_URL + image_filename
+		Type.add_mtype(name, order, img_url)
+
 		return redirect(url_for('home'))
 
 # page edit main type
@@ -53,10 +58,18 @@ def edit_mtype(mtype_id):
 		mt = Type.get_mtype_by_id(mtype_id)
 		return render_template('edit_mtype.html', mt=mt)
 	elif request.method == 'POST':
+		# Save image
+		image = request.files['image']
+		image_filename = build_mimg_filename(image.filename)
+		image.save(config.IMAGE_PATH + image_filename)
+		
+		# Edit mtype
 		name = request.form['name']
-		img_url = request.form['img_url']
-		Type.edit_mtype(mtype_id, name, img_url)
-		return redirect(url_for('mtype', mtype_id=mtype_id))
+		order = int(request.form['order'])
+		img_url = config.IMAGE_URL + image_filename
+		Type.edit_mtype(mtype_id, name, order, img_url)
+
+		return redirect(url_for('home'))
 
 # proc delete main type
 #--------------------------------------------------
