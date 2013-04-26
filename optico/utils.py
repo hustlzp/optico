@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 
+from uuid import uuid1
 from flask import session, abort
-
 import config
 
 # Check if is Administrator
@@ -12,3 +12,7 @@ def check_admin():
 # Convert RowProxy to Dict
 def convert_dict(row_proxy_list):
 	return [dict(r) for r in row_proxy_list]
+
+# build an unique image file name
+def build_pimg_filename(filename):
+	return "p-" + str(uuid1()) + "." + filename.split('.')[-1]

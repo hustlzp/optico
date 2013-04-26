@@ -13,7 +13,7 @@ class Type:
 
 # GET
 
-	# get all main types
+	# Get mtypes order by ShowOrder
 	@staticmethod
 	def get_mtypes():
 		return convert_dict(g.conn.execute(

@@ -7,7 +7,7 @@ from optico import app
 import config
 from optico.models.product_model import Product
 from optico.models.type_model import Type
-from optico.utils import check_admin, convert_dict
+from optico.utils import check_admin, convert_dict, build_pimg_filename
 
 # page product
 #--------------------------------------------------
@@ -64,23 +64,20 @@ def add_product():
 			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('add_product.html', mtypes=json.dumps(mtypes))
 	elif request.method == 'POST':
+		# Save image
+		image = request.files['image']
+		image_filename = build_pimg_filename(image.filename)
+		image.save(config.IMAGE_PATH + image_filename)
+
 		# Add product
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
+		image_url = config.IMAGE_URL + image_filename
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']
-		new_id = Product.add(mtype_id, stype_id, name, desc, details, src_url)
-
-		# Save image
-		image = request.files['image']
-		image_filename = "p" + str(new_id) + "." + image.filename.split('.')[-1]
-		image.save("/var/www/opticoimgs/" + image_filename)
-
-		# Save image url
-		image_url = config.IMAGE_URL + image_filename
-		Product.update_product_img_url(new_id, image_url)
+		new_id = Product.add(mtype_id, stype_id, image_url, name, desc, details, src_url)
 
 		return redirect(url_for('product', product_id=new_id))
 
@@ -101,7 +98,7 @@ def edit_product(product_id):
 	elif request.method == 'POST':
 		# Save image
 		image = request.files['image']
-		image_filename = "p" + str(product_id) + "." + image.filename.split('.')[-1]
+		image_filename = build_pimg_filename(image.filename)
 		image.save(config.IMAGE_PATH + image_filename)
 
 		# Add product
