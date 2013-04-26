@@ -57,20 +57,19 @@ def edit_mtype(mtype_id):
 	if request.method == 'GET':
 		mt = Type.get_mtype_by_id(mtype_id)
 		return render_template('edit_mtype.html', mt=mt)
-	elif request.method == 'POST':
+	else:
 		# Save image
 		image = request.files['image']
+		image_url = Type.get_mtype_by_id(mtype_id)['ImageUrl']
 		if image.filename:
-			image_filename = build_mimg_filename(image.filename)
+			image_filename = image_url.split('/')[-1]
 			image.save(config.IMAGE_PATH + image_filename)
-			img_url = config.IMAGE_URL + image_filename
-		else:
-			img_url = Type.get_mtype_by_id(mtype_id)
+			image_url = config.IMAGE_URL + image_filename
 
 		# Edit mtype
 		name = request.form['name']
 		order = int(request.form['order'])
-		Type.edit_mtype(mtype_id, name, order, img_url)
+		Type.edit_mtype(mtype_id, name, image_url, order)
 
 		return redirect(url_for('home'))
 

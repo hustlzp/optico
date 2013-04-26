@@ -16,6 +16,7 @@ body #footer+div{display:none;}
 #page-product .tab-content{font-size:13px;}#page-product .tab-content li{list-style-type:square;margin-bottom:5px;}
 #page-product .tab-content .para-content em{font-style:normal;font-weight:bold;}
 #page-product .tab-content table tr:first-child{font-weight:bold;}
+#page-product .tab-content table td{text-align:center;}
 #page-edit-product .p-img{margin-top:20px;border:1px solid #999;}
 #page-mtype .mtype-name{font-size:35px;line-height:35px;margin-bottom:35px;}
 #page-manage-carousel .c-img{width:400px;}

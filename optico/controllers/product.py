@@ -63,7 +63,7 @@ def add_product():
 		for mt in mtypes:
 			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('add_product.html', mtypes=json.dumps(mtypes))
-	elif request.method == 'POST':
+	else:
 		# Save image
 		image = request.files['image']
 		image_filename = build_pimg_filename(image.filename)
@@ -95,17 +95,16 @@ def edit_product(product_id):
 		for mt in mtypes:
 			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('edit_product.html', p=p, mtypes=json.dumps(mtypes))
-	elif request.method == 'POST':
+	else:
 		# Save image
 		image = request.files['image']
+		image_url = Product.get_by_id(product_id)['ImageUrl']
 		if image.filename:
-			image_filename = build_pimg_filename(image.filename)
+			image_filename = image_url.split('/')[-1]
 			image.save(config.IMAGE_PATH + image_filename)
 			image_url = config.IMAGE_URL + image_filename
-		else:
-			image_url = Product.get_by_id(product_id)['ImageUrl']
 
-		# Add product
+		# Edit product
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']

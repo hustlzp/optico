@@ -55,15 +55,15 @@ class Type:
 			stype.insert()
 			.values(MainTypeID=mtype_id, Name=name)).inserted_primary_key[0]
 
-# UPDETE
+# UPDATE
 
 	# edit main type
 	@staticmethod
-	def edit_mtype(mtype_id, name, order, img_url):
+	def edit_mtype(mtype_id, name, image_url, order):
 		return g.conn.execute(
 			mtype.update()
 			.where(mtype.c.MainTypeID == mtype_id)
-			.values(Name=name, ShowOrder=order, ImageUrl=img_url))
+			.values(Name=name, ImageUrl=image_url, ShowOrder=order))
 
 	# edit sub type
 	@staticmethod

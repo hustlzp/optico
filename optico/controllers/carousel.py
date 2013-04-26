@@ -42,12 +42,12 @@ def edit_carousel(c_id):
 	else:
 		# save image
 		image = request.files['image']
+		image_url = Carousel.get_by_id(c_id)['ImageUrl']
 		if image.filename:
-			image_filename = build_cimg_filename(image.filename)
+			# get the original image file name
+			image_filename = image_url.split('/')[-1]
 			image.save(config.IMAGE_PATH + image_filename)
 			image_url = config.IMAGE_URL + image_filename
-		else:
-			image_url = Carousel.get_by_id(c_id)['ImageUrl']
 
 		# Edit carousel
 		link = request.form['link']
