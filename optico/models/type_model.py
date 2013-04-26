@@ -17,7 +17,8 @@ class Type:
 	@staticmethod
 	def get_mtypes():
 		return convert_dict(g.conn.execute(
-			select([mtype])).fetchall())
+			select([mtype]).
+			order_by(mtype.c.ShowOrder.asc())).fetchall())
 
 	# get main type by id
 	@staticmethod
