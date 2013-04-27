@@ -9,9 +9,6 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	// init sidebar
-	init_ps(1, {{ mt.MainTypeID }});
-
 	// confirm delete
 	$('#btn-delete-mtype').click(function(){
 		return confirm("确认删除主分类：{{ mt.Name }} ?")? true: false;
@@ -22,8 +19,14 @@ $(document).ready(function(){
 <div class="row">
 	<div class="span3">
 		<b>Products</b>
+
 		{% from 'products_sidebar.widget' import show_ps %}
 		{{ show_ps(ps)|safe }}
+		
+		<script type="text/javascript">
+			// init sidebar
+			init_ps(1, {{ mt.MainTypeID }});
+		</script>
 	</div>
 
 	<div class="span9">
