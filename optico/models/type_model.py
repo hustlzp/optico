@@ -42,10 +42,10 @@ class Type:
 
 	# add main type
 	@staticmethod
-	def add_mtype(name, order, img_url):
+	def add_mtype(name, order):
 		return g.conn.execute(
 			mtype.insert()
-			.values(Name=name, ShowOrder=order, ImageUrl=img_url))
+			.values(Name=name, ShowOrder=order)).inserted_primary_key[0]
 
 
 	# add sub type
@@ -57,13 +57,21 @@ class Type:
 
 # UPDATE
 
-	# edit main type
+	# update main type
 	@staticmethod
 	def edit_mtype(mtype_id, name, image_url, order):
 		return g.conn.execute(
 			mtype.update()
 			.where(mtype.c.MainTypeID == mtype_id)
 			.values(Name=name, ImageUrl=image_url, ShowOrder=order))
+
+	# update main type img url
+	@staticmethod
+	def update_mtype_img_url(m_id, image_url):
+		return g.conn.execute(
+			mtype.update()
+			.where(mtype.c.MainTypeID == m_id)
+			.values(ImageUrl=image_url))
 
 	# edit sub type
 	@staticmethod

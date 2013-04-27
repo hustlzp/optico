@@ -55,11 +55,10 @@ class Product:
 
 	# add product
 	@staticmethod
-	def add(mtype_id, stype_id, image_url, name, description, details, src_url):
-		result = g.conn.execute(
+	def add(mtype_id, stype_id, name, description, details, src_url):
+		return g.conn.execute(
 			product.insert()
-			.values(MainTypeID=mtype_id, SubTypeID=stype_id, ImageUrl=image_url, Name=name, Description=description, Details=details, SrcUrl=src_url))
-		return result.inserted_primary_key[0]
+			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, Description=description, Details=details, SrcUrl=src_url)).inserted_primary_key[0]
 
 	# add paramter to a product
 	@staticmethod
@@ -70,7 +69,7 @@ class Product:
 
 # UPDATE
 
-	# edit product
+	# Update product
 	@staticmethod
 	def edit(product_id, mtype_id, stype_id, name, image_url, description, details, src_url):
 		return g.conn.execute(
@@ -78,7 +77,15 @@ class Product:
 			.where(product.c.ProductID == product_id)
 			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
 
-	# edit para
+	# Update product image url
+	@staticmethod
+	def update_product_img_url(p_id, image_url):
+		return g.conn.execute(
+			product.update()
+			.where(product.c.ProductID == p_id)
+			.values(ImageUrl=image_url))
+
+	# Update para
 	@staticmethod
 	def edit_para(para_id, title, content):
 		return g.conn.execute(

@@ -20,16 +20,16 @@ class Carousel:
 	def get_by_id(c_id):
 		return g.conn.execute(
 			select([carousel])
-			.where(carousel.c.CarouselID == c_id)).fetchone()
+			.where(carousel.c.CarouselID==c_id)).fetchone()
 
 # NEW
 
 	# add carousel
 	@staticmethod
-	def add(image_url, link_url):
+	def add(link_url):
 		return g.conn.execute(
 			carousel.insert()
-			.values(ImageUrl=image_url, LinkUrl=link_url))
+			.values(LinkUrl=link_url)).inserted_primary_key[0]
 
 # UPDATE
 
@@ -38,8 +38,16 @@ class Carousel:
 	def edit(c_id, image_url, link_url):
 		return g.conn.execute(
 			carousel.update()
-			.where(carousel.c.CarouselID == c_id)
+			.where(carousel.c.CarouselID==c_id)
 			.values(ImageUrl=image_url, LinkUrl=link_url))
+
+	# 
+	@staticmethod
+	def update_img_url(c_id, image_url):
+		return g.conn.execute(
+			carousel.update()
+			.where(carousel.c.CarouselID==c_id)
+			.values(ImageUrl=image_url))
 
 # DELETE
 
@@ -48,4 +56,4 @@ class Carousel:
 	def delete(c_id):
 		return g.conn.execute(
 			carousel.delete()
-			.where(carousel.c.CarouselID == c_id))
+			.where(carousel.c.CarouselID==c_id))

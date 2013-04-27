@@ -1,5 +1,6 @@
 #-*- coding: UTF-8 -*-
 
+import os
 from flask import render_template, request, redirect, url_for, json, session, jsonify
 from optico import app
 import config
@@ -34,16 +35,19 @@ def add_mtype():
 	if request.method == 'GET':
 		return render_template('add_mtype.html')
 	elif request.method == 'POST':
-		# Save image
-		image = request.files['image']
-		image_filename = build_mimg_filename(image.filename)
-		image.save(config.IMAGE_PATH + image_filename)
-
 		# Add mtype
 		name = request.form['name']
 		order = int(request.form['order'])
+		new_id = Type.add_mtype(name, order)
+
+		# Save image
+		image = request.files['image']
+		image_filename = build_mimg_filename(new_id, image.filename)
+		image.save(config.IMAGE_PATH + image_filename)
+
+		# Update Image Url
 		img_url = config.IMAGE_URL + image_filename
-		Type.add_mtype(name, order, img_url)
+		Type.update_mtype_img_url(new_id, img_url)
 
 		return redirect(url_for('home'))
 
@@ -60,11 +64,12 @@ def edit_mtype(mtype_id):
 	else:
 		# Save image
 		image = request.files['image']
-		image_url = Type.get_mtype_by_id(mtype_id)['ImageUrl']
 		if image.filename:
-			image_filename = image_url.split('/')[-1]
+			image_filename = build_mimg_filename(mtype_id, image.filename)
 			image.save(config.IMAGE_PATH + image_filename)
 			image_url = config.IMAGE_URL + image_filename
+		else:
+			image_url = Type.get_mtype_by_id(mtype_id)['ImageUrl']
 
 		# Edit mtype
 		name = request.form['name']
@@ -78,6 +83,13 @@ def edit_mtype(mtype_id):
 @app.route('/maintype/delete/<int:mtype_id>')
 def delete_mtype(mtype_id):
 	check_admin()
+	
+	# Try to delete img file
+	image_filename = Type.get_mtype_by_id(mtype_id)['ImageUrl'].split('/')[-1]
+	image_path = config.IMAGE_PATH + image_filename
+	if os.path.isfile(image_path): 
+		os.remove(image_path)
+
 	Type.delete_mtype(mtype_id)
 	return redirect(url_for('home'))
 

@@ -1,5 +1,6 @@
 #-*- coding: UTF-8 -*-
 
+import os
 import markdown2
 import textile
 from flask import render_template, request, redirect, url_for, json, session, jsonify
@@ -64,20 +65,23 @@ def add_product():
 			mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
 		return render_template('add_product.html', mtypes=json.dumps(mtypes))
 	else:
-		# Save image
-		image = request.files['image']
-		image_filename = build_pimg_filename(image.filename)
-		image.save(config.IMAGE_PATH + image_filename)
-
 		# Add product
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
-		image_url = config.IMAGE_URL + image_filename
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']
-		new_id = Product.add(mtype_id, stype_id, image_url, name, desc, details, src_url)
+		new_id = Product.add(mtype_id, stype_id, name, desc, details, src_url)
+
+		# Save image
+		image = request.files['image']
+		image_filename = build_pimg_filename(new_id, image.filename)
+		image.save(config.IMAGE_PATH + image_filename)
+
+		# Update image url
+		image_url = config.IMAGE_URL + image_filename
+		Product.update_product_img_url(new_id, image_url)
 
 		return redirect(url_for('product', product_id=new_id))
 
@@ -98,11 +102,12 @@ def edit_product(product_id):
 	else:
 		# Save image
 		image = request.files['image']
-		image_url = Product.get_by_id(product_id)['ImageUrl']
 		if image.filename:
-			image_filename = image_url.split('/')[-1]
+			image_filename = build_pimg_filename(product_id, image.filename)
 			image.save(config.IMAGE_PATH + image_filename)
 			image_url = config.IMAGE_URL + image_filename
+		else:
+			image_url = Product.get_by_id(product_id)['ImageUrl']
 
 		# Edit product
 		mtype_id = request.form['mtype_id']
@@ -122,6 +127,13 @@ def edit_product(product_id):
 @app.route('/product/delete/<int:product_id>')
 def delete_product(product_id):
 	check_admin()
+
+	# Delete image file
+	image_filename = Product.get_by_id(product_id)['ImageUrl'].split('/')[-1]
+	image_path = config.IMAGE_PATH + image_filename
+	if os.path.isfile(image_path):
+		os.remove(image_path)
+
 	Product.delete(product_id)
 	return redirect(url_for('home'))
 

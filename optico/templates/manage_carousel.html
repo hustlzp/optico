@@ -8,7 +8,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	// confirm delete
-	$('#btn-delete-carousel').click(function(){
+	$(document.body).on('click', '#btn-delete-carousel', function(){
 		return confirm("确认删除 ?")? true: false;
 	});
 });

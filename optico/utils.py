@@ -14,13 +14,13 @@ def convert_dict(row_proxy_list):
 	return [dict(r) for r in row_proxy_list]
 
 # Build an unique image file name for product
-def build_pimg_filename(filename):
-	return "p-" + str(uuid1()) + "." + filename.split('.')[-1]
+def build_pimg_filename(p_id, filename):
+	return "p" + str(p_id) + "." + filename.split('.')[-1]
 
 # Build an unique image file name for mtype
-def build_mimg_filename(filename):
-	return "m-" + str(uuid1()) + "." + filename.split('.')[-1]
+def build_mimg_filename(mtype_id, filename):
+	return "m" + str(mtype_id) + "." + filename.split('.')[-1]
 
 # Build an unique image file name for carousel
-def build_cimg_filename(filename):
-	return "c-" + str(uuid1()) + "." + filename.split('.')[-1]
+def build_cimg_filename(c_id, filename):
+	return "c" + str(c_id) + "." + filename.split('.')[-1]

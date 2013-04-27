@@ -1,5 +1,6 @@
 #-*- coding: UTF-8 -*-
 
+import os
 from flask import render_template, request, redirect, url_for, json
 from optico import app
 import config
@@ -17,16 +18,18 @@ def manage_carousel():
 		carousels = Carousel.get_all()
 		return render_template('manage_carousel.html', carousels=carousels)
 	else:
+		# add carousel
+		link = request.form['link']
+		new_id = Carousel.add(link)
+
 		# save image
 		image = request.files['image']
-		image_filename = build_cimg_filename(image.filename)
+		image_filename = build_cimg_filename(new_id, image.filename)
 		image.save(config.IMAGE_PATH + image_filename)
 
-		# add carousel
+		# update carousel image url
 		image_url = config.IMAGE_URL + image_filename
-		link = request.form['link']
-		Carousel.add(image_url, link)
-
+		Carousel.update_img_url(new_id, image_url)
 		return redirect(url_for('manage_carousel'))
 
 # Page edit carousel
@@ -42,12 +45,13 @@ def edit_carousel(c_id):
 	else:
 		# save image
 		image = request.files['image']
-		image_url = Carousel.get_by_id(c_id)['ImageUrl']
 		if image.filename:
 			# get the original image file name
-			image_filename = image_url.split('/')[-1]
+			image_filename = build_cimg_filename(c_id, image.filename)
 			image.save(config.IMAGE_PATH + image_filename)
 			image_url = config.IMAGE_URL + image_filename
+		else:
+			image_url = Carousel.get_by_id(c_id)['ImageUrl']
 
 		# Edit carousel
 		link = request.form['link']
@@ -62,5 +66,12 @@ def edit_carousel(c_id):
 @app.route('/delete_carousel/<int:c_id>')
 def delete_carousel(c_id):
 	check_admin()
+
+	# Try to delete img file
+	image_filename = Carousel.get_by_id(c_id)['ImageUrl'].split('/')[-1]
+	image_path = config.IMAGE_PATH + image_filename
+	if os.path.isfile(image_path): 
+		os.remove(image_path)
+
 	Carousel.delete(c_id)
 	return redirect(url_for('manage_carousel'))

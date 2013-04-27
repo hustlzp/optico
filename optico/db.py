@@ -1,12 +1,9 @@
 #-*- coding: UTF-8 -*-
 
 from flask import g
-
-import config
-
 from optico import app
-
 from sqlalchemy import create_engine, MetaData, Table
+import config
 
 engine = create_engine('mysql+mysqldb://%s:%s@%s/%s?charset=utf8' % (config.DB_USER, config.DB_PWD, config.DB_HOST, config.DB_NAME))
 

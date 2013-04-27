@@ -1,12 +1,9 @@
 #-*- coding: UTF-8 -*-
 
 from flask import render_template, request, redirect, url_for, json, session
-
 from optico import app
-
-import config
-
 from optico.utils import check_admin
+import config
 
 # proc - login
 #--------------------------------------------------
