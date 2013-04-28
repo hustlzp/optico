@@ -44,24 +44,18 @@ $(document).ready(function(){
 		{% endif %}
 
 		<ul class="breadcrumb">
-			<li>
-				<a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a> >
-			</li>
-			<li>
-				<a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name }}</a> >
-			</li>
+			<li><a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a> ></li>
+			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name }}</a> ></li>
 		</ul>
 		
 		<h1>{{ p.Name }}</h1>
 		<img class="p-img" src="{{ p.ImageUrl }}" />
-		<div class="p-details">{{ p.Details|safe }}</div>
+		<div class="p-desc">{{ p.Description|safe }}</div>
 
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 				{% for p in paras %}
-				<li 
-				{% if loop.first %}class="active"{% endif %}
-				><a href="#p_{{ p.ParamterID }}" data-toggle="tab">{{ p.Title }}</a></li>
+				<li {% if loop.first %}class="active"{% endif %}><a href="#p_{{ p.ParamterID }}" data-toggle="tab">{{ p.Title }}</a></li>
 				{% endfor %}
 			</ul>
 

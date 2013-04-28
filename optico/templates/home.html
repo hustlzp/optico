@@ -5,7 +5,6 @@
 
 {% block carousel %}
 <div id="myCarousel" class="carousel slide">
-	<!-- Carousel items -->
 	<div class="carousel-inner">
 		{% for c in carousels %}
 		<div class="
@@ -13,8 +12,7 @@
 		item"><a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a></div>
 		{% endfor %}
 	</div>
-
-	<!-- Carousel nav -->
+	
 	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
 	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>

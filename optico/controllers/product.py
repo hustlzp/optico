@@ -69,10 +69,11 @@ def add_product():
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
+		order = request.form['order']
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']
-		new_id = Product.add(mtype_id, stype_id, name, desc, details, src_url)
+		new_id = Product.add(mtype_id, stype_id, name, order, desc, details, src_url)
 
 		# Save image
 		image = request.files['image']
@@ -113,10 +114,11 @@ def edit_product(product_id):
 		mtype_id = request.form['mtype_id']
 		stype_id = request.form['stype_id']
 		name = request.form['name']
+		order = request.form['order']
 		desc = request.form['description']
 		details = request.form['details']
 		src_url = request.form['src_url']
-		Product.edit(product_id, mtype_id, stype_id, name, image_url, desc, details, src_url)
+		Product.edit(product_id, mtype_id, stype_id, name, order, image_url, desc, details, src_url)
 
 		return redirect(url_for('product', product_id=product_id))
 

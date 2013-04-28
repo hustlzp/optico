@@ -22,20 +22,23 @@ class Product:
 	def get_by_mtype(mtype_id):
 		return g.conn.execute(
 			select([product])
-			.where(product.c.MainTypeID == mtype_id)).fetchall()
+			.where(product.c.MainTypeID == mtype_id)
+			.order_by(product.c.ShowOrder.asc())).fetchall()
 
 	# get products by sub type
 	@staticmethod
 	def get_by_stype(stype_id):
 		return g.conn.execute(
 			select([product])
-			.where(product.c.SubTypeID == stype_id)).fetchall()
+			.where(product.c.SubTypeID == stype_id)
+			.order_by(product.c.ShowOrder.asc())).fetchall()
 
 	# get all products
 	@staticmethod
 	def get_all():
 		return g.conn.execute(
-			select([product])).fetchall()
+			select([product])
+			.order_by(product.c.ShowOrder.asc())).fetchall()
 
 	# get all paramters of a product
 	@staticmethod
@@ -55,10 +58,10 @@ class Product:
 
 	# add product
 	@staticmethod
-	def add(mtype_id, stype_id, name, description, details, src_url):
+	def add(mtype_id, stype_id, name, order, description, details, src_url):
 		return g.conn.execute(
 			product.insert()
-			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, Description=description, Details=details, SrcUrl=src_url)).inserted_primary_key[0]
+			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ShowOrder=order, Description=description, Details=details, SrcUrl=src_url)).inserted_primary_key[0]
 
 	# add paramter to a product
 	@staticmethod
@@ -71,11 +74,11 @@ class Product:
 
 	# Update product
 	@staticmethod
-	def edit(product_id, mtype_id, stype_id, name, image_url, description, details, src_url):
+	def edit(product_id, mtype_id, stype_id, name, order, image_url, description, details, src_url):
 		return g.conn.execute(
 			product.update()
 			.where(product.c.ProductID == product_id)
-			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
+			.values(MainTypeID=mtype_id, SubTypeID=stype_id, Name=name, ShowOrder=order, ImageUrl=image_url, Description=description, Details=details, SrcUrl=src_url))
 
 	# Update product image url
 	@staticmethod

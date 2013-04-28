@@ -2,10 +2,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11"></meta>
 		<title>{% block page_title %}OPTICO{% endblock %}</title>
 		<link rel="Shortcut Icon" href="{{ url_for('static', filename='img/site.ico') }}">
+		<!-- js -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+		<!-- css -->
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.css') }}">
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
@@ -13,8 +16,19 @@
 
 	<body id="{% block page_id %}{% endblock %}">
 		<div id="header" class="container">
-			<a id="brand" href="{{ url_for('home') }}">OPTICO</a>
+			<div>
+				<a id="brand" href="{{ url_for('home') }}">OPTICO</a>
 
+				<!-- google translation -->
+				<div id="google_translate_element"></div>
+				<script type="text/javascript">
+				function googleTranslateElementInit() {
+					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+				}
+				</script>
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			</div>
+        
 			{% block carousel %}{% endblock %}
 
 			<div class="navbar">
@@ -51,6 +65,45 @@
 			{% block body %}{% endblock %}
 		</div>
 
-		<div id="footer">©2013 OPTICO</script></div>
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="span3">
+						<h4>About Us</h4>
+						<ul>
+							<li><a href="">Company Introduction</a></li>
+							<li><a href="">Fiber Factory</a></li>
+							<li><a href="">Exhibitions Information</a></li>
+							<li><a href="">Partner Relationship</a></li>
+						</ul>
+					</div>
+					<div class="span3">
+						<h4>Products</h4>
+						<ul>
+							<li><a href="">Data Center Cabling</a></li>
+							<li><a href="">Passive Products</a></li>
+							<li><a href="">Copper Series</a></li>
+						</ul>
+					</div>
+					<div class="span3">
+						<h4>Downloads</h4>
+						<ul>
+							<li><a href="">File Downloads</a></li>
+						</ul>						
+					</div>
+					<div class="span3">
+						<h4>Follow Us</h4>
+						<ul class="img-list">
+							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/twitter.png" /></a></li>
+							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/flickr.png" /></a></li>
+							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/rss.png" /></a></li>
+							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/yahoo.png" /></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="cp">©2013 OPTICO</div>
+		</div>
 	</body>
 </html>
