@@ -16,49 +16,49 @@
 
 	<body id="{% block page_id %}{% endblock %}">
 		<div id="header" class="container">
-			<div>
-				<a id="brand" href="{{ url_for('home') }}">OPTICO</a>
-
-				<!-- google translation -->
-				<div id="google_translate_element"></div>
-				<script type="text/javascript">
-				function googleTranslateElementInit() {
-					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-				}
-				</script>
-				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-			</div>
-        
-			{% block carousel %}{% endblock %}
+			<!-- google translation -->
+			<div id="google_translate_element"></div>
+			<script type="text/javascript">
+			function googleTranslateElementInit() {
+				new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+			}
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 			<div class="navbar">
 				<div class="navbar-inner">
-					<ul class="nav" id='navbar'>
-						<li><a href="{{ url_for('home') }}">Home</a></li>
-						<li><a href="{{ url_for('about') }}">About</a></li>
-						<li><a href="{{ url_for('products') }}">Products</a></li>
-						<li><a href="{{ url_for('contact') }}">Contact</a></li>
-					</ul>
+					<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
 
 					{% if session.user_id == admin_id %}
 					<ul class="nav pull-right">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								添加 <span class="caret"></span>
+								管理 <span class="caret"></span>
 							</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="{{ url_for('add_product') }}">产品</a></li>
-								<li><a href="{{ url_for('add_mtype') }}">主类别</a></li>
-								<li><a href="{{ url_for('add_stype') }}">子类别</a></li>
+								<li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+								<li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+								<li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+								<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+								<li><a href="{{ url_for('logout') }}">登出</a></li>
 							</ul>
 						</li>
-						<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-						<li><a href="{{ url_for('logout') }}">登出</a></li>
 					</ul>
 					{% endif %}
+
+					<ul class="nav pull-right">
+						<li><a href="{{ url_for('home') }}">Home</a></li>
+						
+						<li><a href="{{ url_for('products') }}">Products</a></li>
+						<li><a href="{{ url_for('about') }}">About</a></li>
+						<li><a href="{{ url_for('service') }}">Service</a></li>
+						<li><a href="{{ url_for('contact') }}">Contact</a></li>
+					</ul>
 				</div>
 			</div>
+
+			{% block carousel %}{% endblock %}
 		</div>
 
 		<div id="main-wap" class="container">
@@ -66,7 +66,7 @@
 		</div>
 
 		<div id="footer">
-			<div class="container">
+			<div class="container footer-nav">
 				<div class="row">
 					<div class="span3">
 						<h4>About Us</h4>

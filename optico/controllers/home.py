@@ -18,6 +18,14 @@ def home():
 	carousels = Carousel.get_all()
 	return render_template('home.html', mtypes=mtypes, carousels=carousels)
 
+# page service
+#--------------------------------------------------
+
+# view (public)
+@app.route('/service')
+def service():
+	return render_template('service.html')
+
 # page about
 #--------------------------------------------------
 

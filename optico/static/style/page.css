@@ -1,12 +1,12 @@
-body{font-family:'arial';}body #header #brand{display:inline-block;margin:25px 0 15px 0;font-size:40px;line-height:40px;text-decoration:none;}
-body #header #google_translate_element{float:right;margin:25px 0 0 0;}
-body #header #myCarousel{margin-bottom:0;}
-body #header #navbar li a{padding-left:25px;padding-right:35px;}
+body{font-family:'arial';}body #header #google_translate_element{float:right;clear:both;margin:10px 0;}
+body #header .navbar{clear:both;margin-bottom:20px;}body #header .navbar .navbar-inner{padding-right:0;}body #header .navbar .navbar-inner .brand{padding:15px 0 15px 25px;}
+body #header .navbar .navbar-inner .nav>li>a{padding:15px 25px;border-left:1px solid #e2e2e2;}
+body #header #myCarousel{margin-top:-20px;margin-bottom:20px;}
 body #main-wap{font-size:14px;line-height:24px;}body #main-wap h1{font-size:35px;line-height:35px;margin-top:5px;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid #999;font-weight:normal;}
 body #main-wap input[type='file']{display:block;}
-body #footer{margin:60px 0 0 0;padding-bottom:10px;}body #footer h4{font-weight:normal;font-size:15px;border-bottom:1px solid gray;padding-bottom:5px;margin-bottom:10px;}
-body #footer ul{list-style-type:none;margin:0;}body #footer ul li{font-size:12px;margin-bottom:5px;}body #footer ul li a{color:#333;}
-body #footer ul.img-list li{display:inline-block;margin-right:5px;}
+body #footer{margin:60px 0 0 0;padding-bottom:10px;}body #footer .footer-nav{margin-bottom:15px;}body #footer .footer-nav h4{font-weight:normal;font-size:15px;border-bottom:1px solid gray;padding-bottom:5px;margin-bottom:10px;}
+body #footer .footer-nav ul{list-style-type:none;margin:0;}body #footer .footer-nav ul li{font-size:12px;margin-bottom:5px;}body #footer .footer-nav ul li a{color:#333;}
+body #footer .footer-nav ul.img-list li{display:inline-block;margin-right:5px;}
 body #footer .cp{text-align:center;font-size:12px;}
 body #footer+div{display:none;}
 .breadcrumb{padding-top:5px;padding-bottom:5px;margin-bottom:25px;font-size:13px;}

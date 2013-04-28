@@ -2,26 +2,33 @@ body{
 	font-family: 'arial';
 
 	#header{
-		#brand{
-			display: inline-block;
-			margin: 25px 0 15px 0;
-			font-size: 40px;
-			line-height: 40px;
-			text-decoration: none;
-		}
-
 		#google_translate_element{
 			float: right;
-			margin: 25px 0 0 0;
+			clear: both;
+			margin: 10px 0;
+		}
+
+		.navbar{
+			clear: both;
+			margin-bottom: 20px;
+
+			.navbar-inner{
+				padding-right: 0;
+
+				.brand{
+					padding: 15px 0 15px 25px;
+				}
+
+				.nav > li > a{
+					padding: 15px 25px;
+					border-left: 1px solid #e2e2e2;
+				}
+			}
 		}
 
 		#myCarousel{
-			margin-bottom: 0;
-		}
-
-		#navbar li a{
-			padding-left: 25px;
-			padding-right: 35px;
+			margin-top: -20px;
+			margin-bottom: 20px;
 		}
 	}
 
@@ -50,36 +57,40 @@ body{
 	#footer{
 		margin: 60px 0 0 0;
 		padding-bottom: 10px;
-		
-		h4{
-			font-weight: normal;
-			font-size: 15px;
-			border-bottom: 1px solid gray;
-			padding-bottom: 5px;
-			margin-bottom: 10px;
-		}
 
-		ul{
-			list-style-type: none;
-			margin: 0;
+		.footer-nav{
+			margin-bottom: 15px;
 
-			li{
-				font-size: 12px;
-				margin-bottom: 5px;
+			h4{
+				font-weight: normal;
+				font-size: 15px;
+				border-bottom: 1px solid gray;
+				padding-bottom: 5px;
+				margin-bottom: 10px;
+			}
 
-				a{
-					color: #333;
+			ul{
+				list-style-type: none;
+				margin: 0;
+
+				li{
+					font-size: 12px;
+					margin-bottom: 5px;
+
+					a{
+						color: #333;
+					}
 				}
 			}
-		}
 
-		ul.img-list{
-			li{
-				display: inline-block;
-				margin-right: 5px;
-			}
+			ul.img-list{
+				li{
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}			
 		}
-
+		
 		.cp{
 			text-align: center;
 			font-size: 12px;	
