@@ -6,6 +6,8 @@ body{
 			float: right;
 			clear: both;
 			margin: 10px 0;
+			width: 109px;
+			height: 27px;
 		}
 
 		.navbar{
@@ -16,12 +18,59 @@ body{
 				padding-right: 0;
 
 				.brand{
+					color: #0088cc;
 					padding: 15px 0 15px 25px;
 				}
 
 				.nav > li > a{
 					padding: 15px 25px;
 					border-left: 1px solid #e2e2e2;
+				}
+
+				.main-nav > li{
+					position: relative;
+					overflow: visible;
+
+					// sub navbar
+					ul{
+						visibility: hidden;
+						position: absolute;
+						left: 0;
+						top: 50px;
+						z-index: 1000;
+						list-style-type: none;
+						margin: 0;
+						background-color: #fcfcfc;
+						// padding-bottom: 10px;
+						border: 1px solid #ccc;
+						border-bottom: 0;
+
+						li{
+							a{
+								width: 200px;
+								display: block;
+								padding: 10px 15px 10px 15px;
+								color: #333;
+								text-decoration: none;
+								border-bottom: 1px solid #ccc;
+
+								&:last-child{
+									// border-bottom: 0;
+								}
+
+								&:hover{
+									background-color: black;
+									color: white;
+								}
+							}
+						}
+					}
+
+					&:hover ul{
+						visibility: visible;
+					}
+
+
 				}
 			}
 		}
@@ -99,7 +148,7 @@ body{
 	}
 
 	// hide the unknown div of 20 px height
-	#footer + div{
+	#goog-gt-tt + div{
 		display: none;
 	}
 }

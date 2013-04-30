@@ -47,11 +47,29 @@
 					</ul>
 					{% endif %}
 
-					<ul class="nav pull-right">
+					<ul class="nav main-nav pull-right">
 						<li><a href="{{ url_for('home') }}">Home</a></li>
-						
-						<li><a href="{{ url_for('products') }}">Products</a></li>
-						<li><a href="{{ url_for('about') }}">About</a></li>
+						<li>
+							<a href="{{ url_for('products') }}">Products</a>
+							<!-- sub menu -->
+							<ul>
+								<li><a href="">Data Center Cabling</a></li>
+								<li><a href="">Passive Products</a></li>
+								<li><a href="">Copper Series</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="{{ url_for('about') }}">About Us</a>
+							<!-- sub menu -->
+							<ul>
+								<li><a href="">Company Introduction</a></li>
+								<li><a href="">Fiber Factory</a></li>
+								<li><a href="">Exhibitions Information</a></li>
+								<li><a href="">Partner Relationship</a></li>
+							</ul>
+
+						</li>
 						<li><a href="{{ url_for('service') }}">Service</a></li>
 						<li><a href="{{ url_for('contact') }}">Contact</a></li>
 					</ul>
