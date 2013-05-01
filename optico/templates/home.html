@@ -4,17 +4,18 @@
 {% block page_id%}page-home{% endblock %}
 
 {% block carousel %}
-<div id="myCarousel" class="carousel slide">
-	<div class="carousel-inner">
+<div id="banner"> 
+	<ul id="banner_selector">
 		{% for c in carousels %}
-		<div class="
-		{% if loop.first %}active{% endif %}
-		item"><a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a></div>
+		<li {% if loop.first %}class="on"{% endif %}>{{ loop.index }}</li>
+		{% endfor %}
+	</ul>
+
+	<div id="banner_list">
+		{% for c in carousels %}
+		<a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a>
 		{% endfor %}
 	</div>
-	
-	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>
 {% endblock %}
 
@@ -22,12 +23,40 @@
 
 <script type="text/javascript">
 
+var t, total_num, curr_num = 0;
+
+function showAuto() {
+	curr_num = (curr_num >= (count-1))? 0: ++curr_num;
+	$("#banner li").eq(n).trigger('click');
+}
+
 $(document).ready(function(){
-	$('#myCarousel').css({
-		display: 'block'
+	// init
+	total_num = $("#banner_list a").length;
+	$("#banner_list a:not(:first-child)").hide();
+
+	// click to switch
+	$("#banner_selector li").each(function(index){
+		curr_num = index;
+
+		if (curr_num >= total_num)
+			return;
+
+		$(this).click(function(){
+			$("#banner_list a").filter(":visible").fadeOut(300)
+				.parent().children().eq(curr_num).fadeIn(400);
+			$(this).addClass("on");
+			$(this).siblings().removeClass("on");			
+		});
 	});
 
-	$('.carousel').carousel();
+	// auto switch
+	t = setInterval("showAuto()", 4000);
+	$("#banner").hover(function() {
+		clearInterval(t);
+	}, function() {
+		t = setInterval("showAuto()", 4000);
+	});
 });
 
 </script>
