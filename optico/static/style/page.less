@@ -2,68 +2,74 @@ body{
 	font-family: 'arial';
 
 	#header{
+		background-color: #105cad;
+		padding: 15px 0 0 0;
+		margin-bottom: 30px;
+
 		#google_translate_element{
 			float: right;
 			clear: both;
-			margin: 10px 0;
+			margin-bottom: 15px;
 			width: 109px;
 			height: 27px;
 		}
 
-		.navbar{
+		.navbar-inner{
 			clear: both;
-			margin-bottom: 20px;
+			margin-bottom: 25px;
+			padding: 0;
+			z-index: 100;
 
-			.navbar-inner{
-				padding-right: 0;
+			.container{
+				border-right: 1px solid #e2e2e2;
+			}
 
-				.brand{
-					color: #0088cc;
-					padding: 15px 0 15px 25px;
-				}
+			.brand{
+				color: #0088cc;
+				padding: 15px 0 15px 25px;
+			}
 
-				.nav > li > a{
-					padding: 15px 25px;
-					border-left: 1px solid #e2e2e2;
-				}
+			.nav > li > a{
+				padding: 15px 25px;
+				border-left: 1px solid #e2e2e2;
+			}
 
-				.main-nav > li{
-					position: relative;
-					overflow: visible;
+			.main-nav > li{
+				position: relative;
+				overflow: visible;
 
-					// sub navbar
-					ul{
-						visibility: hidden;
-						position: absolute;
-						left: 0;
-						top: 50px;
-						z-index: 1000;
-						list-style-type: none;
-						margin: 0;
-						background-color: #fafafa;
-						border: 1px solid #ccc;
-						border-bottom: 0;
+				// sub navbar
+				ul{
+					visibility: hidden;
+					position: absolute;
+					left: 0;
+					top: 50px;
+					z-index: 1000;
+					list-style-type: none;
+					margin: 0;
+					background-color: #fafafa;
+					border: 1px solid #ccc;
+					border-bottom: 0;
 
-						li{
-							a{
-								width: 220px;
-								display: block;
-								padding: 10px 15px 10px 15px;
-								color: #333;
-								text-decoration: none;
-								border-bottom: 1px solid #ccc;
+					li{
+						a{
+							width: 220px;
+							display: block;
+							padding: 10px 15px 10px 15px;
+							color: #333;
+							text-decoration: none;
+							border-bottom: 1px solid #ccc;
 
-								&:hover{
-									background-color: black;
-									color: white;
-								}
+							&:hover{
+								background-color: black;
+								color: white;
 							}
 						}
 					}
+				}
 
-					&:hover ul{
-						visibility: visible;
-					}
+				&:hover ul{
+					visibility: visible;
 				}
 			}
 		}
@@ -92,8 +98,11 @@ body{
 	}
 
 	#footer{
+		background-color: #105cad;
 		margin: 60px 0 0 0;
-		padding-bottom: 10px;
+		padding: 10px 0;
+		// padding-bottom: 10px;
+		color: white;
 
 		.footer-nav{
 			margin-bottom: 15px;
@@ -101,7 +110,7 @@ body{
 			h4{
 				font-weight: normal;
 				font-size: 15px;
-				border-bottom: 1px solid gray;
+				border-bottom: 1px dotted white;
 				padding-bottom: 5px;
 				margin-bottom: 10px;
 			}
@@ -115,7 +124,7 @@ body{
 					margin-bottom: 5px;
 
 					a{
-						color: #333;
+						color: white;
 					}
 				}
 			}

@@ -1,7 +1,4 @@
 
-#banner{position:relative;overflow:hidden;box-sizing:border-box;width:100%;height:308px;margin-top:-20px;margin-bottom:20px;}#banner ul{position:absolute;border:1px solid white;list-style-type:none;z-index:1002;margin:0;padding:0;bottom:10px;right:10px;}#banner ul li{padding:0px 15px;border-left:1px solid #333;float:left;display:block;background:white;cursor:pointer;}#banner ul li:first-child{border-left:0;}
-#banner ul li.on{background:black;color:white;}
-#banner a{position:absolute;}
 .p-item{margin-bottom:30px;padding-bottom:30px;border-bottom:1px dashed #ccc;}.p-item .p-img{border:1px solid #999;width:200px;float:left;}
 .p-item .p-info-wap{margin-left:220px;}.p-item .p-info-wap .p-name{font-weight:bold;font-size:18px;line-height:18px;margin-bottom:10px;}
 .p-item .p-info-wap .p-desc{font-size:12px;line-height:20px;margin-bottom:10px;}

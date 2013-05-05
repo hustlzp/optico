@@ -6,139 +6,108 @@
 		<title>{% block page_title %}OPTICO{% endblock %}</title>
 		<link rel="Shortcut Icon" href="{{ url_for('static', filename='img/site.ico') }}">
 		<!-- js -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
 		<!-- css -->
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.css') }}">
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
 	</head>
 
 	<body id="{% block page_id %}{% endblock %}">
-		<div id="header" class="container">
-			<!-- google translation -->
-			<div id="google_translate_element"></div>
-			<script type="text/javascript">
-			function googleTranslateElementInit() {
-				new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-			}
-			</script>
-			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<div id="header">
+
+			<div class="container">
+				<!-- google translation -->
+				<div id="google_translate_element"></div>
+				<script type="text/javascript">
+				function googleTranslateElementInit() {
+					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+				}
+				</script>
+				<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			</div>
 
 			<!-- nav -->
 			<div class="navbar">
 				<div class="navbar-inner">
-					<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
+					<div class="container">
+						<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
 
-					{% if session.user_id == admin_id %}
-					<ul class="nav pull-right">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								管理 <span class="caret"></span>
-							</a>
+						{% if session.user_id == admin_id %}
+						<ul class="nav pull-right">
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									管理 <span class="caret"></span>
+								</a>
 
-							<ul class="dropdown-menu">
-								<li><a href="{{ url_for('add_product') }}">添加产品</a></li>
-								<li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
-								<li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
-								<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-								<li><a href="{{ url_for('logout') }}">登出</a></li>
-							</ul>
-						</li>
-					</ul>
-					{% endif %}
+								<ul class="dropdown-menu">
+									<li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+									<li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+									<li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+									<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+									<li><a href="{{ url_for('logout') }}">登出</a></li>
+								</ul>
+							</li>
+						</ul>
+						{% endif %}
 
-					<ul class="nav main-nav pull-right">
-						<li><a href="{{ url_for('home') }}">Home</a></li>
+						<ul class="nav main-nav pull-right">
+							<li><a href="{{ url_for('home') }}">Home</a></li>
 
-						<li>
-							<a href="{{ url_for('products') }}">Products</a>
-							<!-- sub menu -->
-							<ul>
-								{% for t in public_mtypes %}
-								<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
-								{% endfor %}
-							</ul>
-						</li>
+							<li>
+								<a href="{{ url_for('products') }}">Products</a>
+								<!-- sub menu -->
+								<ul>
+									{% for t in public_mtypes %}
+									<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+									{% endfor %}
+								</ul>
+							</li>
 
-						<li>
-							<a href="{{ url_for('about') }}">About Us</a>
-							<!-- sub menu -->
-							<ul>
-								<li><a href="{{ url_for('about') }}#bi">Brief Introduction</a></li>
-								<li><a href="{{ url_for('about') }}#icr">Industries and Countries Related</a></li>
-								<li><a href="{{ url_for('about') }}#pc">Production and Certification</a></li>
-								<li><a href="{{ url_for('about') }}#pf">Promise and Future</a></li>
-							</ul>
-						</li>
+							<li>
+								<a href="{{ url_for('about') }}">About Us</a>
+								<!-- sub menu -->
+								<ul>
+									<li><a href="{{ url_for('about') }}#bi">Brief Introduction</a></li>
+									<li><a href="{{ url_for('about') }}#icr">Industries and Countries Related</a></li>
+									<li><a href="{{ url_for('about') }}#pc">Production and Certification</a></li>
+									<li><a href="{{ url_for('about') }}#pf">Promise and Future</a></li>
+								</ul>
+							</li>
 
-						<li>
-							<a href="{{ url_for('service') }}">Service</a>
-							<!-- sub menu -->
-							<ul>
-								<li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
-								<li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
-							</ul>
-						</li>
+							<li>
+								<a href="{{ url_for('service') }}">Service</a>
+								<!-- sub menu -->
+								<ul>
+									<li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
+									<li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
+								</ul>
+							</li>
 
-						<li><a href="{{ url_for('contact') }}">Contact</a></li>
-					</ul>
+							<li><a href="{{ url_for('contact') }}">Contact</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 
 			<!-- Carousels -->
 			{% block carousel %}
-			<div id="banner"> 
-				<ul id="banner_selector">
+			<div id="banner" class="container"> 
+				<ul class="bxslider">
 					{% for c in public_carousels %}
-					<li {% if loop.first %}class="on"{% endif %}>{{ loop.index }}</li>
+					<li><img src="{{ c.ImageUrl }}" /></li>
 					{% endfor %}
 				</ul>
 
-				<div id="banner_list">
-					{% for c in public_carousels %}
-					<a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a>
-					{% endfor %}
-				</div>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider();				
+				});
+				</script>
 			</div>
-
-			<script type="text/javascript">
-			var t = 0, total_num, curr_num = 0;
-
-			function showAuto() {
-				curr_num = (curr_num >= (total_num-1))? 0: ++curr_num;
-				$("#banner_selector li").eq(curr_num).trigger('click');
-			}
-
-			$(document).ready(function(){
-				// init
-				total_num = $("#banner_list a").length;
-				$("#banner_list a:not(:first-child)").hide();
-
-				// click to switch
-				$("#banner_selector li").each(function(index){
-					$(this).click(function(){
-						curr_num = index;
-
-						if (curr_num >= total_num)
-							return;
-
-						$("#banner_list a").filter(":visible").fadeOut(500)
-							.parent().children().eq(curr_num).fadeIn(1500);
-						$(this).addClass("on");
-						$(this).siblings().removeClass("on");	
-					});
-				});
-
-				// auto switch
-				t = setInterval("showAuto()", 4000);
-				$("#banner").hover(function() {
-					clearInterval(t);
-				}, function() {
-					t = setInterval("showAuto()", 4000);
-				});
-			});
-			</script>
 			{% endblock %}
 		</div>
 
