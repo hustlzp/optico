@@ -49,6 +49,7 @@
 
 					<ul class="nav main-nav pull-right">
 						<li><a href="{{ url_for('home') }}">Home</a></li>
+
 						<li>
 							<a href="{{ url_for('products') }}">Products</a>
 							<!-- sub menu -->
@@ -63,14 +64,22 @@
 							<a href="{{ url_for('about') }}">About Us</a>
 							<!-- sub menu -->
 							<ul>
-								<li><a href="">Company Introduction</a></li>
-								<li><a href="">Fiber Factory</a></li>
-								<li><a href="">Exhibitions Information</a></li>
-								<li><a href="">Partner Relationship</a></li>
+								<li><a href="{{ url_for('about') }}#bi">Brief Introduction</a></li>
+								<li><a href="{{ url_for('about') }}#icr">Industries and Countries Related</a></li>
+								<li><a href="{{ url_for('about') }}#pc">Production and Certification</a></li>
+								<li><a href="{{ url_for('about') }}#pf">Promise and Future</a></li>
 							</ul>
-
 						</li>
-						<li><a href="{{ url_for('service') }}">Service</a></li>
+						
+						<li>
+							<a href="{{ url_for('service') }}">Service</a>
+							<!-- sub menu -->
+							<ul>
+								<li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
+								<li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
+							</ul>
+						</li>
+
 						<li><a href="{{ url_for('contact') }}">Contact</a></li>
 					</ul>
 				</div>
@@ -89,10 +98,10 @@
 					<div class="span3">
 						<h4>About Us</h4>
 						<ul>
-							<li><a href="">Company Introduction</a></li>
-							<li><a href="">Fiber Factory</a></li>
-							<li><a href="">Exhibitions Information</a></li>
-							<li><a href="">Partner Relationship</a></li>
+							<li><a href="{{ url_for('about') }}#bi">Brief Introduction</a></li>
+							<li><a href="{{ url_for('about') }}#icr">Industries and Countries Related</a></li>
+							<li><a href="{{ url_for('about') }}#pc">Production and Certification</a></li>
+							<li><a href="{{ url_for('about') }}#pf">Promise and Future</a></li>
 						</ul>
 					</div>
 					<div class="span3">
