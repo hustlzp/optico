@@ -15,8 +15,7 @@ def home():
 	mtypes = convert_dict(Type.get_mtypes())
 	for mt in mtypes:
 		mt['stypes'] = convert_dict(Type.get_stypes(mt['MainTypeID']))
-	carousels = Carousel.get_all()
-	return render_template('home.html', mtypes=mtypes, carousels=carousels)
+	return render_template('home.html', mtypes=mtypes)
 
 # page service
 #--------------------------------------------------

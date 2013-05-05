@@ -35,4 +35,5 @@ from optico.models.type_model import Type
 def inject_vars():
 	return dict(
 		admin_id = config.ADMIN_ID,
-		public_mtypes = Type.get_mtypes())
+		public_mtypes = Type.get_mtypes(),
+		public_carousels=Carousel.get_all())

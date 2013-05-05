@@ -3,63 +3,7 @@
 {% block page_title %}Home{% endblock %}
 {% block page_id%}page-home{% endblock %}
 
-{% block carousel %}
-<div id="banner"> 
-	<ul id="banner_selector">
-		{% for c in carousels %}
-		<li {% if loop.first %}class="on"{% endif %}>{{ loop.index }}</li>
-		{% endfor %}
-	</ul>
-
-	<div id="banner_list">
-		{% for c in carousels %}
-		<a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a>
-		{% endfor %}
-	</div>
-</div>
-{% endblock %}
-
 {% block body %}
-
-<script type="text/javascript">
-
-var t = 0, total_num, curr_num = 0;
-
-function showAuto() {
-	curr_num = (curr_num >= (total_num-1))? 0: ++curr_num;
-	$("#banner_selector li").eq(curr_num).trigger('click');
-}
-
-$(document).ready(function(){
-	// init
-	total_num = $("#banner_list a").length;
-	$("#banner_list a:not(:first-child)").hide();
-
-	// click to switch
-	$("#banner_selector li").each(function(index){
-		$(this).click(function(){
-			curr_num = index;
-
-			if (curr_num >= total_num)
-				return;
-
-			$("#banner_list a").filter(":visible").fadeOut(500)
-				.parent().children().eq(curr_num).fadeIn(1500);
-			$(this).addClass("on");
-			$(this).siblings().removeClass("on");	
-		});
-	});
-
-	// auto switch
-	t = setInterval("showAuto()", 4000);
-	$("#banner").hover(function() {
-		clearInterval(t);
-	}, function() {
-		t = setInterval("showAuto()", 4000);
-	});
-});
-
-</script>
 
 <div class="row">
 	{% for mt in mtypes %}
