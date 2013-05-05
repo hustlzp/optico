@@ -25,6 +25,7 @@
 			</script>
 			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+			<!-- nav -->
 			<div class="navbar">
 				<div class="navbar-inner">
 					<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
@@ -54,9 +55,9 @@
 							<a href="{{ url_for('products') }}">Products</a>
 							<!-- sub menu -->
 							<ul>
-								<li><a href="">Data Center Cabling</a></li>
-								<li><a href="">Passive Products</a></li>
-								<li><a href="">Copper Series</a></li>
+								{% for t in public_mtypes %}
+								<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+								{% endfor %}
 							</ul>
 						</li>
 
@@ -70,7 +71,7 @@
 								<li><a href="{{ url_for('about') }}#pf">Promise and Future</a></li>
 							</ul>
 						</li>
-						
+
 						<li>
 							<a href="{{ url_for('service') }}">Service</a>
 							<!-- sub menu -->
@@ -107,9 +108,9 @@
 					<div class="span3">
 						<h4>Products</h4>
 						<ul>
-							<li><a href="">Data Center Cabling</a></li>
-							<li><a href="">Passive Products</a></li>
-							<li><a href="">Copper Series</a></li>
+							{% for t in public_mtypes %}
+							<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+							{% endfor %}
 						</ul>
 					</div>
 					<div class="span3">

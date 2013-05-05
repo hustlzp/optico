@@ -1,11 +1,9 @@
 #-*- coding: UTF-8 -*-
 
 import sys
-from flask import Flask, g
-
-# config
 sys.path.append('/var/www/flaskconfig/optico/')
 import config
+from flask import Flask, g
 
 # convert python's encoding to utf8
 reload(sys)
@@ -18,11 +16,6 @@ app.config.update(
 	SESSION_COOKIE_NAME=config.SESSION_COOKIE_NAME,
 	PERMANENT_SESSION_LIFETIME=config.PERMANENT_SESSION_LIFETIME)
 
-# inject vars into template context
-@app.context_processor
-def inject_vars():
-	return dict(admin_id = config.ADMIN_ID)
-
 # send log msg using smtp
 if not app.debug:
 	import logging
@@ -32,5 +25,14 @@ if not app.debug:
 	mail_handler.setLevel(logging.ERROR)
 	app.logger.addHandler(mail_handler)
 
-import db
 import controllers
+import db
+from optico.models.carousel_model import Carousel
+from optico.models.type_model import Type
+
+# inject vars into template context
+@app.context_processor
+def inject_vars():
+	return dict(
+		admin_id = config.ADMIN_ID,
+		public_mtypes = Type.get_mtypes())

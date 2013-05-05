@@ -23,11 +23,11 @@
 
 <script type="text/javascript">
 
-var t, total_num, curr_num = 0;
+var t = 0, total_num, curr_num = 0;
 
 function showAuto() {
-	curr_num = (curr_num >= (count-1))? 0: ++curr_num;
-	$("#banner li").eq(n).trigger('click');
+	curr_num = (curr_num >= (total_num-1))? 0: ++curr_num;
+	$("#banner_selector li").eq(curr_num).trigger('click');
 }
 
 $(document).ready(function(){
@@ -37,16 +37,16 @@ $(document).ready(function(){
 
 	// click to switch
 	$("#banner_selector li").each(function(index){
-		curr_num = index;
-
-		if (curr_num >= total_num)
-			return;
-
 		$(this).click(function(){
-			$("#banner_list a").filter(":visible").fadeOut(300)
-				.parent().children().eq(curr_num).fadeIn(400);
+			curr_num = index;
+
+			if (curr_num >= total_num)
+				return;
+
+			$("#banner_list a").filter(":visible").fadeOut(500)
+				.parent().children().eq(curr_num).fadeIn(1500);
 			$(this).addClass("on");
-			$(this).siblings().removeClass("on");			
+			$(this).siblings().removeClass("on");	
 		});
 	});
 
