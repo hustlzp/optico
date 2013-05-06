@@ -1,11 +1,29 @@
 {% extends "layout.html" %}
 
 {% block page_title %}Home{% endblock %}
-{% block page_id%}page-home{% endblock %}
+{% block page_id %}page-home{% endblock %}
+
+{% block carousel %}
+<script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
+<div class="container"> 
+	<ul class="bxslider">
+		{% for c in public_carousels %}
+		<li><img src="{{ c.ImageUrl }}" /></li>
+		{% endfor %}
+	</ul>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.bxslider').bxSlider();				
+	});
+	</script>
+</div>
+{% endblock %}
 
 {% block body %}
 
-<div class="row">
+<div class="row types">
 	{% for mt in mtypes %}
 	<div class="mtype-item span3">
 		<a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}"><img class="mt-image" src="{{ mt.ImageUrl }}" /></a>
@@ -19,6 +37,14 @@
 		</ul>
 	</div>
 	{% endfor %}		
+</div>
+
+<div class="certificate">
+	<img src="{{ url_for('static', filename='img/CE.png') }}">
+	<img src="{{ url_for('static', filename='img/RoHS.png') }}">
+	<img src="{{ url_for('static', filename='img/TLC.png') }}">
+	<img src="{{ url_for('static', filename='img/UL.png') }}">
+	<img src="{{ url_for('static', filename='img/VIP.png') }}">
 </div>
 
 {% endblock %}

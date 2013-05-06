@@ -2,6 +2,7 @@
 .p-item{margin-bottom:30px;padding-bottom:30px;border-bottom:1px dashed #ccc;}.p-item .p-img{border:1px solid #999;width:200px;float:left;}
 .p-item .p-info-wap{margin-left:220px;}.p-item .p-info-wap .p-name{font-weight:bold;font-size:18px;line-height:18px;margin-bottom:10px;}
 .p-item .p-info-wap .p-desc{font-size:12px;line-height:20px;margin-bottom:10px;}
+.ps-header{font-size:15px;font-weight:bold;}
 .ps-lv1-list{margin-left:0px;}.ps-lv1-list ul{margin-left:0px;}
 .ps-lv1-list li{list-style:none;font-size:13px;margin:10px 0;}.ps-lv1-list li a{display:inline-block;color:#333;}
 .ps-lv1-list .li-header{display:inline-block;background-repeat:no-repeat;padding-right:8px;cursor:pointer;}

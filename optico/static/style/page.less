@@ -7,6 +7,13 @@ body{
 		padding: 15px 0 0 0;
 		margin-bottom: 30px;
 
+		#logo{
+			img{
+				height: 70px;
+				margin-bottom: 15px;
+			}
+		}
+		
 		#google_translate_element{
 			float: right;
 			clear: both;
@@ -19,65 +26,56 @@ body{
 			clear: both;
 			margin-bottom: 25px;
 			padding: 0;
-			z-index: 100;
 
 			.container{
 				border-right: 1px solid #e2e2e2;
-			}
 
-			.brand{
-				color: #0088cc;
-				padding: 20px 0 20px 0px;
-				margin: 0;
-			}
+				.nav > li > a{
+					padding: 25px 25px;
+					border-left: 1px solid #e2e2e2;
 
-			.logo{
-				img{
-					height: 70px;
-				}
-			}
-
-			.nav > li > a{
-				padding: 25px 25px;
-				border-left: 1px solid #e2e2e2;
-			}
-
-			.main-nav > li{
-				position: relative;
-				overflow: visible;
-
-				// sub navbar
-				ul{
-					visibility: hidden;
-					position: absolute;
-					left: 0;
-					top: 70px;
-					z-index: 1000;
-					list-style-type: none;
-					margin: 0;
-					background-color: #fafafa;
-					border: 1px solid #ccc;
-					border-bottom: 0;
-
-					li{
-						a{
-							width: 220px;
-							display: block;
-							padding: 10px 15px 10px 15px;
-							color: #333;
-							text-decoration: none;
-							border-bottom: 1px solid #ccc;
-
-							&:hover{
-								background-color: black;
-								color: white;
-							}
-						}
+					&:hover{
+						background: transparent url('../img/menu_hover.png') repeat-x top center;
 					}
 				}
 
-				&:hover ul{
-					visibility: visible;
+				.main-nav > li{
+					position: relative;
+					overflow: visible;
+
+					// sub navbar
+					ul{
+						visibility: hidden;
+						position: absolute;
+						left: 0;
+						top: 70px;
+						z-index: 1000;
+						list-style-type: none;
+						margin: 0;
+						background-color: #fafafa;
+						border: 1px solid #ccc;
+						border-bottom: 0;
+
+						li{
+							a{
+								width: 220px;
+								display: block;
+								padding: 10px 15px 10px 15px;
+								color: #333;
+								text-decoration: none;
+								border-bottom: 1px solid #ccc;
+
+								&:hover{
+									background-color: black;
+									color: white;
+								}
+							}
+						}
+					}
+
+					&:hover ul{
+						visibility: visible;
+					}
 				}
 			}
 		}
@@ -108,7 +106,7 @@ body{
 	#footer{
 		background-color: #105cad;
 		background-image: url('../img/header_bg.png'), url('../img/jeans.png');
-		margin: 60px 0 0 0;
+		margin: 30px 0 0 0;
 		padding: 10px 0;
 		color: white;
 
@@ -169,32 +167,44 @@ body{
 // page home
 //-----------------------------------------------------
 #page-home{
-	.mtype-item{
+	.types{
+		margin-bottom: 40px;
 
-		.mt-image{
-			margin-bottom: 10px;
-		}
-
-		.mt-name{
-			font-weight: bold;
-
-			a{
-				color: #333;
+		.mtype-item{
+			.mt-image{
+				margin-bottom: 10px;
 			}
-		}
 
-		.stypes-list{
-			list-style-type: none;
-			margin: 0;
+			.mt-name{
+				font-weight: bold;
 
-			li{
 				a{
 					color: #333;
-					font-size: 12px;
+				}
+			}
+
+			.stypes-list{
+				list-style-type: none;
+				margin: 0;
+
+				li{
+					a{
+						color: #333;
+						font-size: 12px;
+					}
 				}
 			}
 		}
 	}
+
+	.certificate{
+		img{
+			width: 60px;
+			float: left;
+			margin-right: 30px;
+		}
+	}
+
 }
 
 // page product
@@ -202,12 +212,13 @@ body{
 #page-product{
 	.p-img{
 		margin-bottom: 25px;
-		width: 300px;
+		width: 350px;
+		height: 250px;
 		float: left;
 	}
 
 	.p-desc{
-		margin-left: 330px;
+		margin-left: 370px;
 	}
 
 	.tabbable{
@@ -254,7 +265,6 @@ body{
 // page edit product
 //-----------------------------------------------------
 #page-edit-product{
-
 	.p-img{
 		margin-top: 20px;
 		border: 1px solid #999;

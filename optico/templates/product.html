@@ -24,8 +24,7 @@ $(document).ready(function(){
 
 <div class="row">
 	<div class="span3">
-		<b>Products</b>
-		
+		<!-- products treelist -->
 		{% from 'products_sidebar.widget' import show_ps %}
 		{{ show_ps(ps)|safe }}
 
@@ -49,7 +48,9 @@ $(document).ready(function(){
 		</ul>
 		
 		<h1>{{ p.Name }}</h1>
+		
 		<img class="p-img" src="{{ p.ImageUrl }}" />
+
 		<div class="p-desc">{{ p.Description|safe }}</div>
 
 		<div class="tabbable">
