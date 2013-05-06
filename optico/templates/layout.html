@@ -34,7 +34,8 @@
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="brand" href="{{ url_for('home') }}">OPTICO</a>
+						<a class="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.jpg') }}"></a>
+						<!-- <a class="brand" href="{{ url_for('home') }}">OPTICO</a> -->
 
 						{% if session.user_id == admin_id %}
 						<ul class="nav pull-right">
@@ -95,7 +96,7 @@
 
 			<!-- Carousels -->
 			{% block carousel %}
-			<div id="banner" class="container"> 
+			<div class="container"> 
 				<ul class="bxslider">
 					{% for c in public_carousels %}
 					<li><img src="{{ c.ImageUrl }}" /></li>

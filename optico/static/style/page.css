@@ -1,12 +1,13 @@
-body{font-family:'arial';}body #header{background-color:#105cad;padding:15px 0 0 0;margin-bottom:30px;}body #header #google_translate_element{float:right;clear:both;margin-bottom:15px;width:109px;height:27px;}
+body{font-family:'arial';}body #header{background-color:#105cad;background-image:url('../img/jeans.png');background-repeat:repeat;padding:15px 0 0 0;margin-bottom:30px;}body #header #google_translate_element{float:right;clear:both;margin-bottom:15px;width:109px;height:27px;}
 body #header .navbar-inner{clear:both;margin-bottom:25px;padding:0;z-index:100;}body #header .navbar-inner .container{border-right:1px solid #e2e2e2;}
-body #header .navbar-inner .brand{color:#0088cc;padding:15px 0 15px 25px;}
-body #header .navbar-inner .nav>li>a{padding:15px 25px;border-left:1px solid #e2e2e2;}
-body #header .navbar-inner .main-nav>li{position:relative;overflow:visible;}body #header .navbar-inner .main-nav>li ul{visibility:hidden;position:absolute;left:0;top:50px;z-index:1000;list-style-type:none;margin:0;background-color:#fafafa;border:1px solid #ccc;border-bottom:0;}body #header .navbar-inner .main-nav>li ul li a{width:220px;display:block;padding:10px 15px 10px 15px;color:#333;text-decoration:none;border-bottom:1px solid #ccc;}body #header .navbar-inner .main-nav>li ul li a:hover{background-color:black;color:white;}
+body #header .navbar-inner .brand{color:#0088cc;padding:20px 0 20px 0px;margin:0;}
+body #header .navbar-inner .logo img{height:60px;}
+body #header .navbar-inner .nav>li>a{padding:20px 25px;border-left:1px solid #e2e2e2;}
+body #header .navbar-inner .main-nav>li{position:relative;overflow:visible;}body #header .navbar-inner .main-nav>li ul{visibility:hidden;position:absolute;left:0;top:60px;z-index:1000;list-style-type:none;margin:0;background-color:#fafafa;border:1px solid #ccc;border-bottom:0;}body #header .navbar-inner .main-nav>li ul li a{width:220px;display:block;padding:10px 15px 10px 15px;color:#333;text-decoration:none;border-bottom:1px solid #ccc;}body #header .navbar-inner .main-nav>li ul li a:hover{background-color:black;color:white;}
 body #header .navbar-inner .main-nav>li:hover ul{visibility:visible;}
 body #main-wap{font-size:14px;line-height:24px;}body #main-wap h1{font-size:35px;line-height:35px;margin-top:5px;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid #999;font-weight:normal;}
 body #main-wap input[type='file']{display:block;}
-body #footer{background-color:#105cad;margin:60px 0 0 0;padding:10px 0;color:white;}body #footer .footer-nav{margin-bottom:15px;}body #footer .footer-nav h4{font-weight:normal;font-size:15px;border-bottom:1px dotted white;padding-bottom:5px;margin-bottom:10px;}
+body #footer{background-color:#105cad;background-image:url('../img/jeans.png');background-repeat:repeat;margin:60px 0 0 0;padding:10px 0;color:#fafafa;}body #footer .footer-nav{margin-bottom:15px;}body #footer .footer-nav h4{font-weight:normal;font-size:15px;border-bottom:1px dotted white;padding-bottom:5px;margin-bottom:10px;}
 body #footer .footer-nav ul{list-style-type:none;margin:0;}body #footer .footer-nav ul li{font-size:12px;margin-bottom:5px;}body #footer .footer-nav ul li a{color:white;}
 body #footer .footer-nav ul.img-list li{display:inline-block;margin-right:5px;}
 body #footer .cp{text-align:center;font-size:12px;}
@@ -27,4 +28,6 @@ body #goog-gt-tt+div{display:none;}
 #page-mtype .mtype-name{font-size:35px;line-height:35px;margin-bottom:35px;}
 #page-manage-carousel .c-img{width:400px;}
 #page-about h4{margin:20px 0;}#page-about h4 a{color:#333;text-decoration:none;}
+#page-about p{text-align:justify;}
 #page-service h4{margin:20px 0;}#page-service h4 a{color:#333;text-decoration:none;}
+#page-service p{text-align:justify;}
