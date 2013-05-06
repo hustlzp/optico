@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11"></meta>
 		<title>{% block page_title %}OPTICO{% endblock %}</title>
-		<link rel="Shortcut Icon" href="{{ url_for('static', filename='img/site.ico') }}">
 		<!-- js -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
@@ -111,6 +110,7 @@
 			</div>
 			{% endblock %}
 		</div>
+		<div id="shadow"></div>
 
 		<div id="main-wap" class="container">
 			{% block body %}{% endblock %}
@@ -139,7 +139,7 @@
 					<div class="span3">
 						<h4>Downloads</h4>
 						<ul>
-							<li><a href="">File Downloads</a></li>
+							<li><a href="#">File Downloads</a></li>
 						</ul>						
 					</div>
 					<div class="span3">
