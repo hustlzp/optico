@@ -5,7 +5,7 @@ body #header .navbar-inner .container .main-nav>li{position:relative;overflow:vi
 body #header .navbar-inner .container .main-nav>li:hover ul{visibility:visible;}
 body #main-wap{font-size:14px;line-height:24px;}body #main-wap h1{font-size:35px;line-height:35px;margin-top:5px;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid #999;font-weight:normal;}
 body #main-wap input[type='file']{display:block;}
-body #footer{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin:30px 0 0 0;padding:10px 0;color:white;}body #footer .footer-nav{margin-bottom:15px;}body #footer .footer-nav h4{font-size:14px;border-bottom:1px dotted white;padding-bottom:5px;margin-bottom:10px;}
+body #footer{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin:30px 0 0 0;padding:10px 0;color:white;}body #footer .footer-nav{margin-bottom:15px;}body #footer .footer-nav h4{font-weight:normal;font-size:14px;border-bottom:1px dotted white;padding-bottom:5px;margin-bottom:10px;}
 body #footer .footer-nav ul{list-style-type:none;margin:0;}body #footer .footer-nav ul li{font-size:12px;margin-bottom:5px;}body #footer .footer-nav ul li a{color:white;}
 body #footer .footer-nav ul.img-list li{display:inline-block;margin-right:5px;}
 body #footer .cp{text-align:center;font-size:12px;}
