@@ -1,7 +1,6 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11"></meta>
 		<title>{% block page_title %}OPTICO{% endblock %}</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -23,9 +22,11 @@
 					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
 				// add by hustlzp
-				$(window).load(function(){
+				function changeC2E(){
 					$('.goog-te-menu-value span').first().text('Select Language');
-					$('.goog-te-menu2 .text').first().text('Select Language');
+				};
+				$(document).ready(function(){
+					setInterval("changeC2E()", 100);
 				});
 				</script>
 				<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -131,10 +132,10 @@
 					<div class="span3">
 						<h4>Follow Us</h4>
 						<ul class="img-list">
-							<li><a href=""><img src="{{ url_for('static', filename='twitter.png') }}" /></a></li>
-							<li><a href=""><img src="{{ url_for('static', filename='flickr.png') }}" /></a></li>
-							<li><a href=""><img src="{{ url_for('static', filename='rss.png') }}" /></a></li>
-							<li><a href=""><img src="{{ url_for('static', filename='yahoo.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}" /></a></li>
 						</ul>
 					</div>
 				</div>
