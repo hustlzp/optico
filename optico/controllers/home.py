@@ -65,5 +65,5 @@ def contact():
 		# send email
 		s = smtplib.SMTP(config.SMTP_SERVER, config.SMTP_PORT)
 		s.login(config.SMTP_USER, config.SMTP_PASSWORD)
-		s.sendmail(config.SMTP_USER, 'hustlzp@optico.com.cn', msg.as_string())
+		s.sendmail(config.SMTP_USER, 'sales@optico.com.cn', msg.as_string())
 		return redirect(url_for('home'))
