@@ -22,6 +22,11 @@
 				function googleTranslateElementInit() {
 					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
+				// add by hustlzp
+				$(window).load(function(){
+					$('.goog-te-menu-value span').first().text('Select Language');
+					$('.goog-te-menu2 .text').first().text('Select Language');
+				});
 				</script>
 				<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 			</div>
@@ -126,10 +131,10 @@
 					<div class="span3">
 						<h4>Follow Us</h4>
 						<ul class="img-list">
-							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/twitter.png" /></a></li>
-							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/flickr.png" /></a></li>
-							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/rss.png" /></a></li>
-							<li><a href=""><img src="http://www.siemax.com.cn/wp-content/themes/Accent/images/about_icon/yahoo.png" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='twitter.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='flickr.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='rss.png') }}" /></a></li>
+							<li><a href=""><img src="{{ url_for('static', filename='yahoo.png') }}" /></a></li>
 						</ul>
 					</div>
 				</div>
