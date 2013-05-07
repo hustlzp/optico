@@ -4,20 +4,21 @@ body{
 	#header{
 		background-color: #105cad;
 		background-image: url('../img/header_bg.png'), url('../img/jeans.png');
-		padding: 15px 0 0 0;
 		margin-bottom: 30px;
 
-		#logo{
-			img{
-				height: 70px;
-				margin-bottom: 15px;
-			}
+		#customer-quote{
+			color: white;
+			display: inline-block;
+			font-size: 13px;
+			line-height: 13px;
+			margin-top: 10px;
 		}
-		
+
 		#google_translate_element{
 			float: right;
 			clear: both;
-			margin-bottom: 15px;
+			margin-top: 8px;
+			margin-bottom: 10px;
 			width: 109px;
 			height: 27px;
 		}
@@ -30,8 +31,15 @@ body{
 			.container{
 				border-right: 1px solid #e2e2e2;
 
+				#logo{
+					img{
+						height: 80px;
+						margin-top: 5px;
+					}
+				}
+
 				.nav > li > a{
-					padding: 25px 25px;
+					padding: 25px 25px 40px 25px;
 					border-left: 1px solid #e2e2e2;
 
 					&:hover{
@@ -48,12 +56,13 @@ body{
 						visibility: hidden;
 						position: absolute;
 						left: 0;
-						top: 70px;
+						top: 85px;
 						z-index: 1000;
 						list-style-type: none;
 						margin: 0;
-						background-color: #fafafa;
+						background-color: #fbfbfb;
 						border: 1px solid #ccc;
+						border-top: 0;
 						border-bottom: 0;
 
 						li{
@@ -95,9 +104,6 @@ body{
 			font-weight: normal;
 		}
 
-		h2{
-		}
-
 		input[type='file']{
 			display: block;
 		}
@@ -107,11 +113,11 @@ body{
 		background-color: #105cad;
 		background-image: url('../img/header_bg.png'), url('../img/jeans.png');
 		margin: 30px 0 0 0;
-		padding: 10px 0;
+		padding: 15px 0;
 		color: white;
 
 		.footer-nav{
-			margin-bottom: 15px;
+			margin-bottom: 30px;
 
 			h4{
 				font-weight: normal;
@@ -200,9 +206,9 @@ body{
 
 	.certificate{
 		img{
-			width: 60px;
+			height: 50px;
 			float: left;
-			margin-right: 30px;
+			margin-right: 35px;
 		}
 	}
 

@@ -5,6 +5,46 @@
 
 {% block body %}
 
-<p>Email: sales@optico.com.cn</p>
+<p>Thank you for contacting us, you can send email to <b style="color: #0088cc;">sales@optico.com.cn</b> and expect a response to your question within twenty-four hours. Or you may alternatively fill in our contact form below:</p>
+
+<form id="form-contact" class="form-horizontal" method="post" action="{{ url_for('contact') }}">
+	<fieldset>
+		<legend>Contact Details</legend>
+
+		<div class="control-group">
+			<label class="control-label">Name</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" name="name" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">Your Email</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" name="email" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">Company</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" name="company" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">Comments</label>
+			<div class="controls">
+				<textarea class="input-xxlarge" name="comments" rows='10'></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="Submit" class="btn btn-small btn-primary" />
+			</div>
+		</div>
+	</fieldset>
+</form>
 
 {% endblock %}
