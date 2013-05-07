@@ -124,7 +124,8 @@ def add_stype():
 	elif request.method == 'POST':
 		mtype_id = request.form['mtype_id']
 		name = request.form['name']
-		new_id = Type.add_stype(mtype_id, name)
+		order = request.form['order']
+		new_id = Type.add_stype(mtype_id, name, order)
 		return redirect(url_for('stype', stype_id=new_id))
 
 # page edit sub type
@@ -141,7 +142,8 @@ def edit_stype(stype_id):
 	elif request.method == 'POST':
 		mtype_id = request.form['mtype_id']
 		name = request.form['name']
-		Type.edit_stype(stype_id, mtype_id, name)
+		order = request.form['order']
+		Type.edit_stype(stype_id, mtype_id, name, order)
 		return redirect(url_for('stype', stype_id=stype_id))
 
 # proc delete main type

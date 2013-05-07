@@ -29,7 +29,8 @@ class Type:
 	def get_stypes(mtype_id):
 		return convert_dict(g.conn.execute(
 			select([stype])
-			.where(stype.c.MainTypeID == mtype_id)).fetchall())
+			.where(stype.c.MainTypeID == mtype_id)
+			.order_by(stype.c.ShowOrder.asc())).fetchall())
 
 	# get sub type by id
 	@staticmethod
@@ -50,10 +51,10 @@ class Type:
 
 	# add sub type
 	@staticmethod
-	def add_stype(mtype_id, name):
+	def add_stype(mtype_id, name, order):
 		return g.conn.execute(
 			stype.insert()
-			.values(MainTypeID=mtype_id, Name=name)).inserted_primary_key[0]
+			.values(MainTypeID=mtype_id, Name=name, ShowOrder=order)).inserted_primary_key[0]
 
 # UPDATE
 
@@ -75,11 +76,11 @@ class Type:
 
 	# edit sub type
 	@staticmethod
-	def edit_stype(stype_id, mtype_id, name):
+	def edit_stype(stype_id, mtype_id, name, order):
 		return g.conn.execute(
 			stype.update()
 			.where(stype.c.SubTypeID == stype_id)
-			.values(MainTypeID=mtype_id, Name=name))
+			.values(MainTypeID=mtype_id, Name=name, ShowOrder=order))
 
 # DELETE
 
