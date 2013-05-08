@@ -1,5 +1,4 @@
-body{font-family:'arial';}body ul{margin:0px;}
-body #header{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin-bottom:30px;}body #header .first-row{position:relative;}body #header .first-row #customer-quote{color:white;display:inline-block;font-size:13px;line-height:13px;margin-top:10px;margin-bottom:20px;}
+body{font-family:'arial';}body #header{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin-bottom:30px;}body #header .first-row{position:relative;}body #header .first-row #customer-quote{color:white;display:inline-block;font-size:13px;line-height:13px;margin-top:10px;margin-bottom:20px;}
 body #header .first-row .goog-te-gadget-simple{position:absolute;right:0;top:8px;}
 body #header .navbar-inner{clear:both;margin-bottom:25px;padding:0;}body #header .navbar-inner .container{border-right:1px solid #e2e2e2;}body #header .navbar-inner .container #logo img{height:100px;width:140px;margin-top:0px;}
 body #header .navbar-inner .container .nav>li>a{padding:35px 25px 45px 25px;border-left:1px solid #e2e2e2;}body #header .navbar-inner .container .nav>li>a:hover{background:transparent url('../img/menu_hover.png') repeat-x top center;}
@@ -13,6 +12,9 @@ body #footer .footer-nav ul.img-list li{display:inline-block;margin-right:5px;}
 body #footer .cp{text-align:center;font-size:12px;}
 body #goog-gt-tt+div{display:none;}
 .breadcrumb{padding-top:5px;padding-bottom:5px;margin-bottom:25px;font-size:13px;}
+#page-home .bx-wrapper .bx-viewport{background-color:transparent;}#page-home .bx-wrapper .bx-viewport .bxslider{margin:0;}#page-home .bx-wrapper .bx-viewport .bxslider li .c-text{width:400px;float:left;margin-top:20px;}#page-home .bx-wrapper .bx-viewport .bxslider li .c-text .c-title{margin-bottom:10px;}#page-home .bx-wrapper .bx-viewport .bxslider li .c-text .c-title a{font-size:26px;color:white;}
+#page-home .bx-wrapper .bx-viewport .bxslider li .c-text .c-content{font-size:12px;color:white;}
+#page-home .bx-wrapper .bx-viewport .bxslider li .c-img{width:480px;margin-top:20px;margin-left:440px;box-shadow:0 0 20px black;}
 #page-home .types{margin-bottom:25px;}#page-home .types .mtype-item .mt-image{margin-bottom:12px;width:220px;height:180px;}
 #page-home .types .mtype-item .mt-name{font-weight:bold;margin-bottom:2px;}#page-home .types .mtype-item .mt-name a{color:#333;}
 #page-home .types .mtype-item .stypes-list{list-style-type:none;margin:0;}#page-home .types .mtype-item .stypes-list li a{color:#333;font-size:12px;display:block;}

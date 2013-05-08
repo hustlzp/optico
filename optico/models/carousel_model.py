@@ -26,20 +26,20 @@ class Carousel:
 
 	# add carousel
 	@staticmethod
-	def add(link_url):
+	def add(link_url, title, content):
 		return g.conn.execute(
 			carousel.insert()
-			.values(LinkUrl=link_url)).inserted_primary_key[0]
+			.values(LinkUrl=link_url, Title=title, Content=content)).inserted_primary_key[0]
 
 # UPDATE
 
 	# edit carousel
 	@staticmethod
-	def edit(c_id, image_url, link_url):
+	def edit(c_id, image_url, link_url, title, content):
 		return g.conn.execute(
 			carousel.update()
 			.where(carousel.c.CarouselID==c_id)
-			.values(ImageUrl=image_url, LinkUrl=link_url))
+			.values(ImageUrl=image_url, LinkUrl=link_url, Title=title, Content=content))
 
 	# 
 	@staticmethod

@@ -20,6 +20,8 @@ $(document).ready(function(){
 	<thead>
 		<th>轮播图片</th>
 		<th>链接地址</th>
+		<th>标题</th>
+		<th>内容</th>
 		<th>操作</th>
 	</thead>
 
@@ -28,6 +30,8 @@ $(document).ready(function(){
 		<tr>
 			<td><img class="c-img" src="{{ c.ImageUrl }}" /></td>
 			<td><a href="{{ c.LinkUrl }}" target="_blank">{{ c.LinkUrl }}</a></td>
+			<td>{{ c.Title }}</td>
+			<td>{{ c.Content }}</td>
 			<td>
 				<a class="btn btn-small" href="{{ url_for('edit_carousel', c_id=c.CarouselID) }}"><span class="icon-edit"></span> 编辑</a>
 				<a class="btn btn-small" id="btn-delete-carousel" href="{{ url_for('delete_carousel', c_id=c.CarouselID) }}"><span class="icon-remove"></span> 删除</a>
@@ -52,6 +56,20 @@ $(document).ready(function(){
 			<label class="control-label">链接地址</label>
 			<div class="controls">
 				<input type="text" class="input-xxlarge" name="link" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">标题</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="title" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">内容</label>
+			<div class="controls">
+				<textarea class="input-xxlarge" name="content" rows='5'></textarea>
 			</div>
 		</div>
 

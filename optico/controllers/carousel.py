@@ -20,7 +20,9 @@ def manage_carousel():
 	else:
 		# add carousel
 		link = request.form['link']
-		new_id = Carousel.add(link)
+		title = request.form['title']
+		content = request.form['content']
+		new_id = Carousel.add(link, title, content)
 
 		# save image
 		image = request.files['image']
@@ -55,7 +57,9 @@ def edit_carousel(c_id):
 
 		# Edit carousel
 		link = request.form['link']
-		Carousel.edit(c_id, image_url, link)
+		title = request.form['title']
+		content = request.form['content']
+		Carousel.edit(c_id, image_url, link, title, content)
 
 		return redirect(url_for('manage_carousel'))
 
