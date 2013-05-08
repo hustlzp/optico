@@ -9,7 +9,7 @@
 <div class="container"> 
 	<ul class="bxslider">
 		{% for c in public_carousels %}
-		<li><img src="{{ c.ImageUrl }}" /></li>
+		<li><a href="{{ c.LinkUrl }}"><img src="{{ c.ImageUrl }}" /></a></li>
 		{% endfor %}
 	</ul>
 

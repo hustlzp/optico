@@ -1,4 +1,5 @@
-body{font-family:'arial';}body #header{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin-bottom:30px;}body #header #customer-quote{color:white;display:inline-block;font-size:13px;line-height:13px;margin-top:10px;}
+body{font-family:'arial';}body ul{margin:0px;}
+body #header{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin-bottom:30px;}body #header #customer-quote{color:white;display:inline-block;font-size:13px;line-height:13px;margin-top:10px;}
 body #header #google_translate_element{float:right;clear:both;margin-top:8px;margin-bottom:10px;margin-right:45px;width:109px;height:27px;display:block;}
 body #header .navbar-inner{clear:both;margin-bottom:25px;padding:0;}body #header .navbar-inner .container{border-right:1px solid #e2e2e2;}body #header .navbar-inner .container #logo img{height:100px;width:140px;margin-top:0px;}
 body #header .navbar-inner .container .nav>li>a{padding:35px 25px 45px 25px;border-left:1px solid #e2e2e2;}body #header .navbar-inner .container .nav>li>a:hover{background:transparent url('../img/menu_hover.png') repeat-x top center;}
