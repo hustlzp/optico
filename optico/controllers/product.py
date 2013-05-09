@@ -3,7 +3,7 @@
 import os
 import markdown2
 import textile
-from flask import render_template, request, redirect, url_for, json, session, jsonify
+from flask import render_template, request, redirect, url_for, json, session, jsonify, abort
 from optico import app
 import config
 from optico.models.product_model import Product
@@ -16,7 +16,13 @@ from optico.utils import check_admin, convert_dict, build_pimg_filename
 # view (public)
 @app.route('/product/<int:product_id>')
 def product(product_id):
-	p = dict(Product.get_by_id(product_id))
+	p = Product.get_by_id(product_id)
+	# p = dict(Product.get_by_id(product_id))
+	if p:
+		p = dict(p)
+	else:
+		abort(404)
+
 	p['Details'] = markdown2.markdown(p['Details'])
 	st = Type.get_stype_by_id(p['SubTypeID'])
 	mt = Type.get_mtype_by_id(p['MainTypeID'])
