@@ -28,6 +28,15 @@ def home():
 def service():
 	return render_template('service.html')
 
+# page careers
+#--------------------------------------------------
+
+# view (public)
+@app.route('/careers')
+def careers():
+	return render_template('careers.html')
+
+
 # page about
 #--------------------------------------------------
 

@@ -10,14 +10,16 @@
 	<ul class="bxslider">
 		{% for c in public_carousels %}
 		<li>
-			<div class="c-text">
+			<!-- <div class="c-text">
 				<div class="c-title"><a href="{{ c.LinkUrl }}">{{ c.Title }}</a></div>
 				<div class="c-content">{{ c.Content }}</div>
 			</div>
 
 			<a href="{{ c.LinkUrl }}">
 				<img class="c-img" src="{{ c.ImageUrl }}" />
-			</a>
+			</a> -->
+			<!--<a href="{{ c.LinkUrl }}"> -->
+			<img class="c-img" src="{{ c.ImageUrl }}" />
 		</li>
 		{% endfor %}
 	</ul>
@@ -25,9 +27,9 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$('.bxslider').bxSlider({
-			controls: false,
-			auto: true,
-			mode: 'fade'
+			// controls: false,
+			// mode: 'fade',
+			auto: true
 		});				
 	});
 	</script>
