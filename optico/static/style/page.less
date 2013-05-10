@@ -34,29 +34,26 @@ body{
 			font-weight: bold;
 			color: #666;
 			background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+			-webkit-background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
 			border-bottom: 1px solid #aaa;
 			cursor: default;
 		}
-		.os-msn{
-			a{
-				padding: 5px 10px;
-				background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
-				border-bottom: 1px solid #aaa;
-
-				&:hover{
-					background-image: linear-gradient(to bottom, #ffffff, #e2e2e2);
-				}
-			}
-		}
+		.os-msn,
 		.os-skype{
 			a{
 				padding: 5px 10px;
 				background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+				-webkit-background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+				
 
 				&:hover{
 					background-image: linear-gradient(to bottom, #ffffff, #e2e2e2);
-				}				
+					-webkit-background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+				}
 			}
+		}
+		.os-msn a{
+			border-bottom: 1px solid #aaa;
 		}
 	}
 
