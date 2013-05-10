@@ -54,6 +54,13 @@ class Product:
 			select([para])
 			.where(para.c.ParamterID == para_id)).fetchone()
 
+	# search by keywords
+	@staticmethod
+	def search(keywords):
+		return g.conn.execute(
+			select([product])
+			.order_by(product.c.ShowOrder.asc())).fetchall()
+
 # NEW
 
 	# add product

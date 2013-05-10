@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Search{% endblock %}
+{% block page_id%}page-search{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span9">
+		<h1>Search Results for "{{ keywords }}"</h1>
+
+		{% from 'products.widget' import show_products %}
+		{{ show_products(products)|safe }}
+	</div>	
+</div>
+
+{% endblock %}

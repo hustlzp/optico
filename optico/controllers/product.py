@@ -57,6 +57,16 @@ def products():
 			st['products'] = Product.get_by_stype(st['SubTypeID'])
 	return render_template('products.html', products=products, ps=ps)
 
+# page search products
+#--------------------------------------------------
+
+# view (public)
+@app.route('/search', methods=['POST'])
+def search():
+	keywords = request.form['keywords']
+	products = Product.search(keywords)
+	return render_template('search.html', keywords=keywords, products=products)
+
 # page add product
 #--------------------------------------------------
 

@@ -11,10 +11,30 @@
 	</head>
 
 	<body id="{% block page_id %}{% endblock %}">
+		<div id="os-float-window">
+			<div class="os-title">Online Service</div>
+			<div class="os-msn">
+				<a href="msnim:chat?contact=optico.communication@hotmail.com">
+					<img src="{{ url_for('static', filename='img/msn.png') }}" />
+					<span>Call MSN</span>
+				</a>
+			</div>
+			<div class="os-skype">
+				<a href="callto://optico.communication">
+					<img src="{{ url_for('static', filename='img/skype.png') }}" />
+					<span>Call Skype</span>
+				</a>
+			</div>
+		</div>
+
 		<div id="header">
 			<div class="container first-row">
 				<a href="{{ url_for('contact') }}" id="customer-quote">> Request Quote</a>
-				
+			
+				<form id="search-form" method="post" action="{{ url_for('search') }}">
+					<input type="text" name="keywords" placeholder="Search Products" /><input type="submit" value="Go" />
+				</form>
+
 				<!-- google translation -->
 				<div id="google_translate_element"></div>
 				<script type="text/javascript">
@@ -30,6 +50,8 @@
 				<div class="navbar-inner">
 					<div class="container">
 						<a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
+
+						<span id="slogan">building a smart future</span>
 
 						{% if session.user_id == admin_id %}
 						<ul class="nav pull-right">
@@ -84,11 +106,6 @@
 
 							<li>
 								<a href="{{ url_for('careers') }}">Careers</a>
-								<!-- sub menu -->
-								<!-- <ul>
-									<li><a href="{{ url_for('careers') }}#sr">SALES REPRESENTITIVE</a></li>
-									<li><a href="{{ url_for('careers') }}#aee">ACCOUNT AND ADMIN EXECUTIVES</a></li>
-								</ul> -->
 							</li>
 
 							<li><a href="{{ url_for('contact') }}">Contact</a></li>
