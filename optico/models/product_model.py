@@ -59,6 +59,7 @@ class Product:
 	def search(keywords):
 		return g.conn.execute(
 			select([product])
+			.where(product.c.Name.like('%' + keywords + '%'))
 			.order_by(product.c.ShowOrder.asc())).fetchall()
 
 # NEW
