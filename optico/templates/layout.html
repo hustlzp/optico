@@ -29,7 +29,7 @@
 
 		<div id="header">
 			<div class="container first-row">
-				<a href="{{ url_for('contact') }}" id="customer-quote">> Request Quote</a>
+				<a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
 			
 				<form id="search-form" method="post" action="{{ url_for('search') }}">
 					<input type="text" name="keywords" placeholder="Search Products" /><input type="submit" value="Go" />
@@ -49,9 +49,7 @@
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
-						<a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
-
-						<span id="slogan">building a smart future</span>
+						<a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a><span id="slogan">building a smart future</span>
 
 						{% if session.user_id == admin_id %}
 						<ul class="nav pull-right">
