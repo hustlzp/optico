@@ -26,6 +26,22 @@
 				</a>
 			</div>
 		</div>
+		<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('#os-float-window').css('top', $(window).height() * 0.3);
+			$(window).scroll(function(){
+				setTimeout(fw_move, 20);
+			});
+		});
+
+		function fw_move(){
+			$('#os-float-window').animate({
+				top: $(window).scrollTop() + $(window).height() * 0.3 + "px"
+			}, 50);
+		}
+
+		</script>
 
 		<div id="header">
 			<div class="container first-row">
