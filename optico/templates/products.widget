@@ -2,7 +2,7 @@
 
 {% for p in products %}
 <div class="p-item clearfix">
-	<a href="{{ url_for('product', product_id=p.ProductID) }}"><img class="p-img" src="{{ p.ImageUrl }}" /></a>
+	<a href="{{ url_for('product', product_id=p.ProductID) }}"><img title="{{ p.Name }}" class="p-img" src="{{ p.ImageUrl }}" /></a>
 
 	<div class="p-info-wap">
 		<div class="p-name"><a href="{{ url_for('product', product_id=p.ProductID) }}">{{ p.Name|truncate(22, True) }}</a></div>
