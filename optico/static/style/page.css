@@ -1,4 +1,4 @@
-body{font-family:'arial';}body #os-float-window{position:absolute;z-index:1000000;top:200px;right:0px;box-shadow:0 0 5px #666;}body #os-float-window div{font-size:14px;line-height:14px;}body #os-float-window div img{margin-right:2px;}
+body{font-family:'arial';}body #os-float-window{position:absolute;z-index:1000000;top:200px;right:0px;box-shadow:0 0 5px #666;}body #os-float-window div{font-size:14px;line-height:14px;}body #os-float-window div img{margin-right:2px;width:24px;height:24px;}
 body #os-float-window div a{display:block;color:#333;font-size:12px;text-decoration:none;}
 body #os-float-window .os-title{padding:10px 10px;font-weight:bold;color:white;background-color:#6b96ef;cursor:default;}
 body #os-float-window .os-msn a,body #os-float-window .os-skype a{padding:5px 10px;background-image:linear-gradient(to bottom, #ffffff, #f2f2f2);background-image:-webkit-linear-gradient(top, #ffffff, #f2f2f2);}body #os-float-window .os-msn a:hover,body #os-float-window .os-skype a:hover{background-image:linear-gradient(to bottom, #ffffff, #e2e2e2);background-image:-webkit-linear-gradient(top, #ffffff, #e2e2e2);}
@@ -13,6 +13,7 @@ body #header .navbar-inner .container .nav>li>a{padding:35px 25px 45px 25px;bord
 body #header .navbar-inner .container .main-nav>li{position:relative;overflow:visible;}body #header .navbar-inner .container .main-nav>li ul{visibility:hidden;position:absolute;left:0;top:100px;z-index:1000;list-style-type:none;margin:0;background-color:#fbfbfb;border:1px solid #ccc;border-top:0;border-bottom:0;}body #header .navbar-inner .container .main-nav>li ul li a{width:220px;display:block;padding:10px 15px 10px 15px;color:#333;text-decoration:none;border-bottom:1px solid #ccc;}body #header .navbar-inner .container .main-nav>li ul li a:hover{background-color:black;color:white;}
 body #header .navbar-inner .container .main-nav>li:hover ul{visibility:visible;}
 body #main-wap{font-size:14px;line-height:24px;min-height:350px;}body #main-wap h1{font-size:35px;line-height:35px;margin-top:5px;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid #999;font-weight:normal;}
+body #main-wap h2{font-size:20px;margin-bottom:15px;}
 body #main-wap input[type='file']{display:block;}
 body #footer{background-color:#105cad;background-image:url('../img/header_bg.png'),url('../img/jeans.png');margin:35px 0 0 0;padding:15px 0;color:white;}body #footer .footer-nav{margin-bottom:30px;}body #footer .footer-nav h4{font-weight:normal;font-size:14px;border-bottom:1px dotted white;padding-bottom:5px;margin-bottom:10px;}
 body #footer .footer-nav ul{list-style-type:none;margin:0;}body #footer .footer-nav ul li{font-size:12px;margin-bottom:5px;}body #footer .footer-nav ul li a{color:white;}
@@ -36,10 +37,6 @@ body #goog-gt-tt+div{display:none;}
 #page-edit-product .p-img{margin-top:20px;border:1px solid #999;}
 #page-mtype .mtype-name{font-size:35px;line-height:35px;margin-bottom:35px;}
 #page-manage-carousel .c-img{width:400px;}
-#page-about h4{margin:20px 0;}#page-about h4 a{color:#333;text-decoration:none;}
-#page-about p{text-align:justify;}
-#page-service h4{margin:20px 0;}#page-service h4 a{color:#333;text-decoration:none;}
-#page-service p{text-align:justify;}
-#page-careers h4{margin:20px 0;}#page-careers h4 a{color:#333;text-decoration:none;}
-#page-careers p{text-align:justify;}
-#page-careers .span8 ul{list-style-type:square;}
+#page-about h4,#page-service h4,#page-careers h4{margin:20px 0;}#page-about h4 a,#page-service h4 a,#page-careers h4 a{color:#333;text-decoration:none;}
+#page-about p,#page-service p,#page-careers p{text-align:justify;}
+.company-info-list{list-style-type:square;}.company-info-list li{margin-bottom:5px;}

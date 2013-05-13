@@ -17,7 +17,6 @@ from optico.utils import check_admin, convert_dict, build_pimg_filename
 @app.route('/product/<int:product_id>')
 def product(product_id):
 	p = Product.get_by_id(product_id)
-	# p = dict(Product.get_by_id(product_id))
 	if p:
 		p = dict(p)
 	else:
