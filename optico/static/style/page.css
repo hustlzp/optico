@@ -24,7 +24,7 @@ body #goog-gt-tt+div{display:none;}
 #page-home .bx-wrapper .bx-viewport .bxslider{margin:0;}
 #page-home .types{margin-bottom:25px;}#page-home .types .mtype-item .mt-image{margin-bottom:12px;width:220px;height:180px;}
 #page-home .types .mtype-item .mt-name{font-weight:bold;margin-bottom:2px;}#page-home .types .mtype-item .mt-name a{color:#333;}
-#page-home .types .mtype-item .stypes-list{list-style-type:none;margin:0;}#page-home .types .mtype-item .stypes-list li a{word-break:break-all;color:#333;font-size:12px;display:block;}
+#page-home .types .mtype-item .stypes-list{list-style-type:none;margin:0;}#page-home .types .mtype-item .stypes-list li a{word-break:break-all;color:#333;font-size:12px;display:block;margin-bottom:2px;}
 #page-home .certificate{padding-top:20px;border-top:1px solid #aaa;}#page-home .certificate img{height:50px;float:left;margin-right:35px;}
 #page-product .p-img{margin-bottom:25px;width:350px;height:250px;float:left;}
 #page-product .p-desc{margin-left:370px;}
