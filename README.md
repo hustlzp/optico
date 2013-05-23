@@ -1,6 +1,6 @@
-optico
+OPTICO
 ======
 
-http://www.optico.com.cn/
+http://www.optico.com.cn
 
-Website for optico company.
+Website for OPTICO company.
