@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-
+		// float window
 		$(document).ready(function(){
 			$('#os-float-window').css('top', $(window).height() * 0.3);
 			$(window).scroll(function(){
@@ -46,11 +46,7 @@
 		<div id="header">
 			<div class="container first-row">
 				<a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
-			
-				<form id="search-form" method="post" action="{{ url_for('search') }}">
-					<input type="text" name="keywords" placeholder="Search Products" /><input type="submit" value="Go" />
-				</form>
-
+				
 				<!-- google translation -->
 				<div id="google_translate_element"></div>
 				<script type="text/javascript">
@@ -58,7 +54,11 @@
 					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
 				</script>
-				<script type="text/javascript" src="{{ url_for('static', filename='js/google_translate.js') }}"></script>
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+				<form id="search-form" method="post" action="{{ url_for('search') }}">
+					<input type="text" name="keywords" placeholder="Search Products" /><input type="submit" value="Go" />
+				</form>
 			</div>
 
 			<!-- nav -->
