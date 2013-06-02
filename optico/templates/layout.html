@@ -28,10 +28,18 @@
 		</div>
 		<script type="text/javascript">
 		// float window
-		$(document).ready(function(){
+		$(function(){
 			$('#os-float-window').css('top', $(window).height() * 0.3);
+			
 			$(window).scroll(function(){
 				setTimeout(fw_move, 20);
+			});
+
+			var liNum = $('.navbar-inner .nav > li').length;
+
+			$('.navbar-inner .nav > li').css({
+				'box-sizing': 'border-box',
+				'width': 940 / liNum + 'px'
 			});
 		});
 
@@ -45,9 +53,11 @@
 
 		<div id="header">
 			<div class="container first-row">
-				<a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
+				<a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
+
+				<div id="slogan">building a smart future</div>
 				
-				<!-- google translation -->
+				<!-- google translation -->				  
 				<div id="google_translate_element"></div>
 				<script type="text/javascript">
 				function googleTranslateElementInit() {
@@ -55,43 +65,24 @@
 				}
 				</script>
 				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+				<a href="{{ url_for('contact') }}" id="request-quote">Request Quote</a>
 				<form id="search-form" method="post" action="{{ url_for('search') }}">
 					<input type="text" name="keywords" placeholder="Search Products" /><input type="submit" value="Go" />
 				</form>
+
+
 			</div>
 
 			<!-- nav -->
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
-						<a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a><span id="slogan">building a smart future</span>
-
-						{% if session.user_id == admin_id %}
-						<ul class="nav pull-right">
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-									管理 <span class="caret"></span>
-								</a>
-
-								<ul class="dropdown-menu">
-									<li><a href="{{ url_for('add_product') }}">添加产品</a></li>
-									<li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
-									<li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
-									<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-									<li><a href="{{ url_for('logout') }}">登出</a></li>
-								</ul>
-							</li>
-						</ul>
-						{% endif %}
-
-						<ul class="nav main-nav pull-right">
+						<ul class="nav">
 							<li><a href="{{ url_for('home') }}">Home</a></li>
 
 							<li>
 								<a href="{{ url_for('products') }}">Products</a>
-								<!-- sub menu -->
-								<ul>
+								<ul class='sub-menu'>
 									{% for t in public_mtypes %}
 									<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
 									{% endfor %}
@@ -100,10 +91,9 @@
 
 							<li>
 								<a href="{{ url_for('about') }}">About Us</a>
-								<!-- sub menu -->
-								<ul>
+								<ul class='sub-menu'>
 									<li><a href="{{ url_for('about') }}#bi">Brief Introduction</a></li>
-									<li><a href="{{ url_for('about') }}#icr">Industries and Countries Related</a></li>
+									<li><a href="{{ url_for('about') }}#icr">Industries and Countries</a></li>
 									<li><a href="{{ url_for('about') }}#pc">Production and Certification</a></li>
 									<li><a href="{{ url_for('about') }}#pf">Promise and Future</a></li>
 								</ul>
@@ -111,8 +101,7 @@
 
 							<li>
 								<a href="{{ url_for('service') }}">Service</a>
-								<!-- sub menu -->
-								<ul>
+								<ul class='sub-menu'>
 									<li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
 									<li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
 								</ul>
@@ -123,6 +112,19 @@
 							</li>
 
 							<li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+							{% if session.user_id == admin_id %}
+							<li>
+								<a class="dropdown-toggle" href="#">Admin</a>
+								<ul class='sub-menu'>
+									<li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+									<li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+									<li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+									<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+									<li><a href="{{ url_for('logout') }}">登出</a></li>
+								</ul>
+							</li>
+							{% endif %}
 						</ul>
 					</div>
 				</div>

@@ -52,25 +52,50 @@ body{
 	}
 
 	#header{
-		background-color: #105cad;
-		background-image: url('../img/header_bg.png'), url('../img/jeans.png');
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 
 		.first-row{
-			position: relative;
+			// position: relative;
+
+			#logo{
+				float: left;
+
+				img{
+					height: 100px;
+					width: 120px;
+					margin: 5px 0;
+				}
+			}
+
+			#slogan{
+				float: left;
+				margin-top: 60px;
+				font-size: 16px;
+				color: #666;
+				margin-left: 5px;
+				font-style: italic;
+			}
 			
 			#request-quote{
-				color: white;
+				color: #333;
 				display: block;
-				float: left;
+				float: right;
+				padding: 6px 10px 7px 10px;
+				border: 1px solid #ddd;
+				text-decoration: none;
 				font-size: 13px;
 				line-height: 13px;
-				margin-top: 10px;
+				margin: 10px 10px 0 0;
+
+				&:hover{
+					background-color: #222;
+					color: white;
+				}
 			}
 
 			#search-form{
 				float: right;
-				margin: 10px 10px 10px 0;
+				margin: 10px 10px 0 0;
 
 				input[type='text']{
 					padding: 3px 5px;
@@ -96,7 +121,6 @@ body{
 					color: white;
 					border: 0;
 					border-radius: 0;
-
 				}
 			}
 
@@ -110,46 +134,40 @@ body{
 			clear: both;
 			margin-bottom: 25px;
 			padding: 0;
+			background: #222;
 
 			.container{
-				border-right: 1px solid #e2e2e2;
-
-				#logo{
-					img{
-						height: 100px;
-						width: 120px;
-						margin-top: 0px;
-					}
+				.nav{
+					margin: 0;
 				}
 
-				#slogan{
-					font-size: 16px;
-					color: #666;
-					display: inline-block;
-					margin-left: 0px;
-					vertical-align: -18px;
-					font-style: italic;
-				}
-
-				.nav > li > a{
-					padding: 35px 25px 45px 25px;
-					border-left: 1px solid #e2e2e2;
-
-					&:hover{
-						background: transparent url('../img/menu_hover.png') repeat-x top center;
-					}
-				}
-
-				.main-nav > li{
+				.nav > li{
+					text-align: center;
 					position: relative;
 					overflow: visible;
 
+					&:last-child{
+						border-right: 1px solid #e2e2e2;
+					}
+					& > a{
+						font-size: 13px;
+						padding: 15px 25px 15px 25px;
+						border-left: 1px solid white;
+						text-shadow: none;
+						color: white;
+
+						&:hover{
+							font-weight: bold;
+						}
+					}
+
 					// sub navbar
-					ul{
+					.sub-menu{
+						padding-top: 1px;
 						visibility: hidden;
 						position: absolute;
 						left: 0;
-						top: 100px;
+						top: 50px;
 						z-index: 1000;
 						list-style-type: none;
 						margin: 0;
@@ -159,19 +177,28 @@ body{
 						border-bottom: 0;
 
 						li{
+							text-align: left;
+
 							a{
-								width: 220px;
+								width: 180px;
+								font-size: 13px;
 								display: block;
-								padding: 10px 15px 10px 15px;
+								padding: 10px 0px 10px 30px;
 								color: #333;
 								text-decoration: none;
 								border-bottom: 1px solid #ccc;
 
 								&:hover{
-									background-color: black;
+									background-color: #222;
 									color: white;
 								}
 							}
+						}
+					}
+
+					.dropdown-menu{
+						li{
+							text-align: left;
 						}
 					}
 
@@ -210,8 +237,7 @@ body{
 	}
 
 	#footer{
-		background-color: #105cad;
-		background-image: url('../img/header_bg.png'), url('../img/jeans.png');
+		background-color: #111;
 		margin: 35px 0 0 0;
 		padding: 15px 0;
 		color: white;
@@ -220,8 +246,7 @@ body{
 			margin-bottom: 30px;
 
 			h4{
-				font-weight: normal;
-				font-size: 14px;
+				font-size: 13px;
 				border-bottom: 1px dotted white;
 				padding-bottom: 5px;
 				margin-bottom: 10px;
@@ -321,14 +346,15 @@ body{
 
 		.mtype-item{
 			.mt-image{
-				margin-bottom: 12px;
+				margin-bottom: 10px;
 				width: 220px;
 				height: 180px;
 			}
 
 			.mt-name{
 				font-weight: bold;
-				margin-bottom: 2px;
+				font-size: 13px;
+				// margin-bottom: 2px;
 
 				a{
 					color: #333;
@@ -345,7 +371,7 @@ body{
 						color: #333;
 						font-size: 12px;
 						display: block;
-						margin-bottom: 2px;
+						// margin-bottom: 1px;
 					}
 				}
 			}
