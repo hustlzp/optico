@@ -9,9 +9,9 @@ body #header .first-row #request-quote{color:#333;display:block;float:right;padd
 body #header .first-row #search-form{float:right;margin:10px 10px 0 0;}body #header .first-row #search-form input[type='text']{padding:3px 5px;width:180px;margin:0;font-size:12px;line-height:12px;height:20px;display:inline-block;border:1px solid lightgray;border-radius:0px;}
 body #header .first-row #search-form input[type='submit']{vertical-align:top;padding:8px 8px 8px 6px;font-style:italic;font-weight:bold;font-size:12px;line-height:12px;display:inline-block;background-color:black;color:white;border:0;border-radius:0;}
 body #header .first-row .goog-te-gadget-simple{float:right;margin-top:10px;}
-body #header .navbar-inner{clear:both;margin-bottom:25px;padding:0;background:#222;}body #header .navbar-inner .container .nav{margin:0;}
-body #header .navbar-inner .container .nav>li{text-align:center;position:relative;overflow:visible;}body #header .navbar-inner .container .nav>li:last-child{border-right:1px solid #e2e2e2;}
-body #header .navbar-inner .container .nav>li>a{font-size:13px;padding:15px 25px 15px 25px;border-left:1px solid white;text-shadow:none;color:white;}body #header .navbar-inner .container .nav>li>a:hover{font-weight:bold;}
+body #header .navbar-inner{clear:both;margin-bottom:25px;padding:0;}body #header .navbar-inner .container .nav{margin:0;}
+body #header .navbar-inner .container .nav>li{text-align:center;position:relative;overflow:visible;}body #header .navbar-inner .container .nav>li:last-child{border-right:1px solid #e0e0e0;}
+body #header .navbar-inner .container .nav>li>a{font-size:13px;padding:15px 25px 15px 25px;border-left:1px solid #e0e0e0;text-shadow:none;}body #header .navbar-inner .container .nav>li>a:hover{font-weight:bold;}
 body #header .navbar-inner .container .nav>li .sub-menu{padding-top:1px;visibility:hidden;position:absolute;left:0;top:50px;z-index:1000;list-style-type:none;margin:0;background-color:#fbfbfb;border:1px solid #ccc;border-top:0;border-bottom:0;}body #header .navbar-inner .container .nav>li .sub-menu li{text-align:left;}body #header .navbar-inner .container .nav>li .sub-menu li a{width:180px;font-size:13px;display:block;padding:10px 0px 10px 30px;color:#333;text-decoration:none;border-bottom:1px solid #ccc;}body #header .navbar-inner .container .nav>li .sub-menu li a:hover{background-color:#222;color:white;}
 body #header .navbar-inner .container .nav>li .dropdown-menu li{text-align:left;}
 body #header .navbar-inner .container .nav>li:hover ul{visibility:visible;}
