@@ -1,5 +1,6 @@
 body{
 	font-family: 'arial';
+	background-color: #f9f9f9;
 
 	#os-float-window{
 		position: absolute;
@@ -55,8 +56,6 @@ body{
 		margin-bottom: 20px;
 
 		.first-row{
-			// position: relative;
-
 			#logo{
 				float: left;
 
@@ -86,10 +85,10 @@ body{
 				font-size: 13px;
 				line-height: 13px;
 				margin: 10px 10px 0 0;
+				background-color: #fff;
 
 				&:hover{
-					background-color: #222;
-					color: white;
+					font-weight: bold;
 				}
 			}
 
@@ -134,6 +133,8 @@ body{
 			clear: both;
 			margin-bottom: 25px;
 			padding: 0;
+			background-image: linear-gradient(to bottom, #ffffff, #fefefe);
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 
 			.container{
 				.nav{
@@ -169,7 +170,7 @@ body{
 						z-index: 1000;
 						list-style-type: none;
 						margin: 0;
-						background-color: #fbfbfb;
+						background-color: #fefefe;
 						border: 1px solid #ccc;
 						border-top: 0;
 						border-bottom: 0;
@@ -235,17 +236,17 @@ body{
 	}
 
 	#footer{
-		background-color: #111;
 		margin: 35px 0 0 0;
-		padding: 15px 0;
-		color: white;
+		padding: 10px 0;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+		background-image: linear-gradient(to bottom, #fefefe, #fefefe);
 
 		.footer-nav{
 			margin-bottom: 30px;
 
 			h4{
 				font-size: 13px;
-				border-bottom: 1px dotted white;
+				border-bottom: 1px dotted #333;
 				padding-bottom: 5px;
 				margin-bottom: 10px;
 			}
@@ -259,7 +260,8 @@ body{
 					margin-bottom: 5px;
 
 					a{
-						color: white;
+						// color: white;
+						color: #333;
 					}
 				}
 			}
@@ -352,7 +354,6 @@ body{
 			.mt-name{
 				font-weight: bold;
 				font-size: 13px;
-				// margin-bottom: 2px;
 
 				a{
 					color: #333;

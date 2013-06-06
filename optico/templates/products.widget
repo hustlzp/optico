@@ -5,7 +5,7 @@
 	<a href="{{ url_for('product', product_id=p.ProductID) }}"><img title="{{ p.Name }}" class="p-img" src="{{ p.ImageUrl }}" /></a>
 
 	<div class="p-info-wap">
-		<div class="p-name"><a href="{{ url_for('product', product_id=p.ProductID) }}">{{ p.Name|truncate(22, True) }}</a></div>
+		<div class="p-name"><a href="{{ url_for('product', product_id=p.ProductID) }}">{{ p.Name }}</a></div>
 	</div>
 </div>
 {% endfor %}

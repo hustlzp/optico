@@ -1,5 +1,5 @@
-.p-item{margin-bottom:20px;margin-right:30px;float:left;}.p-item .p-img{border:1px solid #ccc;width:200px;height:150px;margin-bottom:5px;clear:both;}
-.p-item .p-info-wap .p-name{text-align:center;font-weight:bold;font-size:13px;}.p-item .p-info-wap .p-name a{color:#333;}
+.p-item{margin-bottom:20px;margin-right:30px;float:left;}.p-item .p-img{border:1px solid #ccc;width:200px;height:150px;margin-bottom:10px;clear:both;}
+.p-item .p-info-wap .p-name{width:200px;text-align:center;font-weight:bold;font-size:13px;line-height:20px;}.p-item .p-info-wap .p-name a{color:#333;}
 .ps-header{font-size:15px;font-weight:bold;}
 .ps-lv1-list{margin-left:0px;}.ps-lv1-list ul{margin-left:0px;}
 .ps-lv1-list li{list-style:none;font-size:13px;margin:10px 0;}.ps-lv1-list li a{display:inline-block;color:#333;}
