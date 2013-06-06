@@ -8,6 +8,12 @@
 		<div class="p-name"><a href="{{ url_for('product', product_id=p.ProductID) }}">{{ p.Name }}</a></div>
 	</div>
 </div>
+
+<!-- add split div -->
+{% if loop.index % 3 == 0 %}
+<div class="clearfix"></div>
+{% endif %}
+
 {% endfor %}
 
 {% endmacro %}
