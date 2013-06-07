@@ -2,11 +2,6 @@ body{
 	font-family: 'arial';
 	background-color: #f2f2f2;
 
-	.container{
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-
 	#os-float-window{
 		position: absolute;
 		z-index: 1000000;
@@ -58,19 +53,35 @@ body{
 	}
 
 	#header{
-		// background-color: #eee;
-
 		.first-row{
-			// background-color: white;
-
-			#request-quote{
-				color: #333;
-				display: block;
+			#logo{
 				float: left;
-				font-size: 13px;
-				line-height: 13px;
-				margin: 10px 10px 0 0;
-				// background-color: #fff;
+
+				img{
+					height: 100px;
+					width: 120px;
+					margin: 0 0 5px 0;
+				}
+			}
+			#logo-side-wap{
+				float: left;
+
+				#request-quote{
+					color: #333;
+					display: block;
+					// float: left;
+					font-size: 13px;
+					line-height: 13px;
+					margin: 15px 0 0 5px;
+				}	
+
+				#slogan{
+					margin-top: 35px;
+					font-size: 16px;
+					color: #666;
+					margin-left: 5px;
+					font-style: italic;
+				}			
 			}
 
 			#search-form{
@@ -108,27 +119,6 @@ body{
 				float: right;
 				margin-top: 10px;
 			}
-		}
-
-		.second-row{
-			#logo{
-				float: left;
-
-				img{
-					height: 100px;
-					width: 120px;
-					margin: 0 0 5px 0;
-				}
-			}
-
-			#slogan{
-				float: left;
-				margin-top: 60px;
-				font-size: 16px;
-				color: #666;
-				margin-left: 5px;
-				font-style: italic;
-			}			
 		}
 
 		.navbar{

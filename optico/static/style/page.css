@@ -1,15 +1,14 @@
-body{font-family:'arial';background-color:#f2f2f2;}body .container{padding-left:20px;padding-right:20px;}
-body #os-float-window{position:absolute;z-index:1000000;top:200px;right:0px;box-shadow:0 0 5px #666;}body #os-float-window div{font-size:14px;line-height:14px;}body #os-float-window div img{margin-right:2px;width:24px;height:24px;}
+body{font-family:'arial';background-color:#f2f2f2;}body #os-float-window{position:absolute;z-index:1000000;top:200px;right:0px;box-shadow:0 0 5px #666;}body #os-float-window div{font-size:14px;line-height:14px;}body #os-float-window div img{margin-right:2px;width:24px;height:24px;}
 body #os-float-window div a{display:block;color:#333;font-size:12px;text-decoration:none;}
 body #os-float-window .os-title{padding:10px 10px;font-weight:bold;color:white;background-color:#6b96ef;cursor:default;}
 body #os-float-window .os-msn a,body #os-float-window .os-skype a{padding:5px 10px;background-image:linear-gradient(to bottom, #ffffff, #f2f2f2);background-image:-webkit-linear-gradient(top, #ffffff, #f2f2f2);}body #os-float-window .os-msn a:hover,body #os-float-window .os-skype a:hover{background-image:linear-gradient(to bottom, #ffffff, #e2e2e2);background-image:-webkit-linear-gradient(top, #ffffff, #e2e2e2);}
 body #os-float-window .os-msn a{border-bottom:1px solid #aaa;}
-body #header .first-row #request-quote{color:#333;display:block;float:left;font-size:13px;line-height:13px;margin:10px 10px 0 0;}
+body #header .first-row #logo{float:left;}body #header .first-row #logo img{height:100px;width:120px;margin:0 0 5px 0;}
+body #header .first-row #logo-side-wap{float:left;}body #header .first-row #logo-side-wap #request-quote{color:#333;display:block;font-size:13px;line-height:13px;margin:15px 0 0 5px;}
+body #header .first-row #logo-side-wap #slogan{margin-top:35px;font-size:16px;color:#666;margin-left:5px;font-style:italic;}
 body #header .first-row #search-form{float:right;margin:10px 10px 0 0;}body #header .first-row #search-form input[type='text']{padding:3px 5px;width:180px;margin:0;font-size:12px;line-height:12px;height:20px;display:inline-block;border:1px solid lightgray;border-radius:0px;}
 body #header .first-row #search-form input[type='submit']{vertical-align:top;padding:8px 8px 8px 6px;font-style:italic;font-weight:bold;font-size:12px;line-height:12px;display:inline-block;background-color:black;color:white;border:0;border-radius:0;}
 body #header .first-row .goog-te-gadget-simple{float:right;margin-top:10px;}
-body #header .second-row #logo{float:left;}body #header .second-row #logo img{height:100px;width:120px;margin:0 0 5px 0;}
-body #header .second-row #slogan{float:left;margin-top:60px;font-size:16px;color:#666;margin-left:5px;font-style:italic;}
 body #header .navbar{margin:0;}
 body #header .navbar-inner{width:100%;margin:0 auto;clear:both;margin-bottom:0px;padding:0;background-image:linear-gradient(to bottom, #ffffff, #fefefe);box-shadow:0px 0px 5px rgba(0, 0, 0, 0.15);border-left:0;border-right:0;}body #header .navbar-inner .navbar-content{width:980px;margin:0 auto;}body #header .navbar-inner .navbar-content .nav{margin:0;}
 body #header .navbar-inner .navbar-content .nav>li{text-align:center;position:relative;overflow:visible;}body #header .navbar-inner .navbar-content .nav>li>a{font-size:15px;text-align:center;padding:15px 0 15px 0;text-shadow:none;}body #header .navbar-inner .navbar-content .nav>li>a:hover{font-weight:bold;}
