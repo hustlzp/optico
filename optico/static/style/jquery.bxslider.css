@@ -42,12 +42,12 @@
 .bx-wrapper .bx-controls-auto {
 	position: absolute;
 	bottom: -30px;
-	/*width: 100%;*/
+	width: 100%;
 }
 
 .bx-wrapper .bx-pager{
 	bottom: 5px;
-	right: 5px;
+	right: 0px;
 	z-index: 1000;
 }
 
@@ -73,6 +73,7 @@
 	font-weight: bold;
 	color: #666;
 	padding-top: 20px;
+	/*width: 100%;*/
 }
 
 .bx-wrapper .bx-pager .bx-pager-item,

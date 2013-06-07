@@ -1,6 +1,6 @@
 body{
 	font-family: 'arial';
-	background-color: #eee;
+	background-color: #f2f2f2;
 
 	.container{
 		padding-left: 20px;
@@ -58,8 +58,10 @@ body{
 	}
 
 	#header{
+		// background-color: #eee;
+
 		.first-row{
-			background-color: white;
+			// background-color: white;
 
 			#request-quote{
 				color: #333;
@@ -68,7 +70,7 @@ body{
 				font-size: 13px;
 				line-height: 13px;
 				margin: 10px 10px 0 0;
-				background-color: #fff;
+				// background-color: #fff;
 			}
 
 			#search-form{
@@ -109,8 +111,6 @@ body{
 		}
 
 		.second-row{
-			background-color: white;
-
 			#logo{
 				float: left;
 
@@ -132,11 +132,12 @@ body{
 		}
 
 		.navbar{
-			margin: 0 auto;
-			width: 980px;
+			margin: 0;
 		}
 
 		.navbar-inner{
+			width: 100%;
+			margin: 0 auto;
 			clear: both;
 			margin-bottom: 0px;
 			padding: 0;
@@ -146,10 +147,13 @@ body{
 			border-right: 0;
 
 			.navbar-content{
+				width: 980px;
+				margin: 0 auto;
+
 				.nav{
 					margin: 0;
+					
 				}
-
 				.nav > li{
 					text-align: center;
 					position: relative;
@@ -216,12 +220,12 @@ body{
 	}
 
 	#main-wap{
-		background-color: white;
+		// background-color: white;
 		font-size: 14px;
 		line-height: 24px;
 		min-height: 350px;
 		padding-top: 20px;
-		padding-bottom: 35px;
+		padding-bottom: 15px;
 
 		h1{
 			font-size: 35px;
@@ -246,8 +250,8 @@ body{
 	#footer{
 		padding-top: 10px;
 		padding-bottom: 10px;
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-		background-color: #f9f9f9;
+		// box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+		// background-color: #f9f9f9;
 
 		.footer-nav{
 			margin-bottom: 30px;
@@ -307,7 +311,7 @@ body{
 //-----------------------------------------------------
 #page-home{
 	.carousel-wap{
-		width: 980px;
+		width: 100%;
 		margin: 0 auto;
 
 		.bxslider{
@@ -316,7 +320,7 @@ body{
 
 			li{
 				img{
-					width: 980px;
+					width: 100%;
 					height: 320px;
 				}
 			}
@@ -327,10 +331,14 @@ body{
 		margin-bottom: 25px;
 
 		.mtype-item{
+			background-color: white;
+			box-sizing: border-box;
+			padding: 10px;
+
 			.mt-image{
 				margin-bottom: 10px;
-				width: 220px;
-				height: 180px;
+				width: 200px;
+				height: 160px;
 			}
 
 			.mt-name{

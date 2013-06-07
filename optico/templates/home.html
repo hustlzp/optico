@@ -42,7 +42,17 @@ $(document).ready(function(){
 			{% endfor %}
 		</ul>
 	</div>
-	{% endfor %}		
+	{% endfor %}
+
+	<script type="text/javascript">
+	$(window).load(function(){
+		var maxHeight = 0;
+		$('.mtype-item').each(function(){
+			maxHeight = (maxHeight < $(this).innerHeight())? $(this).innerHeight(): maxHeight;
+		});
+		$('.mtype-item').css('height', maxHeight + 'px');
+	});
+	</script>
 </div>
 
 <div class="certificate">
