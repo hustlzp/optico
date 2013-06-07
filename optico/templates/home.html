@@ -6,7 +6,8 @@
 {% block carousel %}
 <script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
-<div class="container"> 
+
+<div class="carousel-wap">
 	<ul class="bxslider">
 		{% for c in public_carousels %}
 		<li>
@@ -23,18 +24,19 @@
 		</li>
 		{% endfor %}
 	</ul>
-
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('.bxslider').bxSlider({
-			// controls: false,
-			// mode: 'fade',
-			pager: false,
-			auto: true
-		});				
-	});
-	</script>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+		controls: false,
+		mode: 'fade',
+		// pager: false,
+		speed: 1000,
+		auto: true
+	});				
+});
+</script>
 {% endblock %}
 
 {% block body %}

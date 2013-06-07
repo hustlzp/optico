@@ -1,6 +1,11 @@
 body{
 	font-family: 'arial';
-	background-color: #f9f9f9;
+	background-color: #eee;
+
+	.container{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 
 	#os-float-window{
 		position: absolute;
@@ -53,43 +58,17 @@ body{
 	}
 
 	#header{
-		margin-bottom: 20px;
-
 		.first-row{
-			#logo{
-				float: left;
+			background-color: white;
 
-				img{
-					height: 100px;
-					width: 120px;
-					margin: 5px 0;
-				}
-			}
-
-			#slogan{
-				float: left;
-				margin-top: 60px;
-				font-size: 16px;
-				color: #666;
-				margin-left: 5px;
-				font-style: italic;
-			}
-			
 			#request-quote{
 				color: #333;
 				display: block;
-				float: right;
-				padding: 6px 10px 7px 10px;
-				border: 1px solid #ddd;
-				text-decoration: none;
+				float: left;
 				font-size: 13px;
 				line-height: 13px;
 				margin: 10px 10px 0 0;
 				background-color: #fff;
-
-				&:hover{
-					font-weight: bold;
-				}
 			}
 
 			#search-form{
@@ -129,14 +108,44 @@ body{
 			}
 		}
 
+		.second-row{
+			background-color: white;
+
+			#logo{
+				float: left;
+
+				img{
+					height: 100px;
+					width: 120px;
+					margin: 0 0 5px 0;
+				}
+			}
+
+			#slogan{
+				float: left;
+				margin-top: 60px;
+				font-size: 16px;
+				color: #666;
+				margin-left: 5px;
+				font-style: italic;
+			}			
+		}
+
+		.navbar{
+			margin: 0 auto;
+			width: 980px;
+		}
+
 		.navbar-inner{
 			clear: both;
-			margin-bottom: 25px;
+			margin-bottom: 0px;
 			padding: 0;
 			background-image: linear-gradient(to bottom, #ffffff, #fefefe);
 			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+			border-left: 0;
+			border-right: 0;
 
-			.container{
+			.navbar-content{
 				.nav{
 					margin: 0;
 				}
@@ -146,14 +155,10 @@ body{
 					position: relative;
 					overflow: visible;
 
-					&:last-child{
-						border-right: 1px solid #e0e0e0;
-					}
 					& > a{
-						font-size: 13px;
+						font-size: 15px;
 						text-align: center;
 						padding: 15px 0 15px 0;
-						border-left: 1px solid #e0e0e0;
 						text-shadow: none;
 
 						&:hover{
@@ -211,9 +216,12 @@ body{
 	}
 
 	#main-wap{
+		background-color: white;
 		font-size: 14px;
 		line-height: 24px;
 		min-height: 350px;
+		padding-top: 20px;
+		padding-bottom: 35px;
 
 		h1{
 			font-size: 35px;
@@ -228,7 +236,6 @@ body{
 		h2{
 			font-size: 20px;
 			margin-bottom: 15px;
-			// font-weight: normal;
 		}
 
 		input[type='file']{
@@ -237,10 +244,10 @@ body{
 	}
 
 	#footer{
-		margin: 35px 0 0 0;
-		padding: 10px 0;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-		background-image: linear-gradient(to bottom, #fefefe, #fefefe);
+		background-color: #f9f9f9;
 
 		.footer-nav{
 			margin-bottom: 30px;
@@ -261,7 +268,6 @@ body{
 					margin-bottom: 5px;
 
 					a{
-						// color: white;
 						color: #333;
 					}
 				}
@@ -300,46 +306,21 @@ body{
 // page home
 //-----------------------------------------------------
 #page-home{
-	.bx-wrapper{
-		// margin-top: 10px;
+	.carousel-wap{
+		width: 980px;
+		margin: 0 auto;
 
-		.bx-viewport{
-			// background-color: transparent;
+		.bxslider{
+			margin: 0;
+			width: 980px;
 
-			.bxslider{
-				margin: 0;
-
-				li{
-					// .c-text{
-					// 	width: 400px;
-					// 	float: left;
-					// 	margin-top: 20px;
-
-					// 	.c-title{
-					// 		margin-bottom: 10px;
-
-					// 		a{
-					// 			font-size: 26px;
-					// 			color: white;
-					// 		}
-					// 	}
-
-					// 	.c-content{
-					// 		font-size: 12px;
-					// 		color: white;
-					// 	}
-					// }
-
-					// .c-img{
-					// 	width: 480px;
-					// 	margin-top: 20px;
-					// 	margin-left: 440px;
-					// 	box-shadow: 0 0 20px black;
-					// }
+			li{
+				img{
+					width: 980px;
+					height: 320px;
 				}
-			}			
-		}
-
+			}
+		}			
 	}
 
 	.types{
