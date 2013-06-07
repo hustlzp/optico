@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block page_title %}Home{% endblock %}
+{% block page_title %}OPTICO{% endblock %}
 {% block page_id %}page-home{% endblock %}
 
 {% block carousel %}
@@ -10,18 +10,7 @@
 <div class="carousel-wap">
 	<ul class="bxslider">
 		{% for c in public_carousels %}
-		<li>
-			<!-- <div class="c-text">
-				<div class="c-title"><a href="{{ c.LinkUrl }}">{{ c.Title }}</a></div>
-				<div class="c-content">{{ c.Content }}</div>
-			</div>
-
-			<a href="{{ c.LinkUrl }}">
-				<img class="c-img" src="{{ c.ImageUrl }}" />
-			</a> -->
-			<!--<a href="{{ c.LinkUrl }}"> -->
-			<img class="c-img" src="{{ c.ImageUrl }}" />
-		</li>
+		<li><img class="c-img" src="{{ c.ImageUrl }}" /></li>
 		{% endfor %}
 	</ul>
 </div>
@@ -31,7 +20,6 @@ $(document).ready(function(){
 	$('.bxslider').bxSlider({
 		controls: false,
 		mode: 'fade',
-		// pager: false,
 		speed: 1000,
 		auto: true
 	});				
