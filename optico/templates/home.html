@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 		<ul class="stypes-list">
 			{% for st in mt.stypes %}
-			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name|truncate(32, true) }}</a></li>
+			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name|truncate(30, true) }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>
