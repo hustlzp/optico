@@ -68,7 +68,7 @@ body{
 				float: left;
 
 				#request-quote{
-					color: #333;
+					color: #666;
 					display: block;
 					font-size: 13px;
 					line-height: 13px;
@@ -131,7 +131,9 @@ body{
 			clear: both;
 			margin-bottom: 0px;
 			padding: 0;
-			background-image: linear-gradient(to bottom, #ffffff, #fefefe);
+			// background-image: linear-gradient(to bottom, #ffffff, #fefefe);
+			background-image: none;
+			background-color: white;
 			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 			border-left: 0;
 			border-right: 0;
@@ -212,7 +214,6 @@ body{
 	#main-wap{
 		font-size: 14px;
 		line-height: 24px;
-		min-height: 350px;
 		padding-top: 20px;
 		padding-bottom: 15px;
 
@@ -222,7 +223,7 @@ body{
 			margin-top: 5px;
 			margin-bottom: 30px;
 			padding-bottom: 15px;
-			border-bottom: 1px solid #999;
+			border-bottom: 2px ridge #ddd;
 			font-weight: normal;
 		}
 
@@ -300,6 +301,7 @@ body{
 	.carousel-wap{
 		width: 100%;
 		margin: 0 auto;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 
 		.bxslider{
 			margin: 0;
@@ -314,7 +316,7 @@ body{
 	}
 
 	.types{
-		margin-bottom: 25px;
+		margin-bottom: 10px;
 
 		.mtype-item{
 			background-color: white;
@@ -347,16 +349,21 @@ body{
 						color: #333;
 						font-size: 12px;
 						display: block;
-						// margin-bottom: 1px;
 					}
 				}
 			}
 		}
 	}
 
+	.ce-divider{
+		border: 0;
+		// border-top: 1px solid #999;
+		border-bottom: 2px ridge #ddd;
+		margin: 0 0 10px 0;
+	}
+
 	.certificate{
 		padding-top: 20px;
-		border-top: 1px solid #aaa;
 
 		img{
 			height: 50px;
