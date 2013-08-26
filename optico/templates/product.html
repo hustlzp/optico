@@ -48,7 +48,7 @@ $(document).ready(function(){
 		<ul class="breadcrumb">
 			<li><a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a> ></li>
 			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name }}</a> ></li>
-			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ p.Name }}</a></li>
+			<li>{{ p.Name }}</li>
 		</ul>
 		
 		<h1>{{ p.Name }}</h1>
