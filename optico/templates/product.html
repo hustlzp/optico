@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 
-{% block page_title %}{{ p.Name }}{% endblock %}
+{% block page_title %}{{ p.Name }} - {{ st.Name }} - {{ mt.Name }} - Products - Optico Communincation{% endblock %}
 {% block page_id%}page-product{% endblock %}
+
+{% block keywords %}{{ p.Name }}, {{ st.Name }}, {{ mt.Name }}, Products, Optico Communincation{% endblock %}
+{% block description %}{{ p.Name }} By Optico Communincation{% endblock %}
 
 {% block body %}
 
