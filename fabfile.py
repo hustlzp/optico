@@ -12,12 +12,12 @@ def restart():
 
 def deploy():
 	with cd('/var/www/optico'):
-		run('git pull')
+		run('git pull -f')
 		run('kill -HUP `cat /tmp/optico.pid`')
 
 def ldeploy():
 	with cd('/var/www/optico'):
-		run('git pull')
+		run('git pull -f')
 
 # back up database files
 def backup():
