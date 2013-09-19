@@ -1,0 +1,6 @@
+flask
+SQLAlchemy
+Flask-WTF
+MySQL-python
+markdown2
+textile

@@ -68,11 +68,11 @@ def contact():
 			</html>''' % (name, email, company, comments)
 		msg = MIMEText(msgText, 'html', 'utf-8')
 		msg['From'] = "%s<%s>" % (name, email)
-		msg['To'] = "sales<sales@optico.com.cn>" 
+		msg['To'] = "sales<%s>" % config.EMAIL_SALES 
 		msg['Subject'] = "Customer Contact"
 
 		# send email
 		s = smtplib.SMTP(config.SMTP_SERVER, config.SMTP_PORT)
 		s.login(config.SMTP_USER, config.SMTP_PASSWORD)
-		s.sendmail(config.SMTP_USER, 'sales@optico.com.cn', msg.as_string())
+		s.sendmail(config.SMTP_USER, config.EMAIL_SALES, msg.as_string())
 		return redirect(url_for('home'))
