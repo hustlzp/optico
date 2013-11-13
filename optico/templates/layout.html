@@ -1,187 +1,249 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<title>{% block page_title %}Optico Communincation{% endblock %}</title>
-		<meta name='description' content="{% block description %}Optico Communication manufacture quality and best price products like MTP, CWDM, DWDM, FWDM, PLC splitter, CATV, cat5e, cat6, cat6a, cat7 cable, UTP, FTP, SFTP, SSTP{% endblock %}">
-		<meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11"></meta>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
-		<link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
-	</head>
+<head>
+   <title>{% block page_title %}Optico Communincation{% endblock %}</title>
+   <meta name='description'
+         content="{% block description %}Optico Communication manufacture quality and best price products like MTP, CWDM, DWDM, FWDM, PLC splitter, CATV, cat5e, cat6, cat6a, cat7 cable, UTP, FTP, SFTP, SSTP{% endblock %}">
+   <meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
+   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
+</head>
 
-	<body id="{% block page_id %}{% endblock %}">
-		<div id="os-float-window">
-			<div class="os-title">Online Service</div>
-			<div class="os-msn">
-				<a href="msnim:chat?contact=optico.communication@hotmail.com">
-					<img src="{{ url_for('static', filename='img/msn.png') }}" />
-					<span>Call MSN</span>
-				</a>
-			</div>
-			<div class="os-skype">
-				<a href="callto://optico.communication">
-					<img src="{{ url_for('static', filename='img/skype.png') }}" />
-					<span>Call Skype</span>
-				</a>
-			</div>
-		</div>
-		<script type="text/javascript">
-		// float window
-		$(function(){
-			$('#os-float-window').css('top', $(window).height() * 0.3);
-			
-			$(window).scroll(function(){
-				setTimeout(fw_move, 20);
-			});
-		});
+<body id="{% block page_id %}{% endblock %}">
+<div id="os-float-window">
+   <div class="os-title">Online Service</div>
+   <div class="os-msn">
+      <a href="msnim:chat?contact=optico.communication@hotmail.com">
+         <img src="{{ url_for('static', filename='img/msn.png') }}"/>
+         <span>Call MSN</span>
+      </a>
+   </div>
+   <div class="os-skype">
+      <a href="callto://optico.communication">
+         <img src="{{ url_for('static', filename='img/skype.png') }}"/>
+         <span>Call Skype</span>
+      </a>
+   </div>
+</div>
+<script type="text/javascript">
+   // float window
+   $(function () {
+      $('#os-float-window').css('top', $(window).height() * 0.3);
 
-		function fw_move(){
-			$('#os-float-window').animate({
-				top: $(window).scrollTop() + $(window).height() * 0.3 + "px"
-			}, 50);
-		}
-		</script>
+      $(window).scroll(function () {
+         setTimeout(fw_move, 20);
+      });
+   });
 
-		<div id="header">
-			<div class="container first-row">	
-				<a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
+   function fw_move() {
+      $('#os-float-window').animate({
+         top: $(window).scrollTop() + $(window).height() * 0.3 + "px"
+      }, 50);
+   }
+</script>
 
-				<!-- google translation -->				  
-				<div id="google_translate_element"></div>
-				<div id="google_translate_element"></div>
-				<script type="text/javascript">
-				function googleTranslateElementInit() {
-				  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-				}
-				</script>
-				<script type="text/javascript">
-				(function(){var d=window,e=document,f=".",g="UTF-8",h="complete",k="head",l="link",m="script",n="stylesheet",p="text/css",q="text/javascript";Math.random();function r(b){var a=e.getElementsByTagName(k)[0];a||(a=e.body.parentNode.appendChild(e.createElement(k)));a.appendChild(b)}function _loadJs(b){var a=e.createElement(m);a.type=q;a.charset=g;a.src=b;r(a)}function _loadCss(b){var a=e.createElement(l);a.type=p;a.rel=n;a.charset=g;a.href=b;r(a)}function _isNS(b){b=b.split(f);for(var a=d,c=0;c<b.length;++c)if(!(a=a[b[c]]))return!1;return!0}function _setupNS(b){b=b.split(f);for(var a=d,c=0;c<b.length;++c)a=a[b[c]]||(a[b[c]]={});return a}
-					d.addEventListener&&"undefined"==typeof e.readyState&&d.addEventListener("DOMContentLoaded",function(){e.readyState=h},!1);
-					if (_isNS('google.translate.Element')){return}var c=_setupNS('google.translate._const');c._cl='en';c._cuc='googleTranslateElementInit';c._cac='';c._cam='';var h='translate.googleapis.com';var s=(false?'https':window.location.protocol=='https:'?'https':'http')+'://';var b=s+h;c._pah=h;c._pas=s;c._pbi=b+'/translate_static/img/te_bk.gif';c._pci=b+'/translate_static/img/te_ctrl3.gif';c._phf=h+'/translate_static/js/element/hrs.swf';c._pli=b+'/translate_static/img/loading.gif';c._plla=h+'/translate_a/l';c._pmi=b+'/translate_static/img/mini_google.png';c._ps=b+'/translate_static/css/translateelement.css';c._puh='translate.google.com';_loadCss(c._ps);_loadJs(b+'/translate_static/js/element/main.js');})();
-				</script>
-				
-				<form id="search-form" method="post" action="{{ url_for('search') }}">
-					<input type="text" name="keywords" placeholder="Search Products" /><input type="submit" value="Go" />
-				</form>
+<div id="header">
+   <div class="container first-row">
+      <a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
 
-				<a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
-			</div>
+      <!-- google translation -->
+      <div id="google_translate_element"></div>
+      <script type="text/javascript">
+         function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+         }
+      </script>
+      <script type="text/javascript">
+         (function () {
+            var d = window, e = document, f = ".", g = "UTF-8", h = "complete", k = "head", l = "link", m = "script", n = "stylesheet", p = "text/css", q = "text/javascript";
+            Math.random();
+            function r(b) {
+               var a = e.getElementsByTagName(k)[0];
+               a || (a = e.body.parentNode.appendChild(e.createElement(k)));
+               a.appendChild(b)
+            }
 
-			<!-- nav -->
-			<div class="navbar">
-				<div class="navbar-inner">
-					<div class="navbar-content clearfix">
-						<ul class="nav">
-							<li><a href="{{ url_for('home') }}">Home</a></li>
+            function _loadJs(b) {
+               var a = e.createElement(m);
+               a.type = q;
+               a.charset = g;
+               a.src = b;
+               r(a)
+            }
 
-							<li>
-								<a href="{{ url_for('products') }}">Products</a>
-								<ul class='sub-menu'>
-									{% for t in public_mtypes %}
-									<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
-									{% endfor %}
-								</ul>
-							</li>
+            function _loadCss(b) {
+               var a = e.createElement(l);
+               a.type = p;
+               a.rel = n;
+               a.charset = g;
+               a.href = b;
+               r(a)
+            }
 
-							<li>
-								<a href="{{ url_for('about') }}">About Us</a>
-								<ul class='sub-menu'>
-									<li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
-									<li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-									<li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
-									<li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-								</ul>
-							</li>
+            function _isNS(b) {
+               b = b.split(f);
+               for (var a = d, c = 0; c < b.length; ++c)if (!(a = a[b[c]]))return!1;
+               return!0
+            }
 
-							<li>
-								<a href="{{ url_for('service') }}">Service</a>
-								<ul class='sub-menu'>
-									<li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
-									<li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
-								</ul>
-							</li>
+            function _setupNS(b) {
+               b = b.split(f);
+               for (var a = d, c = 0; c < b.length; ++c)a = a[b[c]] || (a[b[c]] = {});
+               return a
+            }
 
-							<li><a href="{{ url_for('careers') }}">Careers</a></li>
+            d.addEventListener && "undefined" == typeof e.readyState && d.addEventListener("DOMContentLoaded", function () {
+               e.readyState = h
+            }, !1);
+            if (_isNS('google.translate.Element')) {
+               return
+            }
+            var c = _setupNS('google.translate._const');
+            c._cl = 'en';
+            c._cuc = 'googleTranslateElementInit';
+            c._cac = '';
+            c._cam = '';
+            var h = 'translate.googleapis.com';
+            var s = (false ? 'https' : window.location.protocol == 'https:' ? 'https' : 'http') + '://';
+            var b = s + h;
+            c._pah = h;
+            c._pas = s;
+            c._pbi = b + '/translate_static/img/te_bk.gif';
+            c._pci = b + '/translate_static/img/te_ctrl3.gif';
+            c._phf = h + '/translate_static/js/element/hrs.swf';
+            c._pli = b + '/translate_static/img/loading.gif';
+            c._plla = h + '/translate_a/l';
+            c._pmi = b + '/translate_static/img/mini_google.png';
+            c._ps = b + '/translate_static/css/translateelement.css';
+            c._puh = 'translate.google.com';
+            _loadCss(c._ps);
+            _loadJs(b + '/translate_static/js/element/main.js');
+         })();
+      </script>
 
-							<li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <form id="search-form" method="post" action="{{ url_for('search') }}">
+         <input type="text" name="keywords" placeholder="Search Products"/><input type="submit" value="Go"/>
+      </form>
 
-							{% if session.user_id == admin_id %}
-							<li>
-								<a class="dropdown-toggle" href="#">Admin</a>
-								<ul class='sub-menu'>
-									<li><a href="{{ url_for('add_product') }}">添加产品</a></li>
-									<li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
-									<li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
-									<li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-									<li><a href="{{ url_for('logout') }}">登出</a></li>
-								</ul>
-							</li>
-							{% endif %}
-						</ul>
-					</div>
-				</div>
-			</div>
+      <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
+   </div>
 
-			<script type="text/javascript">
-			var liNum = $('.navbar-inner .nav > li').length;
+   <!-- nav -->
+   <div class="navbar">
+      <div class="navbar-inner">
+         <div class="navbar-content clearfix">
+            <ul class="nav">
+               <li><a href="{{ url_for('home') }}">Home</a></li>
 
-			$('.navbar-inner .nav > li').css({
-				'box-sizing': 'border-box',
-				'width': 980 / liNum + 'px'
-			});
-			</script>
+               <li>
+                  <a href="{{ url_for('products') }}">Products</a>
+                  <ul class='sub-menu'>
+                     {% for t in public_mtypes %}
+                        <li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+                     {% endfor %}
+                  </ul>
+               </li>
 
-			<!-- Carousels -->
-			{% block carousel %}{% endblock %}
-		</div>
+               <li>
+                  <a href="{{ url_for('about') }}">About Us</a>
+                  <ul class='sub-menu'>
+                     <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
+                     <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+                     <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
+                     <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+                  </ul>
+               </li>
 
-		<div id="main-wap" class="container">
-			{% block body %}{% endblock %}
-		</div>
+               <li>
+                  <a href="{{ url_for('service') }}">Service</a>
+                  <ul class='sub-menu'>
+                     <li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
+                     <li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
+                  </ul>
+               </li>
 
-		{% block certificate %}{% endblock %}
+               <li><a href="{{ url_for('careers') }}">Careers</a></li>
 
-		<div id="footer" class="container">
-			<div class="footer-nav">
-				<div class="row">
-					<div class="span3">
-						<h4>About Us</h4>
-						<ul>
-							<li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
-							<li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-							<li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
-							<li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-						</ul>
-					</div>
-					<div class="span3">
-						<h4>Products</h4>
-						<ul>
-							{% for t in public_mtypes %}
-							<li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
-							{% endfor %}
-						</ul>
-					</div>
-					<div class="span3">
-						<h4>Downloads</h4>
-						<ul>
-							<li><a href="#">File Downloads</a></li>
-						</ul>						
-					</div>
-					<div class="span3">
-						<h4>Follow Us</h4>
-						<ul class="img-list">
-							<li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}" /></a></li>
-							<li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}" /></a></li>
-							<li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}" /></a></li>
-							<li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}" /></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+               <li><a href="{{ url_for('contact') }}">Contact</a></li>
 
-			<div class="cp">Copyright © 2013 by OPTICO</div>
-		</div>
-	</body>
+               {% if session.user_id == admin_id %}
+                  <li>
+                     <a class="dropdown-toggle" href="#">Admin</a>
+                     <ul class='sub-menu'>
+                        <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+                        <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+                        <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+                        <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+                        <li><a href="{{ url_for('logout') }}">登出</a></li>
+                     </ul>
+                  </li>
+               {% endif %}
+            </ul>
+         </div>
+      </div>
+   </div>
+
+   <script type="text/javascript">
+      var liNum = $('.navbar-inner .nav > li').length;
+
+      $('.navbar-inner .nav > li').css({
+         'box-sizing': 'border-box',
+         'width': 980 / liNum + 'px'
+      });
+   </script>
+
+   <!-- Carousels -->
+   {% block carousel %}{% endblock %}
+</div>
+
+<div id="main-wap" class="container">
+   {% block body %}{% endblock %}
+</div>
+
+{% block certificate %}{% endblock %}
+
+<div id="footer" class="container">
+   <div class="footer-nav">
+      <div class="row">
+         <div class="span3">
+            <h4>About Us</h4>
+            <ul>
+               <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
+               <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+               <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
+               <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+            </ul>
+         </div>
+         <div class="span3">
+            <h4>Products</h4>
+            <ul>
+               {% for t in public_mtypes %}
+                  <li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+               {% endfor %}
+            </ul>
+         </div>
+         <div class="span3">
+            <h4>Downloads</h4>
+            <ul>
+               <li><a href="#">File Downloads</a></li>
+            </ul>
+         </div>
+         <div class="span3">
+            <h4>Follow Us</h4>
+            <ul class="img-list">
+               <li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}"/></a></li>
+               <li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}"/></a></li>
+               <li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}"/></a></li>
+               <li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}"/></a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+
+   <div class="cp">Copyright © 2013 by OPTICO</div>
+</div>
+</body>
 </html>

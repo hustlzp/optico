@@ -5,17 +5,18 @@ from optico import app
 from sqlalchemy import create_engine, MetaData, Table
 import config
 
-engine = create_engine('mysql+mysqldb://%s:%s@%s/%s?charset=utf8' % (config.DB_USER, config.DB_PWD, config.DB_HOST, config.DB_NAME))
+engine = create_engine(
+    'mysql+mysqldb://%s:%s@%s/%s?charset=utf8' % (config.DB_USER, config.DB_PWD, config.DB_HOST, config.DB_NAME))
 
 # Open conn before request
 @app.before_request
 def before_request():
-	g.conn = engine.connect()
+    g.conn = engine.connect()
 
 # Close conn after request
 @app.teardown_request
 def teardown_request(exception):
-	g.conn.close()
+    g.conn.close()
 
 # table definition
 metadata = MetaData(bind=engine)
