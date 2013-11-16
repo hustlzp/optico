@@ -355,6 +355,7 @@ body #goog-gt-tt + div {
 #page-about .table-products {
   background-color: #ffffff;
   border-radius: 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 #page-about .table-products td {
   padding: 12px 15px;
