@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 
 import os
-from flask import render_template, request, redirect, url_for, json, abort
+from flask import render_template, request, redirect, url_for, json
 from optico import app
 import config
 from optico.models import Product, Mtype
@@ -31,7 +31,7 @@ def products():
 #--------------------------------------------------
 
 # view (public)
-@app.route('/products/search', methods=['POST'])
+@app.route('/product/search', methods=['POST'])
 def search_products():
     keyword = request.form['keyword']
     products = Product.query.filter(Product.name.like('%%%s%%' % keyword))

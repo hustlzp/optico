@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 import os
 from flask import render_template, request, redirect, url_for, json
-from optico import app
+from optico import app, images
 import config
 from optico.models import Carousel
 from optico.utils import check_admin, build_cimg_filename
@@ -10,15 +10,15 @@ from optico.utils import check_admin, build_cimg_filename
 #--------------------------------------------------
 
 # View (admin)
-@app.route('/manage_carousel', methods=['GET', 'POST'])
+@app.route('/carousel/manage', methods=['GET', 'POST'])
 def manage_carousel():
     check_admin()
     if request.method == 'GET':
-        carousels = Carousel.get_all()
-        return render_template('manage_carousel.html', carousels=carousels)
+        carousels = Carousel.query.all()
+        return render_template('carousel/manage.html', carousels=carousels)
     else:
         # add carousel
-        link = request.form['link']
+        link = request.form['link_url']
         title = request.form['title']
         content = request.form['content']
         new_id = Carousel.add(link, title, content)
@@ -37,12 +37,12 @@ def manage_carousel():
 #--------------------------------------------------
 
 # View (admin)
-@app.route('/edit_carousel/<int:c_id>', methods=['GET', 'POST'])
+@app.route('/carousel/<int:c_id>/edit', methods=['GET', 'POST'])
 def edit_carousel(c_id):
     check_admin()
     if request.method == 'GET':
         carousel = Carousel.get_by_id(c_id)
-        return render_template('edit_carousel.html', carousel=carousel)
+        return render_template('carousel/edit.html', carousel=carousel)
     else:
         # save image
         image = request.files['image']
@@ -66,7 +66,7 @@ def edit_carousel(c_id):
 #--------------------------------------------------
 
 # View (admin)
-@app.route('/delete_carousel/<int:c_id>')
+@app.route('/carousel/<int:c_id>/delete')
 def delete_carousel(c_id):
     check_admin()
 

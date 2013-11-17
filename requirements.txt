@@ -1,5 +1,6 @@
 Flask
 Flask-SQLAlchemy
+Flask-Uploads
 Flask-WTF
 MySQL-python
 markdown2

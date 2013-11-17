@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from optico import db
+from optico import db, images
 import textile
 import markdown2
 
@@ -10,6 +10,10 @@ class Mtype(db.Model):
     name = db.Column(db.String(50))
     image = db.Column(db.String(100))
     show_order = db.Column(db.Integer)
+
+    @property
+    def image_url(self):
+        return images.url(self.image)
 
     def __repr__(self):
         return '<Mtype %s>' % self.name
@@ -43,6 +47,10 @@ class Product(db.Model):
     def friendly_desc(self):
         return markdown2.markdown(self.desc)
 
+    @property
+    def image_url(self):
+        return images.url(self.image)
+
     def __repr__(self):
         return '<Product %s>' % self.name
 
@@ -71,6 +79,10 @@ class Carousel(db.Model):
     content = db.Column(db.Text)
     image = db.Column(db.String(100))
     link_url = db.Column(db.String(100))
+
+    @property
+    def image_url(self):
+        return images.url(self.image)
 
     def __repr__(self):
         return '<Carousel %s>' % self.id

@@ -10,7 +10,7 @@
 <div class="carousel-wap">
 	<ul class="bxslider">
 		{% for c in carousels %}
-		<li><img class="c-img" src="{{ c.image }}" /></li>
+		<li><img class="c-img" src="{{ c.image_url }}" /></li>
 		{% endfor %}
 	</ul>
 </div>
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	{% for mt in mtypes %}
 	<div class="mtype-item span3">
 		<a href="{{ url_for('mtype', mtype_id=mt.id) }}">
-			<img class="mt-image" src="{{ mt.image }}" alt="{{ mt.name }}" />
+			<img class="mt-image" src="{{ mt.image_url }}" alt="{{ mt.name }}" />
 		</a>
 		
 		<div class="mt-name"><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></div>

@@ -2,8 +2,9 @@
 import sys
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.uploads import UploadSet, IMAGES, configure_uploads
 
-sys.path.append('/var/www/flaskconfig/optico/')
+sys.path.append('/var/www/flaskconfig/optico')
 import config
 
 # convert python's encoding to utf8
@@ -16,12 +17,18 @@ app.config.update(
     SECRET_KEY=config.SECRET_KEY,
     SESSION_COOKIE_NAME=config.SESSION_COOKIE_NAME,
     PERMANENT_SESSION_LIFETIME=config.PERMANENT_SESSION_LIFETIME,
-    DEBUG=config.DEBUG)
+    DEBUG=config.DEBUG,
+    UPLOADED_IMAGES_DEST="/var/www/opticoimgs",
+    UPLOADED_IMAGES_URL="http://localhost:8080/opticoimgs/")
 
 # SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://%s:%s@%s/%s' % (
     config.DB_USER, config.DB_PASSWORD, config.DB_HOST, config.DB_NAME)
 db = SQLAlchemy(app)
+
+# Upload sets
+images = UploadSet('images', IMAGES)
+configure_uploads(app, images)
 
 # send log msg using smtp
 if not app.debug:
