@@ -2,11 +2,9 @@
 
 import smtplib
 from email.mime.text import MIMEText
-from flask import render_template, request, redirect, url_for, json
+from flask import render_template, request, redirect, url_for
 from optico import app
-from optico.models.type_model import Type
-from optico.models.carousel_model import Carousel
-from optico.utils import convert_dict
+from optico.models import Mtype
 import config
 
 # page home
@@ -15,10 +13,8 @@ import config
 # view (public)
 @app.route('/')
 def home():
-    mtypes = convert_dict(Type.get_mtypes())
-    for mt in mtypes:
-        mt['stypes'] = convert_dict(Type.get_stypes(mt['MainTypeID']))
-    return render_template('home.html', mtypes=mtypes)
+    mtypes = Mtype.query.all()
+    return render_template('site/home.html', mtypes=mtypes)
 
 # page service
 #--------------------------------------------------
@@ -26,7 +22,7 @@ def home():
 # view (public)
 @app.route('/service')
 def service():
-    return render_template('service.html')
+    return render_template('site/service.html')
 
 # page careers
 #--------------------------------------------------
@@ -34,7 +30,7 @@ def service():
 # view (public)
 @app.route('/careers')
 def careers():
-    return render_template('careers.html')
+    return render_template('site/careers.html')
 
 
 # page about
@@ -43,7 +39,7 @@ def careers():
 # view (public)
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('site/about.html')
 
 # page contact
 #--------------------------------------------------
@@ -52,7 +48,7 @@ def about():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'GET':
-        return render_template('contact.html')
+        return render_template('site/contact.html')
     else:
         name = request.form['name']
         email = request.form['email']
@@ -61,11 +57,11 @@ def contact():
 
         # prepare email content
         msgText = '''<html>
-			<p>Name: %s</p>
-			<p>Email: %s</p>
-			<p>Company: %s</p>
-			<p>Comments: %s</p>
-			</html>''' % (name, email, company, comments)
+            <p>Name: %s</p>
+            <p>Email: %s</p>
+            <p>Company: %s</p>
+            <p>Comments: %s</p>
+            </html>''' % (name, email, company, comments)
         msg = MIMEText(msgText, 'html', 'utf-8')
         msg['From'] = "%s<%s>" % (name, email)
         msg['To'] = "sales<%s>" % config.EMAIL_SALES
@@ -76,3 +72,15 @@ def contact():
         s.login(config.SMTP_USER, config.SMTP_PASSWORD)
         s.sendmail(config.SMTP_USER, config.EMAIL_SALES, msg.as_string())
         return redirect(url_for('home'))
+
+
+# 404 error
+@app.errorhandler(404)
+def page_404(error):
+    return render_template('404.html'), 404
+
+
+# 500 error
+@app.errorhandler(500)
+def page_500(error):
+    return render_template('500.html'), 500

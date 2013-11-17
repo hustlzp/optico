@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
-
 import sys
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 
 sys.path.append('/var/www/flaskconfig/optico/')
 import config
@@ -18,6 +18,11 @@ app.config.update(
     PERMANENT_SESSION_LIFETIME=config.PERMANENT_SESSION_LIFETIME,
     DEBUG=config.DEBUG)
 
+# SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://%s:%s@%s/%s' % (
+    config.DB_USER, config.DB_PASSWORD, config.DB_HOST, config.DB_NAME)
+db = SQLAlchemy(app)
+
 # send log msg using smtp
 if not app.debug:
     import logging
@@ -29,15 +34,15 @@ if not app.debug:
     mail_handler.setLevel(logging.ERROR)
     app.logger.addHandler(mail_handler)
 
+import models
 import controllers
-import db
-from optico.models.carousel_model import Carousel
-from optico.models.type_model import Type
+from models import Carousel
+from models import Mtype
 
 # inject vars into template context
 @app.context_processor
 def inject_vars():
     return dict(
         admin_id=config.ADMIN_ID,
-        public_mtypes=Type.get_mtypes(),
-        public_carousels=Carousel.get_all())
+        mtypes=Mtype.query.all(),
+        carousels=Carousel.query.all())

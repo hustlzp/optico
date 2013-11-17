@@ -1,0 +1,15 @@
+{% macro show_products(products) %}
+
+{% for p in products %}
+<div class="p-item">
+	<a href="{{ url_for('product', product_id=p.id) }}">
+      <img title="{{ p.name }}" alt="{{ p.name }}" class="p-img" src="{{ p.image }}" alt="{{ p.name }}" />
+   </a>
+
+	<div class="p-info-wap">
+		<div class="p-name"><a href="{{ url_for('product', product_id=p.id) }}">{{ p.name }}</a></div>
+	</div>
+</div>
+{% endfor %}
+
+{% endmacro %}

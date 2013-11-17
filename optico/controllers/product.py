@@ -1,14 +1,11 @@
 #-*- coding: UTF-8 -*-
 
 import os
-import markdown2
-import textile
 from flask import render_template, request, redirect, url_for, json, abort
 from optico import app
 import config
-from optico.models.product_model import Product
-from optico.models.type_model import Type
-from optico.utils import check_admin, convert_dict, build_pimg_filename
+from optico.models import Product, Mtype
+from optico.utils import check_admin, build_pimg_filename
 
 # page product
 #--------------------------------------------------
@@ -16,29 +13,9 @@ from optico.utils import check_admin, convert_dict, build_pimg_filename
 # view (public)
 @app.route('/product/<int:product_id>')
 def product(product_id):
-    p = Product.get_by_id(product_id)
-    if p:
-        p = dict(p)
-    else:
-        abort(404)
-
-    p['Details'] = markdown2.markdown(p['Details'])
-    st = Type.get_stype_by_id(p['SubTypeID'])
-    mt = Type.get_mtype_by_id(p['MainTypeID'])
-
-    # build products sidebar
-    ps = convert_dict(Type.get_mtypes())
-    for m in ps:
-        m['stypes'] = Type.get_stypes(m['MainTypeID'])
-        for s in m['stypes']:
-            s['products'] = Product.get_by_stype(s['SubTypeID'])
-
-    # product paramters
-    paras = Product.get_paras_by_product(product_id)
-    for pa in paras:
-        pa['Content'] = textile.textile(pa['Content'])
-
-    return render_template('product.html', p=p, mt=mt, st=st, ps=ps, paras=paras)
+    p = Product.query.get_or_404(product_id)
+    ps = Mtype.query.all()
+    return render_template('product/product.html', p=p, ps=ps)
 
 # page products
 #--------------------------------------------------
@@ -46,25 +23,19 @@ def product(product_id):
 # view (public)
 @app.route('/products')
 def products():
-    products = Product.get_all()
-
-    # build products sidebar
-    ps = convert_dict(Type.get_mtypes())
-    for mt in ps:
-        mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-        for st in mt['stypes']:
-            st['products'] = Product.get_by_stype(st['SubTypeID'])
-    return render_template('products.html', products=products, ps=ps)
+    products = Product.query.all()
+    ps = Mtype.query.all()
+    return render_template('product/products.html', products=products, ps=ps)
 
 # page search products
 #--------------------------------------------------
 
 # view (public)
-@app.route('/search', methods=['POST'])
-def search():
-    keywords = request.form['keywords']
-    products = Product.search(keywords)
-    return render_template('search.html', keywords=keywords, products=products)
+@app.route('/products/search', methods=['POST'])
+def search_products():
+    keyword = request.form['keyword']
+    products = Product.query.filter(Product.name.like('%%%s%%' % keyword))
+    return render_template('product/search.html', keyword=keyword, products=products)
 
 # page add product
 #--------------------------------------------------
@@ -105,7 +76,7 @@ def add_product():
 #--------------------------------------------------
 
 # view (admin)
-@app.route('/product/edit/<int:product_id>', methods=['GET', 'POST'])
+@app.route('/product/<int:product_id>/edit', methods=['GET', 'POST'])
 def edit_product(product_id):
     check_admin()
     if request.method == 'GET':
@@ -114,7 +85,7 @@ def edit_product(product_id):
         mtypes = Type.get_mtypes()
         for mt in mtypes:
             mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-        return render_template('edit_product.html', p=p, mtypes=json.dumps(mtypes))
+        return render_template('product/edit_product.html', p=p, mtypes=json.dumps(mtypes))
     else:
         # Save image
         image = request.files['image']
@@ -141,7 +112,7 @@ def edit_product(product_id):
 #--------------------------------------------------
 
 # view (admin)
-@app.route('/product/delete/<int:product_id>')
+@app.route('/product/<int:product_id>/delete')
 def delete_product(product_id):
     check_admin()
 
@@ -158,7 +129,7 @@ def delete_product(product_id):
 #--------------------------------------------------
 
 # view (admin)
-@app.route('/add_paras/<int:product_id>', methods=['POST'])
+@app.route('/product/<int:product_id>/add_para', methods=['POST'])
 def add_para(product_id):
     check_admin()
     title = request.form['title']
@@ -170,12 +141,12 @@ def add_para(product_id):
 #--------------------------------------------------
 
 # view (public)
-@app.route('/edit_para/<int:para_id>', methods=['GET', 'POST'])
+@app.route('/para/<int:para_id>/edit', methods=['GET', 'POST'])
 def edit_para(para_id):
     check_admin()
     para = Product.get_para_by_id(para_id)
     if request.method == 'GET':
-        return render_template('edit_para.html', para=para)
+        return render_template('product/edit_para.html', para=para)
     else:
         title = request.form['title']
         content = request.form['content']
@@ -186,7 +157,7 @@ def edit_para(para_id):
 #--------------------------------------------------
 
 # view (admin)
-@app.route('/delete_para/<int:para_id>')
+@app.route('/para/<int:para_id>/delete')
 def delete_para(para_id):
     check_admin()
     product_id = Product.get_para_by_id(para_id)['ProductID']

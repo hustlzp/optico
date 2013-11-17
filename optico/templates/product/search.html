@@ -2,16 +2,14 @@
 
 {% block page_title %}Search - Products - Optico Communincation{% endblock %}
 {% block page_id%}page-search{% endblock %}
-
 {% block description %}Search Products By Optico Communincation{% endblock %}
-
 {% block body %}
 
 <div class="row">
 	<div class="span9">
-		<h1>Search Results for "{{ keywords }}"</h1>
+		<h1>Search Results for "{{ keyword }}"</h1>
 
-		{% from 'products.widget' import show_products %}
+		{% from 'widget/products.html' import show_products %}
 		{{ show_products(products)|safe }}
 	</div>	
 </div>

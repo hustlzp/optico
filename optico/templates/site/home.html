@@ -9,8 +9,8 @@
 
 <div class="carousel-wap">
 	<ul class="bxslider">
-		{% for c in public_carousels %}
-		<li><img class="c-img" src="{{ c.ImageUrl }}" /></li>
+		{% for c in carousels %}
+		<li><img class="c-img" src="{{ c.image }}" /></li>
 		{% endfor %}
 	</ul>
 </div>
@@ -32,15 +32,15 @@ $(document).ready(function(){
 <div class="row types">
 	{% for mt in mtypes %}
 	<div class="mtype-item span3">
-		<a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">
-			<img class="mt-image" src="{{ mt.ImageUrl }}" alt="{{ mt.Name }}" />
+		<a href="{{ url_for('mtype', mtype_id=mt.id) }}">
+			<img class="mt-image" src="{{ mt.image }}" alt="{{ mt.name }}" />
 		</a>
 		
-		<div class="mt-name"><a href="{{ url_for('mtype', mtype_id=mt.MainTypeID) }}">{{ mt.Name }}</a></div>
+		<div class="mt-name"><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></div>
 
 		<ul class="stypes-list">
 			{% for st in mt.stypes %}
-			<li><a href="{{ url_for('stype', stype_id=st.SubTypeID) }}">{{ st.Name|truncate(30, true) }}</a></li>
+			<li><a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(30, true) }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>

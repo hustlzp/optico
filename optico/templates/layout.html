@@ -124,8 +124,8 @@
          })();
       </script>
 
-      <form id="search-form" method="post" action="{{ url_for('search') }}">
-         <input type="text" name="keywords" placeholder="Search Products"/><input type="submit" value="Go"/>
+      <form id="search-form" method="post" action="{{ url_for('search_products') }}">
+         <input type="text" name="keyword" placeholder="Search Products"/><input type="submit" value="Go"/>
       </form>
 
       <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
@@ -141,8 +141,8 @@
                <li>
                   <a href="{{ url_for('products') }}">Products</a>
                   <ul class='sub-menu'>
-                     {% for t in public_mtypes %}
-                        <li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+                     {% for mt in mtypes %}
+                        <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
                      {% endfor %}
                   </ul>
                </li>
@@ -220,8 +220,8 @@
          <div class="span3">
             <h4>Products</h4>
             <ul>
-               {% for t in public_mtypes %}
-                  <li><a href="{{ url_for('mtype', mtype_id=t.MainTypeID) }}">{{ t.Name }}</a></li>
+               {% for mt in mtypes %}
+                  <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
                {% endfor %}
             </ul>
          </div>

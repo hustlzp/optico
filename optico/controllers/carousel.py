@@ -1,11 +1,10 @@
 #-*- coding: UTF-8 -*-
-
 import os
 from flask import render_template, request, redirect, url_for, json
 from optico import app
 import config
-from optico.models.carousel_model import Carousel
-from optico.utils import convert_dict, check_admin, build_cimg_filename
+from optico.models import Carousel
+from optico.utils import check_admin, build_cimg_filename
 
 # Page manage carousel
 #--------------------------------------------------

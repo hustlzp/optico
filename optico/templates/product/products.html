@@ -2,25 +2,21 @@
 
 {% block page_title %}Products - Optico Communincation{% endblock %}
 {% block page_id%}page-products{% endblock %}
-
 {% block description %}Products By Optico Communincation{% endblock %}
-
 {% block body %}
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/optico-ps.js') }}"></script>
 
 <div class="row">
 	<div class="span3">
-		<!-- products treelist -->
-		{% from 'products_sidebar.widget' import show_ps %}
+		{% from 'widget/products_sidebar.html' import show_ps %}
 		{{ show_ps(ps)|safe }}
 	</div>
 
 	<div class="span9">
-
 		<h1>Products</h1>
 
-		{% from 'products.widget' import show_products %}
+		{% from 'widget/products.html' import show_products %}
 		{{ show_products(products)|safe }}
 	</div>	
 </div>

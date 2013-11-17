@@ -4,36 +4,29 @@ import os
 from flask import render_template, request, redirect, url_for, json, session, jsonify
 from optico import app
 import config
-from optico.models.product_model import Product
-from optico.models.type_model import Type
+from optico.models import Product
+from optico.models import Mtype, Stype
 from optico.utils import check_admin, build_mimg_filename
 
 # page main type
 #--------------------------------------------------
 
 # view (public)
-@app.route('/maintype/<int:mtype_id>')
+@app.route('/mtype/<int:mtype_id>')
 def mtype(mtype_id):
-    mt = Type.get_mtype_by_id(mtype_id)
-    products = Product.get_by_mtype(mtype_id)
-
-    # build products sidebar
-    ps = Type.get_mtypes()
-    for m in ps:
-        m['stypes'] = Type.get_stypes(m['MainTypeID'])
-        for s in m['stypes']:
-            s['products'] = Product.get_by_stype(s['SubTypeID'])
-    return render_template('mtype.html', mt=mt, products=products, ps=ps)
+    mt = Mtype.query.get_or_404(mtype_id)
+    ps = Mtype.query.all()
+    return render_template('type/mtype.html', mt=mt, ps=ps)
 
 # page add main type
 #--------------------------------------------------
 
 # view (admin)
-@app.route('/maintype/add', methods=['GET', 'POST'])
+@app.route('/mtype/add', methods=['GET', 'POST'])
 def add_mtype():
     check_admin()
     if request.method == 'GET':
-        return render_template('add_mtype.html')
+        return render_template('type/add_mtype.html')
     elif request.method == 'POST':
         # Add mtype
         name = request.form['name']
@@ -60,7 +53,7 @@ def edit_mtype(mtype_id):
     check_admin()
     if request.method == 'GET':
         mt = Type.get_mtype_by_id(mtype_id)
-        return render_template('edit_mtype.html', mt=mt)
+        return render_template('type/edit_mtype.html', mt=mt)
     else:
         # Save image
         image = request.files['image']
@@ -97,19 +90,12 @@ def delete_mtype(mtype_id):
 #--------------------------------------------------
 
 # view (public)
-@app.route('/subtype/<int:stype_id>')
+@app.route('/stype/<int:stype_id>')
 def stype(stype_id):
-    st = Type.get_stype_by_id(stype_id)
-    mt = Type.get_mtype_by_id(st['MainTypeID'])
-    products = Product.get_by_stype(stype_id)
-
-    # build products sidebar
-    ps = Type.get_mtypes()
-    for m in ps:
-        m['stypes'] = Type.get_stypes(m['MainTypeID'])
-        for s in m['stypes']:
-            s['products'] = Product.get_by_stype(s['SubTypeID'])
-    return render_template('stype.html', st=st, mt=mt, products=products, ps=ps)
+    """"""
+    st = Stype.query.get_or_404(stype_id)
+    ps = Mtype.query.all()
+    return render_template('type/stype.html', st=st, ps=ps)
 
 # page add sub type
 #--------------------------------------------------
@@ -120,7 +106,7 @@ def add_stype():
     check_admin()
     if request.method == 'GET':
         mtypes = Type.get_mtypes()
-        return render_template('add_stype.html', mtypes=mtypes)
+        return render_template('type/add_stype.html', mtypes=mtypes)
     elif request.method == 'POST':
         mtype_id = request.form['mtype_id']
         name = request.form['name']
@@ -138,7 +124,7 @@ def edit_stype(stype_id):
     if request.method == 'GET':
         mtypes = Type.get_mtypes()
         st = Type.get_stype_by_id(stype_id)
-        return render_template('edit_stype.html', st=st, mtypes=mtypes)
+        return render_template('type/edit_stype.html', st=st, mtypes=mtypes)
     elif request.method == 'POST':
         mtype_id = request.form['mtype_id']
         name = request.form['name']
