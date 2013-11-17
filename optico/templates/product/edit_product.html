@@ -1,120 +1,112 @@
 {% extends "layout.html" %}
 
 {% block page_title %}添加产品{% endblock %}
-{% block page_id%}page-edit-product{% endblock %}
+{% block page_id %}page-edit-product{% endblock %}
 
 {% block body %}
 
-<script type="text/javascript">
-$(document).ready(function(){
-	var mtypes = {{ mtypes|safe }},
-		mtype_id = {{ p.MainTypeID }},
-		stype_id = {{ p.SubTypeID }};
+   <script type="text/javascript">
+      $(document).ready(function () {
+         var mtypes = {{ mtypes|safe }},
+            mtype_id = {{ p.stype.mtype.id }},
+            stype_id = {{ p.stype.id }};
 
-	// init mtypes option and stypes option
-	$.each(mtypes, function(index, mt){
-		// build mtype option html
-		mop = "<option value='" + mt.MainTypeID + "'";
-		if(mt.MainTypeID == mtype_id){
-			mop += "selected=selected";
-		}
-		mop += ">" + mt.Name + "</option>";
+         // init mtypes option and stypes option
+         $.each(mtypes, function (index, mt) {
+            // build mtype option html
+            var mop = "<option value='" + mt.id + "'";
+            if (mt.id == mtype_id) {
+               mop += "selected=selected";
+            }
+            mop += ">" + mt.name + "</option>";
 
-		$("#mtype_id").append(mop);
+            $("#mtype_id").append(mop);
 
-		if(mt.MainTypeID == mtype_id){
-			$.each(mt.stypes, function(index, st){
-				// build stype option html
-				sop = "<option value=" + st.SubTypeID + "'";
-				if(st.SubTypeID == stype_id){
-					sop += "selected=selected";
-				}
-				sop += ">" + st.Name + "</option>";
-				
-				$("#stype_id").append(sop);
-			});
-		}
-	});
+            if (mt.id == mtype_id) {
+               $.each(mt.stypes, function (index, st) {
+                  // build stype option html
+                  var sop = "<option value=" + st.id + "'";
+                  if (st.id == stype_id) {
+                     sop += "selected=selected";
+                  }
+                  sop += ">" + st.name + "</option>";
 
-	// stypes changes with mtypes 
-	$("#mtype_id").change(function(){
-		var mtype_id = $(this)[0].options[$(this)[0].selectedIndex].value;
+                  $("#stype_id").append(sop);
+               });
+            }
+         });
 
-		$.each(mtypes, function(index, mt){
+         // stypes changes with mtypes
+         $("#mtype_id").change(function () {
+            var mtype_id = $(this)[0].options[$(this)[0].selectedIndex].value;
 
-			if(mt.MainTypeID == mtype_id){
-				$("#stype_id").empty();
-				$.each(mt.stypes, function(index, st){
-					$("#stype_id").append("<option value=" + st.SubTypeID + ">" + st.Name + "</option>");
-				});
-			}
-		});		
-	});
-});
-</script>
+            $.each(mtypes, function (index, mt) {
 
-<form id="form-edit-product" class="form-horizontal" method="post" action="{{ url_for('edit_product', product_id=p.ProductID) }}" enctype="multipart/form-data">
-	<fieldset>
-		<legend>编辑产品</legend>
+               if (mt.id == mtype_id) {
+                  $("#stype_id").empty();
+                  $.each(mt.stypes, function (index, st) {
+                     $("#stype_id").append("<option value=" + st.id + ">" + st.name + "</option>");
+                  });
+               }
+            });
+         });
+      });
+   </script>
 
-		<div class="control-group">
-			<label class="control-label">类别</label>
-			<div class="controls">
-				<select name='mtype_id' id="mtype_id"></select>
-				<select name='stype_id' id="stype_id"></select>
-			</div>
-		</div>
+   <form id="form-edit-product" class="form-horizontal" method="post"
+         action="{{ url_for('edit_product', product_id=p.id) }}" enctype="multipart/form-data">
+      <fieldset>
+         <legend>编辑产品</legend>
 
-		<div class="control-group">
-			<label class="control-label">产品名称</label>
-			<div class="controls">
-				<input type="text" class="input-xxlarge" name="name" value="{{ p.Name }}" />
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">类别</label>
 
-		<div class="control-group">
-			<label class="control-label">显示次序</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="order" value="{{ p.ShowOrder }}" />
-				<span class="help-inline">填写数字（如0、1、2），数字越大显示位置越靠后</span>
-			</div>
-		</div>
+            <div class="controls">
+               <select name='mtype_id' id="mtype_id"></select>
+               <select name='stype_id' id="stype_id"></select>
+            </div>
+         </div>
 
-		<div class="control-group">
-			<label class="control-label">图片</label>
-			<div class="controls">
-				<input type="file" name="image" />
-				<img class="p-img" src="{{ p.ImageUrl }}" />
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">产品名称</label>
 
-		<div class="control-group">
-			<label class="control-label">简介</label>
-			<div class="controls">
-				<textarea class="input-xxlarge" name="description" rows='5'>{{ p.Description }}</textarea>
-			</div>
-		</div>
+            <div class="controls">
+               <input type="text" class="input-xxlarge" name="name" value="{{ p.name }}"/>
+            </div>
+         </div>
 
-		<div class="control-group">
-			<label class="control-label">详细参数</label>
-			<div class="controls">
-				<textarea class="input-xxlarge" name="details" rows='15'>{{ p.Details }}</textarea>
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">显示次序</label>
 
-		<div class="control-group">
-			<label class="control-label">参考链接</label>
-			<div class="controls">
-				<input type="text" class="input-xxlarge" name="src_url" value="{{ p.SrcUrl }}" />
-			</div>
-		</div>
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="show_order" value="{{ p.show_order }}"/>
+               <span class="help-inline">填写数字（如0、1），数字越大显示位置越靠后</span>
+            </div>
+         </div>
 
-		<div class="control-group">
-			<div class="controls">
-				<input type="submit" value="提交" class="btn btn-primary" />
-			</div>
-		</div>
-	</fieldset>
-</form>
+         <div class="control-group">
+            <label class="control-label">图片</label>
+
+            <div class="controls">
+               <input type="file" name="image"/>
+               <img class="p-img" src="{{ p.image_url }}"/>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label">简介</label>
+
+            <div class="controls">
+               <textarea class="input-xxlarge" name="desc" rows='5'>{{ p.desc }}</textarea>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <div class="controls">
+               <input type="submit" value="提交" class="btn btn-primary"/>
+            </div>
+         </div>
+      </fieldset>
+   </form>
 
 {% endblock %}

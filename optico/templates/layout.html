@@ -141,7 +141,7 @@
                <li>
                   <a href="{{ url_for('products') }}">Products</a>
                   <ul class='sub-menu'>
-                     {% for mt in mtypes %}
+                     {% for mt in global_mtypes %}
                         <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
                      {% endfor %}
                   </ul>
@@ -220,7 +220,7 @@
          <div class="span3">
             <h4>Products</h4>
             <ul>
-               {% for mt in mtypes %}
+               {% for mt in global_mtypes %}
                   <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
                {% endfor %}
             </ul>

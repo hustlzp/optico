@@ -2,127 +2,108 @@
 
 import os
 from flask import render_template, request, redirect, url_for, json
-from optico import app
+from optico import app, images, db
 import config
 from optico.models import Product, Mtype
 from optico.utils import check_admin, build_pimg_filename
 
-# page product
-#--------------------------------------------------
 
-# view (public)
 @app.route('/product/<int:product_id>')
 def product(product_id):
+    """Page: single product"""
     p = Product.query.get_or_404(product_id)
     ps = Mtype.query.all()
     return render_template('product/product.html', p=p, ps=ps)
 
-# page products
-#--------------------------------------------------
 
-# view (public)
 @app.route('/products')
 def products():
+    """Page: all products"""
     products = Product.query.all()
     ps = Mtype.query.all()
     return render_template('product/products.html', products=products, ps=ps)
 
-# page search products
-#--------------------------------------------------
 
-# view (public)
 @app.route('/product/search', methods=['POST'])
 def search_products():
+    """Page: search for products"""
     keyword = request.form['keyword']
     products = Product.query.filter(Product.name.like('%%%s%%' % keyword))
     return render_template('product/search.html', keyword=keyword, products=products)
 
-# page add product
-#--------------------------------------------------
 
-# view (admin)
+def build_mtype_json():
+    """Build the json data of mtypes and its stypes"""
+    mtypes = []
+    for mt in Mtype.query:
+        mtype = {'id': mt.id, 'name': mt.name, 'stypes': []}
+        for st in mt.stypes:
+            stype = {'id': st.id, 'name': st.name}
+            mtype['stypes'].append(stype)
+        mtypes.append(mtype)
+    return json.dumps(mtypes)
+
+
 @app.route('/product/add', methods=['GET', 'POST'])
 def add_product():
+    """Page: add product"""
     check_admin()
     if request.method == 'GET':
-        # all types
-        mtypes = Type.get_mtypes()
-        for mt in mtypes:
-            mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-        return render_template('add_product.html', mtypes=json.dumps(mtypes))
+        mtypes = build_mtype_json()
+        return render_template('product/add_product.html', mtypes=mtypes)
     else:
-        # Add product
-        mtype_id = request.form['mtype_id']
-        stype_id = request.form['stype_id']
-        name = request.form['name']
-        order = request.form['order']
-        desc = request.form['description']
-        details = request.form['details']
-        src_url = request.form['src_url']
-        new_id = Product.add(mtype_id, stype_id, name, order, desc, details, src_url)
-
         # Save image
-        image = request.files['image']
-        image_filename = build_pimg_filename(new_id, image.filename)
-        image.save(config.IMAGE_PATH + image_filename)
+        max_id = db.session.query(db.func.max(Product.id).label('max_id')).one().max_id
+        filename = images.save(request.files['image'], name='p%s.' % str(max_id + 1))
 
-        # Update image url
-        image_url = config.IMAGE_URL + image_filename
-        Product.update_product_img_url(new_id, image_url)
+        # Add product
+        product = Product(stype_id=request.form['stype_id'], name=request.form['name'], desc=request.form['desc'],
+                          image=filename, show_order=request.form['show_order'])
+        db.session.add(product)
+        db.session.commit()
+        return redirect(url_for('product', product_id=product.id))
 
-        return redirect(url_for('product', product_id=new_id))
 
-# page edit product
-#--------------------------------------------------
-
-# view (admin)
 @app.route('/product/<int:product_id>/edit', methods=['GET', 'POST'])
 def edit_product(product_id):
+    """Page: edit product"""
     check_admin()
+    p = Product.query.get_or_404(product_id)
     if request.method == 'GET':
-        p = Product.get_by_id(product_id)
-        # all types
-        mtypes = Type.get_mtypes()
-        for mt in mtypes:
-            mt['stypes'] = Type.get_stypes(mt['MainTypeID'])
-        return render_template('product/edit_product.html', p=p, mtypes=json.dumps(mtypes))
+        mtypes = build_mtype_json()
+        return render_template('product/edit_product.html', p=p, mtypes=mtypes)
     else:
-        # Save image
+        # Delete old image
+        # TODO
+
+        # Save new image
         image = request.files['image']
         if image.filename:
-            image_filename = build_pimg_filename(product_id, image.filename)
-            image.save(config.IMAGE_PATH + image_filename)
-            image_url = config.IMAGE_URL + image_filename
-        else:
-            image_url = Product.get_by_id(product_id)['ImageUrl']
+            filename = images.save(image, name='p%s.' % str(p.id))
+            p.image = filename
 
-        # Edit product
-        mtype_id = request.form['mtype_id']
-        stype_id = request.form['stype_id']
-        name = request.form['name']
-        order = request.form['order']
-        desc = request.form['description']
-        details = request.form['details']
-        src_url = request.form['src_url']
-        Product.edit(product_id, mtype_id, stype_id, name, order, image_url, desc, details, src_url)
-
+        # Update product
+        p.stype_id = request.form['stype_id']
+        p.name = request.form['name']
+        p.desc = request.form['desc']
+        p.show_order = request.form['show_order']
+        db.session.add(p)
+        db.session.commit()
         return redirect(url_for('product', product_id=product_id))
 
-# page delete product
-#--------------------------------------------------
 
-# view (admin)
 @app.route('/product/<int:product_id>/delete')
 def delete_product(product_id):
+    """Page: delete product"""
     check_admin()
 
     # Delete image file
-    image_filename = Product.get_by_id(product_id)['ImageUrl'].split('/')[-1]
-    image_path = config.IMAGE_PATH + image_filename
-    if os.path.isfile(image_path):
-        os.remove(image_path)
+    # TODO
 
-    Product.delete(product_id)
+    # Delete product
+    product = Product.query.get_or_404(product_id)
+    db.session.delete(product)
+    db.session.commit()
     return redirect(url_for('home'))
 
 # page manage product parameters
