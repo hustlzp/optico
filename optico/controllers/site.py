@@ -77,10 +77,10 @@ def contact():
 # 404 error
 @app.errorhandler(404)
 def page_404(error):
-    return render_template('404.html'), 404
+    return render_template('site/404.html'), 404
 
 
 # 500 error
 @app.errorhandler(500)
 def page_500(error):
-    return render_template('500.html'), 500
+    return render_template('site/500.html'), 500

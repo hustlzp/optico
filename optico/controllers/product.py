@@ -4,7 +4,7 @@ import os
 from flask import render_template, request, redirect, url_for, json
 from optico import app, images, db
 import config
-from optico.models import Product, Mtype
+from optico.models import Mtype, Product, ProductParamter
 from optico.utils import check_admin, build_pimg_filename
 
 
@@ -106,41 +106,37 @@ def delete_product(product_id):
     db.session.commit()
     return redirect(url_for('home'))
 
-# page manage product parameters
-#--------------------------------------------------
 
-# view (admin)
 @app.route('/product/<int:product_id>/add_para', methods=['POST'])
 def add_para(product_id):
+    """Proc: manage product parameters"""
     check_admin()
-    title = request.form['title']
-    content = request.form['content']
-    Product.add_para(product_id, title, content)
+    para = ProductParamter(product_id=product_id, key=request.form['key'], value=request.form['value'])
+    db.session.add(para)
+    db.session.commit()
     return redirect(url_for('product', product_id=product_id))
 
-# page edit product parameter
-#--------------------------------------------------
 
-# view (public)
 @app.route('/para/<int:para_id>/edit', methods=['GET', 'POST'])
 def edit_para(para_id):
+    """Page: edit product parameter"""
     check_admin()
-    para = Product.get_para_by_id(para_id)
+    para = ProductParamter.query.get_or_404(para_id)
     if request.method == 'GET':
         return render_template('product/edit_para.html', para=para)
     else:
-        title = request.form['title']
-        content = request.form['content']
-        Product.edit_para(para_id, title, content)
-        return redirect(url_for('product', product_id=para.ProductID))
+        para.key = request.form['key']
+        para.value = request.form['value']
+        db.session.add(para)
+        db.session.commit()
+        return redirect(url_for('product', product_id=para.product_id))
 
-# page delete product parameter
-#--------------------------------------------------
 
-# view (admin)
 @app.route('/para/<int:para_id>/delete')
 def delete_para(para_id):
+    """Page: delete product parameter"""
     check_admin()
-    product_id = Product.get_para_by_id(para_id)['ProductID']
-    Product.delete_para(para_id)
-    return redirect(url_for('product', product_id=product_id))
+    para = ProductParamter.query.get_or_404(para_id)
+    db.session.delete(para)
+    db.session.commit()
+    return redirect(url_for('product', product_id=para.product_id))
