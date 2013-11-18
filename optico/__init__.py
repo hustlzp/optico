@@ -18,8 +18,8 @@ app.config.update(
     SESSION_COOKIE_NAME=config.SESSION_COOKIE_NAME,
     PERMANENT_SESSION_LIFETIME=config.PERMANENT_SESSION_LIFETIME,
     DEBUG=config.DEBUG,
-    UPLOADED_IMAGES_DEST="/var/www/opticoimgs",
-    UPLOADED_IMAGES_URL="http://localhost:8080/opticoimgs/")
+    UPLOADED_IMAGES_DEST=config.UPLOADED_IMAGES_DEST,
+    UPLOADED_IMAGES_URL=config.UPLOADED_IMAGES_URL)
 
 # SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://%s:%s@%s/%s' % (

@@ -44,7 +44,7 @@ def edit_carousel(c_id):
             filename = images.save(image, name='c%s.' % str(carousel.id))
             carousel.image = filename
 
-        # update carousel info
+        # Update carousel info
         carousel.link_url = request.form['link_url']
         carousel.title = request.form['title']
         carousel.content = request.form['content']
