@@ -118,6 +118,7 @@ html body #footer .footer-nav {
 html body #footer .footer-nav h5 {
   border-bottom: 1px solid #BBB;
   padding-bottom: 10px;
+  font-weight: 600;
 }
 html body #footer .footer-nav ul {
   list-style-type: none;
