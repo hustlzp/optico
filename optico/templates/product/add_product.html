@@ -42,51 +42,54 @@
       <fieldset>
          <legend>添加产品</legend>
 
-         <div class="control-group">
-            <label class="control-label">类别</label>
+         <div class="form-group">
+            <label class="col-md-2 control-label">类别</label>
 
-            <div class="controls">
-               <select name='mtype_id' id="mtype_id"></select>
-               <select name='stype_id' id="stype_id"></select>
+            <div class="col-md-3">
+               <select name='mtype_id' id="mtype_id" class="form-control"></select>
+            </div>
+
+            <div class="col-md-3">
+               <select name='stype_id' id="stype_id" class="form-control"></select>
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">产品名称</label>
+         <div class="form-group">
+            <label class="col-md-2 control-label">名称</label>
 
-            <div class="controls">
-               <input type="text" class="input-xxlarge" name="name"/>
+            <div class="col-md-6">
+               <input type="text" class="form-control" name="name"/>
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">显示次序</label>
+         <div class="form-group">
+            <label class="col-md-2 control-label">显示次序</label>
 
-            <div class="controls">
-               <input type="text" class="input-xlarge" name="show_order"/>
-               <span class="help-inline">填写数字（如0、1），数字越大显示位置越靠后</span>
+            <div class="col-md-6">
+               <input type="text" class="form-control" name="show_order"/>
+               <span class="help-block">填写数字（如0、1、2），数字越大显示位置越靠后</span>
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">图片</label>
+         <div class="form-group">
+            <label class="col-md-2 control-label">图片</label>
 
-            <div class="controls">
+            <div class="col-md-6">
                <input type="file" name="image"/>
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">简介</label>
+         <div class="form-group">
+            <label class="col-md-2 control-label">简介</label>
 
-            <div class="controls">
-               <textarea class="input-xxlarge" name="desc" rows='5'></textarea>
+            <div class="col-md-6">
+               <textarea class="form-control" name="desc" rows='5'></textarea>
             </div>
          </div>
 
-         <div class="control-group">
-            <div class="controls">
-               <input type="submit" value="提交" class="btn btn-primary"/>
+         <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+               <input type="submit" value="提交" class="btn btn-sm btn-primary"/>
             </div>
          </div>
       </fieldset>

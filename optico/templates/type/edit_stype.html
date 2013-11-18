@@ -9,11 +9,10 @@
       <fieldset>
          <legend>编辑子类别</legend>
 
-         <div class="control-group">
-            <label class="control-label">所属主类别</label>
-
-            <div class="controls">
-               <select name="mtype_id">
+         <div class="form-group">
+            <label class="col-md-2 control-label">所属主类别</label>
+            <div class="col-md-3">
+               <select name="mtype_id" class="form-control">
                   {% for mt in mtypes %}
                      <option value="{{ mt.id }}"
                            {% if st.mtype_id == mt.id %}
@@ -25,26 +24,24 @@
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">子类别名称</label>
-
-            <div class="controls">
-               <input type="text" class="input-xlarge" name="name" value="{{ st.name }}"/>
+         <div class="form-group">
+            <label class="col-md-2 control-label">子类别名称</label>
+            <div class="col-md-6">
+               <input type="text" class="form-control" name="name" value="{{ st.name }}"/>
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">显示次序</label>
-
-            <div class="controls">
-               <input type="text" class="input-xlarge" name="show_order" value="{{ st.show_order }}"/>
-               <span class="help-inline">填写数字（如0/1/2），数字越大显示位置越靠后</span>
+         <div class="form-group">
+            <label class="col-md-2 control-label">显示次序</label>
+            <div class="col-md-6">
+               <input type="text" class="form-control" name="show_order" value="{{ st.show_order }}"/>
+               <span class="help-block">填写数字（如0、1、2），数字越大显示位置越靠后</span>
             </div>
          </div>
 
-         <div class="control-group">
-            <div class="controls">
-               <input type="submit" value="提交" class="btn btn-primary"/>
+         <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+               <input type="submit" value="提交" class="btn btn-sm btn-primary"/>
             </div>
          </div>
       </fieldset>

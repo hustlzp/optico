@@ -1,74 +1,67 @@
 {% extends "layout.html" %}
 
-{% block page_title %}Optico Communincation | MTP, MPO, PLC, CWDM, DWDM, AWG Cat5e, Cat6, Cat6a, Cat7, CATV | Professional Networking Communication Company{% endblock %}
+{% block page_title %}Optico Communincation | MTP, MPO, PLC, CWDM, DWDM, AWG Cat5e, Cat6, Cat6a, Cat7, CATV |
+   Professional Networking Communication Company{% endblock %}
 {% block page_id %}page-home{% endblock %}
 
 {% block carousel %}
-<script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
+   <script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
 
-<div class="carousel-wap">
-	<ul class="bxslider">
-		{% for c in global_carousels %}
-		<li><img class="c-img" src="{{ c.image_url }}" /></li>
-		{% endfor %}
-	</ul>
-</div>
+   <div class="carousel-wap">
+      <ul class="bxslider">
+         {% for c in global_carousels %}
+            <li><img class="c-img" src="{{ c.image_url }}"/></li>
+         {% endfor %}
+      </ul>
+   </div>
 
-<script type="text/javascript">
-$(document).ready(function(){
-	$('.bxslider').bxSlider({
-		controls: false,
-		mode: 'fade',
-		speed: 1000,
-		auto: true
-	});				
-});
-</script>
+   <script type="text/javascript">
+      $(document).ready(function () {
+         $('.bxslider').bxSlider({
+            controls: false,
+            mode: 'fade',
+            speed: 1000,
+            auto: true
+         });
+      });
+   </script>
 {% endblock %}
 
 {% block body %}
 
-<div class="row types">
-	{% for mt in mtypes %}
-	<div class="mtype-item span3">
-		<a href="{{ url_for('mtype', mtype_id=mt.id) }}">
-			<img class="mt-image" src="{{ mt.image_url }}" alt="{{ mt.name }}" />
-		</a>
-		
-		<div class="mt-name"><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></div>
+   <div class="row types">
+      {% for mt in mtypes %}
+         <div class="mtype-item col-md-3">
+            <div class="thumbnail">
+               <a href="{{ url_for('mtype', mtype_id=mt.id) }}">
+                  <img class="mt-image" src="{{ mt.image_url }}" alt="{{ mt.name }}" title="{{ mt.name }}"/>
+               </a>
 
-		<ul class="stypes-list">
-			{% for st in mt.stypes %}
-			<li><a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(30, true) }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-	{% endfor %}
+               <div class="mt-name"><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></div>
 
-	<script type="text/javascript">
-	$(window).load(function(){
-		var maxHeight = 0;
-		$('.mtype-item').each(function(){
-			maxHeight = (maxHeight < $(this).innerHeight())? $(this).innerHeight(): maxHeight;
-		});
-		$('.mtype-item').css('height', maxHeight + 'px');
-	});
-	</script>
-</div>
+               <ul class="stypes-list">
+                  {% for st in mt.stypes %}
+                     <li><a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(30, true) }}</a></li>
+                  {% endfor %}
+               </ul>
+            </div>
+         </div>
+      {% endfor %}
+   </div>
 
 {% endblock %}
 
 {% block certificate %}
 
-<hr class="ce-divider">
+   <hr class="ce-divider">
 
-<div class="certificate container">
-	<img src="{{ url_for('static', filename='img/UL.png') }}">
-	<img src="{{ url_for('static', filename='img/CE.png') }}">
-	<img src="{{ url_for('static', filename='img/RoHS.png') }}">
-	<img src="{{ url_for('static', filename='img/TLC.png') }}">
-	<img src="{{ url_for('static', filename='img/SGS.bmp') }}">
-</div>
+   <div class="certificate container">
+      <img src="{{ url_for('static', filename='img/UL.png') }}">
+      <img src="{{ url_for('static', filename='img/CE.png') }}">
+      <img src="{{ url_for('static', filename='img/RoHS.png') }}">
+      <img src="{{ url_for('static', filename='img/TLC.png') }}">
+      <img src="{{ url_for('static', filename='img/SGS.bmp') }}">
+   </div>
 
 {% endblock %}

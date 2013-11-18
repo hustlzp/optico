@@ -75,10 +75,7 @@ class ProductParamter(db.Model):
 class Carousel(db.Model):
     """Model for carousel displaying in home page"""
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50))
-    content = db.Column(db.Text)
     image = db.Column(db.String(100))
-    link_url = db.Column(db.String(100))
 
     @property
     def image_url(self):

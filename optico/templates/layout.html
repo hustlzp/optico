@@ -14,6 +14,7 @@
 </head>
 
 <body id="{% block page_id %}{% endblock %}">
+
 <div id="os-float-window">
    <div class="os-title">Online Service</div>
    <div class="os-msn">
@@ -55,7 +56,7 @@
       <script type="text/javascript">
          function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru',
-                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+               layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
          }
       </script>
       <script type="text/javascript" src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
@@ -68,24 +69,28 @@
    </div>
 
    <!-- nav -->
-   <div class="navbar">
-      <div class="navbar-inner">
-         <div class="navbar-content clearfix">
-            <ul class="nav">
+   <nav class="navbar navbar-inverse" role="navigation">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <div class="container">
+            <ul class="nav navbar-nav">
                <li><a href="{{ url_for('home') }}">Home</a></li>
 
-               <li>
-                  <a href="{{ url_for('products') }}">Products</a>
-                  <ul class='sub-menu'>
+               <li class="dropdown">
+                  <a href="{{ url_for('products') }}" class="dropdown-toggle" data-toggle="dropdown">
+                     Products <b class="caret"></b>
+                  </a>
+                  <ul class='dropdown-menu'>
                      {% for mt in global_mtypes %}
                         <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
                      {% endfor %}
                   </ul>
                </li>
 
-               <li>
-                  <a href="{{ url_for('about') }}">About Us</a>
-                  <ul class='sub-menu'>
+               <li class="dropdown">
+                  <a href="{{ url_for('about') }}" class="dropdown-toggle" data-toggle="dropdown">
+                     About Us <b class="caret"></b>
+                  </a>
+                  <ul class='dropdown-menu'>
                      <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
                      <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
                      <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
@@ -93,9 +98,11 @@
                   </ul>
                </li>
 
-               <li>
-                  <a href="{{ url_for('service') }}">Service</a>
-                  <ul class='sub-menu'>
+               <li class="dropdown">
+                  <a href="{{ url_for('service') }}" class="dropdown-toggle" data-toggle="dropdown">
+                     Service <b class="caret"></b>
+                  </a>
+                  <ul class='dropdown-menu'>
                      <li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
                      <li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
                   </ul>
@@ -106,9 +113,11 @@
                <li><a href="{{ url_for('contact') }}">Contact</a></li>
 
                {% if session.user_id == admin_id %}
-                  <li>
-                     <a class="dropdown-toggle" href="#">Admin</a>
-                     <ul class='sub-menu'>
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Admin <b class="caret"></b>
+                     </a>
+                     <ul class='dropdown-menu'>
                         <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
                         <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
                         <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
@@ -120,14 +129,13 @@
             </ul>
          </div>
       </div>
-   </div>
+   </nav>
 
    <script type="text/javascript">
-      var liNum = $('.navbar-inner .nav > li').length;
+      var liNum = $('nav .navbar-nav > li').length;
 
-      $('.navbar-inner .nav > li').css({
-         'box-sizing': 'border-box',
-         'width': 980 / liNum + 'px'
+      $('nav .navbar-nav > li').css({
+         'width': 1140 / liNum + 'px'
       });
    </script>
 
@@ -141,45 +149,48 @@
 
 {% block certificate %}{% endblock %}
 
-<div id="footer" class="container">
-   <div class="footer-nav">
-      <div class="row">
-         <div class="span3">
-            <h4>About Us</h4>
-            <ul>
-               <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
-               <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-               <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
-               <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-            </ul>
-         </div>
-         <div class="span3">
-            <h4>Products</h4>
-            <ul>
-               {% for mt in global_mtypes %}
-                  <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
-               {% endfor %}
-            </ul>
-         </div>
-         <div class="span3">
-            <h4>Downloads</h4>
-            <ul>
-               <li><a href="#">File Downloads</a></li>
-            </ul>
-         </div>
-         <div class="span3">
-            <h4>Follow Us</h4>
-            <ul class="img-list">
-               <li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}"/></a></li>
-               <li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}"/></a></li>
-               <li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}"/></a></li>
-               <li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}"/></a></li>
-            </ul>
+<div id="footer" >
+   <div class="container">
+      <div class="footer-nav">
+         <div class="row">
+            <div class="col-md-3">
+               <h5>About Us</h5>
+               <ul>
+                  <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
+                  <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+                  <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
+                  <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+               </ul>
+            </div>
+            <div class="col-md-3">
+               <h5>Products</h5>
+               <ul>
+                  {% for mt in global_mtypes %}
+                     <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
+                  {% endfor %}
+               </ul>
+            </div>
+            <div class="col-md-3">
+               <h5>Downloads</h5>
+               <ul>
+                  <li><a href="#">File Downloads</a></li>
+               </ul>
+            </div>
+            <div class="col-md-3">
+               <h5>Follow Us</h5>
+               <ul class="img-list">
+                  <li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}"/></a></li>
+                  <li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}"/></a></li>
+                  <li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}"/></a></li>
+                  <li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}"/></a></li>
+               </ul>
+            </div>
          </div>
       </div>
-   </div>
 
-   <div class="cp">Copyright © 2013 by OPTICO</div>
+      <div class="cp">Copyright © 2013 by OPTICO</div>
+   </div>
 </div>
+
 </body>
 </html>

@@ -20,8 +20,7 @@ def manage_carousel():
         filename = images.save(request.files['image'], name='c%s.' % str(max_id + 1))
 
         # add carousel
-        carousel = Carousel(title=request.form['title'], content=request.form['title'], link_url=request.form['title'],
-                            image=filename)
+        carousel = Carousel(image=filename)
         db.session.add(carousel)
         db.session.commit()
         return redirect(url_for('manage_carousel'))
@@ -43,13 +42,8 @@ def edit_carousel(c_id):
         if image.filename:
             filename = images.save(image, name='c%s.' % str(carousel.id))
             carousel.image = filename
-
-        # Update carousel info
-        carousel.link_url = request.form['link_url']
-        carousel.title = request.form['title']
-        carousel.content = request.form['content']
-        db.session.add(carousel)
-        db.session.commit()
+            db.session.add(carousel)
+            db.session.commit()
         return redirect(url_for('manage_carousel'))
 
 

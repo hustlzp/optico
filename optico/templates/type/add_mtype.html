@@ -2,37 +2,38 @@
 
 {% block page_title %}添加主类别{% endblock %}
 {% block page_id%}page-add-mtype{% endblock %}
+
 {% block body %}
 
 <form id="form-add-mtype" class="form-horizontal" method="post" action="{{ url_for('add_mtype') }}" enctype="multipart/form-data">
 	<fieldset>
 		<legend>添加主类别</legend>
 
-		<div class="control-group">
-			<label class="control-label">主类别名称</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="name" />
+		<div class="form-group">
+			<label class="col-md-2 control-label">类别名称</label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="name" />
 			</div>
 		</div>
 
-		<div class="control-group">
-			<label class="control-label">显示次序</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="order" />
-				<span class="help-inline">填写数字（如0/1/2），数字越大显示位置越靠后</span>
+		<div class="form-group">
+			<label class="col-md-2 control-label">显示次序</label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="order" />
+				<span class="help-block">填写数字（如0、1、2），数字越大显示位置越靠后</span>
 			</div>
 		</div>
 
-		<div class="control-group">
-			<label class="control-label">图片</label>
-			<div class="controls">
+		<div class="form-group">
+			<label class="col-md-2 control-label">图片</label>
+			<div class="col-md-6">
 				<input type="file" name="image" />
 			</div>
 		</div>
 
-		<div class="control-group">
-			<div class="controls">
-				<input type="submit" value="提交" class="btn btn-primary" />
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-6">
+				<input type="submit" value="提交" class="btn btn-sm btn-primary" />
 			</div>
 		</div>
 	</fieldset>

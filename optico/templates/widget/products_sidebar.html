@@ -14,14 +14,14 @@
                {% for st in mt.stypes %}
                   <li class="ps-lv2" data-id="{{ st.id }}">
                      <span class="li-header li-header-right"></span><a
-                        href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(18, True) }}</a>
+                        href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(20, True) }}</a>
 
                      <!-- level 3 -->
                      <ul class="ps-lv3-list">
                         {% for p in st.products %}
                            <li class="ps-lv3" data-id="{{ p.id }}">
                               <span class="li-header li-header-grayright"></span><a
-                                 href="{{ url_for('product', product_id=p.id) }}">{{ p.name|truncate(18, True) }}</a>
+                                 href="{{ url_for('product', product_id=p.id) }}">{{ p.name|truncate(22, True) }}</a>
                            </li>
                         {% endfor %}
                      </ul>

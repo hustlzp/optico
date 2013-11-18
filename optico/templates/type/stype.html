@@ -17,7 +17,7 @@
    </script>
 
    <div class="row">
-      <div class="span3">
+      <div class="col-md-3">
          <!-- products treelist -->
          {% from 'widget/products_sidebar.html' import show_ps %}
          {{ show_ps(ps)|safe }}
@@ -28,26 +28,28 @@
          </script>
       </div>
 
-      <div class="span9">
+      <div class="col-md-9">
          {% if session.user_id == admin_id %}
-            <div class="btn-group pull-right">
-               <a href="{{ url_for('delete_stype', stype_id=st.id) }}" id="btn-delete-stype"
-                  class="btn btn-small"><span class="icon-remove"></span> 删除</a>
-               <a href="{{ url_for('edit_stype', stype_id=st.id) }}" class="btn btn-small"><span
-                     class="icon-edit"></span> 编辑</a>
+            <div class="btn-group btn-group-sm pull-right">
+               <a href="{{ url_for('delete_stype', stype_id=st.id) }}" id="btn-delete-stype" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-remove"></span> 删除
+               </a>
+               <a href="{{ url_for('edit_stype', stype_id=st.id) }}" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-pencil"></span> 编辑
+               </a>
             </div>
          {% endif %}
 
          <ul class="breadcrumb">
             <li>
-               <a href="{{ url_for('mtype', mtype_id=st.mtype.id) }}">{{ st.mtype.name }}</a> >
+               <a href="{{ url_for('mtype', mtype_id=st.mtype.id) }}">{{ st.mtype.name }}</a>
             </li>
             <li>
-               <a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name }}</a> >
+               <a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name }}</a>
             </li>
          </ul>
 
-         <h1>{{ st.Name }}</h1>
+         <h1>{{ st.name }}</h1>
 
          {% from 'widget/products.html' import show_products %}
          {{ show_products(st.products)|safe }}

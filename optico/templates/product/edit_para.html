@@ -2,34 +2,32 @@
 
 {% block page_title %}编辑参数{% endblock %}
 {% block page_id %}page-edit-para{% endblock %}
+
 {% block body %}
 
    <form id="form-add-para" class="form-horizontal" method="post" action="{{ url_for('edit_para', para_id=para.id) }}">
       <fieldset>
          <legend>编辑参数</legend>
 
-         <div class="control-group">
-            <label class="control-label">参数</label>
-
-            <div class="controls">
-               <input type="text" name="key" value="{{ para.key }}"/>
+         <div class="form-group">
+            <label class="col-md-2 control-label">参数</label>
+            <div class="col-md-7">
+               <input type="text" class="form-control" name="key" value="{{ para.key }}"/>
             </div>
          </div>
 
-         <div class="control-group">
-            <label class="control-label">内容</label>
-
-            <div class="controls">
-               <textarea class="input-xxlarge" rows="10" name="value">{{ para.value }}</textarea>
+         <div class="form-group">
+            <label class="col-md-2 control-label">内容</label>
+            <div class="col-md-7">
+               <textarea class="form-control" rows="15" name="value">{{ para.value }}</textarea>
             </div>
          </div>
 
-         <div class="control-group">
-            <div class="controls">
-               <input type="submit" value="提交" class="btn btn-primary"/>
+         <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+               <input type="submit" value="提交" class="btn btn-sm btn-primary"/>
             </div>
          </div>
-
       </fieldset>
    </form>
 

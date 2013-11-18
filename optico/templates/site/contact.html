@@ -3,6 +3,7 @@
 {% block page_title %}Contact - Optico Communincation{% endblock %}
 {% block page_id%}page-contact{% endblock %}
 {% block description %}Contact with Optico Communincation{% endblock %}
+
 {% block body %}
 
 <h1>Contact Us</h1>
@@ -31,41 +32,41 @@
 	</tr>
 </table>
 
-<form id="form-contact" class="form-horizontal" method="post" action="{{ url_for('contact') }}">
+<form id="form-contact" class="form-horizontal" method="post" action="{{ url_for('contact') }}" role="form">
 	<fieldset>
 		<legend>Contact Details</legend>
 
-		<div class="control-group">
-			<label class="control-label">Name</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="name" />
+		<div class="form-group">
+			<label class="col-md-2 control-label">Name</label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="name" />
 			</div>
 		</div>
 
-		<div class="control-group">
-			<label class="control-label">Your Email</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="email" />
+		<div class="form-group">
+			<label class="col-md-2 control-label">Your Email</label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="email" />
 			</div>
 		</div>
 
-		<div class="control-group">
-			<label class="control-label">Company</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="company" />
+		<div class="form-group">
+			<label class="col-md-2 control-label">Company</label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="company" />
 			</div>
 		</div>
 
-		<div class="control-group">
-			<label class="control-label">Comments</label>
-			<div class="controls">
-				<textarea class="input-xxlarge" name="comments" rows='10'></textarea>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Comments</label>
+			<div class="col-md-6">
+				<textarea class="form-control" name="comments" rows='10'></textarea>
 			</div>
 		</div>
 
-		<div class="control-group">
-			<div class="controls">
-				<input type="submit" value="Submit" class="btn btn-small btn-primary" />
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-md-6">
+				<input type="submit" value="Submit" class="btn btn-sm btn-primary" />
 			</div>
 		</div>
 	</fieldset>
