@@ -52,5 +52,5 @@ def inject_vars():
     return dict(
         admin_id=config.ADMIN_ID,
         # 为了避免与其他页面的变量冲突，加上global前缀
-        global_mtypes=Mtype.query.all(),
+        global_mtypes=Mtype.query.order_by(Mtype.show_order).all(),
         global_carousels=Carousel.query.all())

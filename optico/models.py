@@ -26,7 +26,7 @@ class Stype(db.Model):
     show_order = db.Column(db.Integer)
 
     mtype_id = db.Column(db.Integer, db.ForeignKey('mtype.id'))
-    mtype = db.relationship('Mtype', backref=db.backref('stypes', lazy='dynamic'))
+    mtype = db.relationship('Mtype', backref=db.backref('stypes', lazy='dynamic', order_by="Stype.show_order"))
 
     def __repr__(self):
         return '<Stype %s>' % self.name
@@ -41,7 +41,7 @@ class Product(db.Model):
     show_order = db.Column(db.Integer)
 
     stype_id = db.Column(db.Integer, db.ForeignKey('stype.id'))
-    stype = db.relationship('Stype', backref=db.backref('products', lazy='dynamic'))
+    stype = db.relationship('Stype', backref=db.backref('products', lazy='dynamic', order_by="Product.show_order"))
 
     @property
     def friendly_desc(self):

@@ -1,50 +1,53 @@
 {% extends "layout.html" %}
 
 {% block page_title %}编辑子类别{% endblock %}
-{% block page_id%}page-edit-stype{% endblock %}
-
+{% block page_id %}page-edit-stype{% endblock %}
 {% block body %}
 
-<form id="form-edit-stype" class="form-horizontal" method="post" action="{{ url_for('edit_stype', stype_id=st.SubTypeID) }}">
-	<fieldset>
-		<legend>编辑子类别</legend>
+   <form id="form-edit-stype" class="form-horizontal" method="post"
+         action="{{ url_for('edit_stype', stype_id=st.id) }}">
+      <fieldset>
+         <legend>编辑子类别</legend>
 
-		<div class="control-group">
-			<label class="control-label">所属主类别</label>
-			<div class="controls">
-				<select name="mtype_id">
-					{% for mt in mtypes %}
-					<option value="{{ mt.MainTypeID }}"
-						{% if st.MainTypeID == mt.MainTypeID %}
-						selected="selected"
-						{% endif %}
-					>{{ mt.Name }}</option>
-					{% endfor %}
-				</select>
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">所属主类别</label>
 
-		<div class="control-group">
-			<label class="control-label">子类别名称</label>
-			<div class="controls">
-				<input type="text" class="input-xxlarge" name="name" value="{{ st.Name }}" />
-			</div>
-		</div>
+            <div class="controls">
+               <select name="mtype_id">
+                  {% for mt in mtypes %}
+                     <option value="{{ mt.id }}"
+                           {% if st.mtype_id == mt.id %}
+                             selected="selected"
+                           {% endif %}
+                           >{{ mt.name }}</option>
+                  {% endfor %}
+               </select>
+            </div>
+         </div>
 
-		<div class="control-group">
-			<label class="control-label">显示次序</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="order" value="{{ st.ShowOrder }}" />
-				<span class="help-inline">填写数字（如0/1/2），数字越大显示位置越靠后</span>
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">子类别名称</label>
 
-		<div class="control-group">
-			<div class="controls">
-				<input type="submit" value="提交" class="btn btn-primary" />
-			</div>
-		</div>
-	</fieldset>
-</form>
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="name" value="{{ st.name }}"/>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label">显示次序</label>
+
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="show_order" value="{{ st.show_order }}"/>
+               <span class="help-inline">填写数字（如0/1/2），数字越大显示位置越靠后</span>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <div class="controls">
+               <input type="submit" value="提交" class="btn btn-primary"/>
+            </div>
+         </div>
+      </fieldset>
+   </form>
 
 {% endblock %}

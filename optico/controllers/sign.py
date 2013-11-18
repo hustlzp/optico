@@ -1,17 +1,14 @@
 #-*- coding: UTF-8 -*-
-
-from flask import render_template, request, redirect, url_for, json, session
+from flask import render_template, request, redirect, url_for, session
 from optico import app
-from optico.utils import check_admin
 import config
 
-# proc - login
-#--------------------------------------------------
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """Page: login"""
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('sign/login.html')
     elif request.method == 'POST':
         user = request.form['user']
         pwd = request.form['pwd']
@@ -23,9 +20,9 @@ def login():
         else:
             return redirect(url_for('login'))
 
-# proc - logout
-#--------------------------------------------------
+
 @app.route('/logout')
 def logout():
+    """Proc: logout"""
     session.pop('user_id', None)
     return redirect(url_for('home'))

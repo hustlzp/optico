@@ -1,43 +1,46 @@
 {% extends "layout.html" %}
 
 {% block page_title %}编辑主类别{% endblock %}
-{% block page_id%}page-edit-mtype{% endblock %}
-
+{% block page_id %}page-edit-mtype{% endblock %}
 {% block body %}
 
-<form id="form-edit-mtype" class="form-horizontal" method="post" action="{{ url_for('edit_mtype', mtype_id=mt.MainTypeID) }}" enctype="multipart/form-data">
-	<fieldset>
-		<legend>编辑主类别</legend>
+   <form id="form-edit-mtype" class="form-horizontal" method="post" action="{{ url_for('edit_mtype', mtype_id=mt.id) }}"
+         enctype="multipart/form-data">
+      <fieldset>
+         <legend>编辑主类别</legend>
 
-		<div class="control-group">
-			<label class="control-label">主类别名称</label>
-			<div class="controls">
-				<input type="text" class="input-xxlarge" name="name" value="{{ mt.Name }}" />
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">主类别名称</label>
 
-		<div class="control-group">
-			<label class="control-label">显示次序</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="order" value="{{ mt.ShowOrder }}" />
-				<span class="help-inline">填写数字（如0、1、2），数字越大显示位置越靠后</span>
-			</div>
-		</div>
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="name" value="{{ mt.name }}"/>
+            </div>
+         </div>
 
-		<div class="control-group">
-			<label class="control-label">图片</label>
-			<div class="controls">
-				<input type="file" name="image" />
-				<img src="{{ mt.ImageUrl }}" />
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">显示次序</label>
 
-		<div class="control-group">
-			<div class="controls">
-				<input type="submit" value="提交" class="btn btn-primary" />
-			</div>
-		</div>
-	</fieldset>
-</form>
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="show_order" value="{{ mt.show_order }}"/>
+               <span class="help-inline">填写数字（如0、1、2），数字越大显示位置越靠后</span>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label">图片</label>
+
+            <div class="controls">
+               <input type="file" name="image"/>
+               <img src="{{ mt.image_url }}"/>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <div class="controls">
+               <input type="submit" value="提交" class="btn btn-primary"/>
+            </div>
+         </div>
+      </fieldset>
+   </form>
 
 {% endblock %}

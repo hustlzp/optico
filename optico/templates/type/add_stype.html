@@ -1,46 +1,48 @@
 {% extends "layout.html" %}
 
 {% block page_title %}添加子类别{% endblock %}
-{% block page_id%}page-add-stype{% endblock %}
-
+{% block page_id %}page-add-stype{% endblock %}
 {% block body %}
 
-<form id="form-add-stype" class="form-horizontal" method="post" action="{{ url_for('add_stype') }}">
-	<fieldset>
-		<legend>添加子类别</legend>
+   <form id="form-add-stype" class="form-horizontal" method="post" action="{{ url_for('add_stype') }}">
+      <fieldset>
+         <legend>添加子类别</legend>
 
-		<div class="control-group">
-			<label class="control-label">所属主类别</label>
-			<div class="controls">
-				<select name="mtype_id">
-					{% for mt in mtypes %}
-					<option value="{{ mt.MainTypeID }}">{{ mt.Name }}</option>
-					{% endfor %}
-				</select>
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">所属主类别</label>
 
-		<div class="control-group">
-			<label class="control-label">子类别名称</label>
-			<div class="controls">
-				<input type="text" class="input-xxlarge" name="name" />
-			</div>
-		</div>
+            <div class="controls">
+               <select name="mtype_id">
+                  {% for mt in mtypes %}
+                     <option value="{{ mt.id }}">{{ mt.name }}</option>
+                  {% endfor %}
+               </select>
+            </div>
+         </div>
 
-		<div class="control-group">
-			<label class="control-label">显示次序</label>
-			<div class="controls">
-				<input type="text" class="input-xlarge" name="order" />
-				<span class="help-inline">填写数字（如0/1/2），数字越大显示位置越靠后</span>
-			</div>
-		</div>
+         <div class="control-group">
+            <label class="control-label">子类别名称</label>
 
-		<div class="control-group">
-			<div class="controls">
-				<input type="submit" value="提交" class="btn btn-primary" />
-			</div>
-		</div>
-	</fieldset>
-</form>
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="name"/>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <label class="control-label">显示次序</label>
+
+            <div class="controls">
+               <input type="text" class="input-xlarge" name="show_order"/>
+               <span class="help-inline">填写数字（如0/1/2），数字越大显示位置越靠后</span>
+            </div>
+         </div>
+
+         <div class="control-group">
+            <div class="controls">
+               <input type="submit" value="提交" class="btn btn-primary"/>
+            </div>
+         </div>
+      </fieldset>
+   </form>
 
 {% endblock %}

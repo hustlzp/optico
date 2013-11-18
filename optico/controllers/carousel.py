@@ -1,5 +1,4 @@
 #-*- coding: UTF-8 -*-
-import os
 from flask import render_template, request, redirect, url_for
 from optico import app, db, images
 import config
@@ -53,10 +52,7 @@ def edit_carousel(c_id):
         db.session.commit()
         return redirect(url_for('manage_carousel'))
 
-# Page delete carousel
-#--------------------------------------------------
 
-# View (admin)
 @app.route('/carousel/<int:c_id>/delete')
 def delete_carousel(c_id):
     """Proc - delete carousel"""

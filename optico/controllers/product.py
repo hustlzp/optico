@@ -1,18 +1,16 @@
 #-*- coding: UTF-8 -*-
-
-import os
 from flask import render_template, request, redirect, url_for, json
 from optico import app, images, db
 import config
 from optico.models import Mtype, Product, ProductParamter
-from optico.utils import check_admin, build_pimg_filename
+from optico.utils import check_admin
 
 
 @app.route('/product/<int:product_id>')
 def product(product_id):
     """Page: single product"""
     p = Product.query.get_or_404(product_id)
-    ps = Mtype.query.all()
+    ps = Mtype.query.order_by(Mtype.show_order).all()
     return render_template('product/product.html', p=p, ps=ps)
 
 
@@ -20,7 +18,7 @@ def product(product_id):
 def products():
     """Page: all products"""
     products = Product.query.all()
-    ps = Mtype.query.all()
+    ps = Mtype.query.order_by(Mtype.show_order).all()
     return render_template('product/products.html', products=products, ps=ps)
 
 
@@ -35,7 +33,7 @@ def search_products():
 def build_mtype_json():
     """Build the json data of mtypes and its stypes"""
     mtypes = []
-    for mt in Mtype.query:
+    for mt in Mtype.query.order_by(Mtype.show_order):
         mtype = {'id': mt.id, 'name': mt.name, 'stypes': []}
         for st in mt.stypes:
             stype = {'id': st.id, 'name': st.name}
