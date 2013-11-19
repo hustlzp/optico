@@ -1,11 +1,8 @@
 .p-item {
   margin-bottom: 25px;
-  margin-right: 40px;
+  margin-right: 38px;
   display: inline-block;
   vertical-align: top;
-}
-.p-item:nth-child(3n+0) {
-  margin-right: 0;
 }
 .p-item .p-img {
   width: 240px;
