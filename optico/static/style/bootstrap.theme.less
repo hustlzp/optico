@@ -37,8 +37,22 @@ input[type='file'] {
   .navbar-nav > li {
     text-align: center;
 
-    .dropdown-menu li{
-      text-align: left;
+    .dropdown-menu {
+      padding: 0;
+      min-width: 100%;
+
+      & > li{
+        text-align: left;
+
+        & > a{
+          padding:10px 20px;
+          border-bottom: 1px solid #BBB;
+        }
+
+        &:last-child > a{
+          border-bottom: 0;
+        }
+      }
     }
   }
 }
