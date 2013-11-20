@@ -1,3 +1,8 @@
+@media (min-width: 1200px) {
+  .container {
+    width: 1070px;
+  }
+}
 h1 {
   margin-bottom: 30px;
   padding-bottom: 20px;
@@ -14,6 +19,9 @@ h2 a {
 h2 a:hover {
   color: #333;
   text-decoration: none;
+}
+ul {
+  list-style-type: square;
 }
 img {
   max-width: 100%;
@@ -33,6 +41,7 @@ input[type='file'] {
 .navbar .navbar-nav > li .dropdown-menu {
   padding: 0;
   min-width: 100%;
+  list-style-type: none;
 }
 .navbar .navbar-nav > li .dropdown-menu > li {
   text-align: left;

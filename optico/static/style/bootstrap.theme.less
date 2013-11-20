@@ -1,3 +1,9 @@
+@media (min-width: 1200px) {
+  .container {
+    width: 1070px;
+  }
+}
+
 h1 {
   margin-bottom: 30px;
   padding-bottom: 20px;
@@ -9,21 +15,25 @@ h2 {
   font-weight: 600;
   margin-bottom: 15px;
 
-  a{
+  a {
     color: #333;
 
-    &:hover{
+    &:hover {
       color: #333;
       text-decoration: none;
     }
   }
 }
 
-img{
+ul {
+  list-style-type: square;
+}
+
+img {
   max-width: 100%;
 }
 
-legend{
+legend {
   padding-bottom: 10px;
 }
 
@@ -40,16 +50,17 @@ input[type='file'] {
     .dropdown-menu {
       padding: 0;
       min-width: 100%;
+      list-style-type: none;
 
-      & > li{
+      & > li {
         text-align: left;
 
-        & > a{
-          padding:10px 20px;
+        & > a {
+          padding: 10px 20px;
           border-bottom: 1px solid #BBB;
         }
 
-        &:last-child > a{
+        &:last-child > a {
           border-bottom: 0;
         }
       }
@@ -57,10 +68,10 @@ input[type='file'] {
   }
 }
 
-.nav-tabs{
+.nav-tabs {
   margin-bottom: 20px;
 }
 
-.breadcrumb>li+li:before {
+.breadcrumb > li + li:before {
   color: #999;
 }

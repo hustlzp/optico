@@ -5,71 +5,75 @@
 {% block description %}Contact with Optico Communincation{% endblock %}
 
 {% block body %}
+<div class="row">
+	<div class="col-md-9">
+      <h1>Contact Us</h1>
 
-<h1>Contact Us</h1>
+      <h2>SHENZHEN OPTICO COMMUNICATION CO., LTD.</h2>
 
-<h2>SHENZHEN OPTICO COMMUNICATION CO., LTD.</h2>
+      <table class="table table-bordered table-company-info">
+         <tr>
+            <td><b>Address</b></td>
+            <td>4th Floor, E Building, Shifeng Industrail Park, Guangming District, Shenzhen,Guangdong, China</td>
+         </tr>
 
-<table class="table table-bordered table-company-info">
-	<tr>
-		<td><b>Address</b></td>
-		<td>4th Floor, E Building, Shifeng Industrail Park, Guangming District, Shenzhen,Guangdong, China</td>
-	</tr>
+         <tr>
+            <td><b>Email</b></td>
+            <td>sales@optico.com.cn</td>
+         </tr>
 
-	<tr>
-		<td><b>Email</b></td>
-		<td>sales@optico.com.cn</td>
-	</tr>
+         <tr>
+            <td><b>Telephone</b></td>
+            <td>+86-755-26638585</td>
+         </tr>
 
-	<tr>
-		<td><b>Telephone</b></td>
-		<td>+86-755-26638585</td>
-	</tr>
+         <tr>
+            <td><b>Fax</b></td>
+            <td>+86-755-26638585</td>
+         </tr>
+      </table>
 
-	<tr>
-		<td><b>Fax</b></td>
-		<td>+86-755-26638585</td>
-	</tr>
-</table>
+      <form id="form-contact" class="form-horizontal" method="post" action="{{ url_for('contact') }}" role="form">
+         <fieldset>
+            <legend>Contact Details</legend>
 
-<form id="form-contact" class="form-horizontal" method="post" action="{{ url_for('contact') }}" role="form">
-	<fieldset>
-		<legend>Contact Details</legend>
+            <div class="form-group">
+               <label class="col-md-2 control-label">Name</label>
+               <div class="col-md-7">
+                  <input type="text" class="form-control" name="name" />
+               </div>
+            </div>
 
-		<div class="form-group">
-			<label class="col-md-2 control-label">Name</label>
-			<div class="col-md-6">
-				<input type="text" class="form-control" name="name" />
-			</div>
-		</div>
+            <div class="form-group">
+               <label class="col-md-2 control-label">Your Email</label>
+               <div class="col-md-7">
+                  <input type="text" class="form-control" name="email" />
+               </div>
+            </div>
 
-		<div class="form-group">
-			<label class="col-md-2 control-label">Your Email</label>
-			<div class="col-md-6">
-				<input type="text" class="form-control" name="email" />
-			</div>
-		</div>
+            <div class="form-group">
+               <label class="col-md-2 control-label">Company</label>
+               <div class="col-md-7">
+                  <input type="text" class="form-control" name="company" />
+               </div>
+            </div>
 
-		<div class="form-group">
-			<label class="col-md-2 control-label">Company</label>
-			<div class="col-md-6">
-				<input type="text" class="form-control" name="company" />
-			</div>
-		</div>
+            <div class="form-group">
+               <label class="col-md-2 control-label">Comments</label>
+               <div class="col-md-7">
+                  <textarea class="form-control" name="comments" rows='10'></textarea>
+               </div>
+            </div>
 
-		<div class="form-group">
-			<label class="col-md-2 control-label">Comments</label>
-			<div class="col-md-6">
-				<textarea class="form-control" name="comments" rows='10'></textarea>
-			</div>
-		</div>
+            <div class="form-group">
+               <div class="col-sm-offset-2 col-md-6">
+                  <input type="submit" value="Submit" class="btn btn-sm btn-primary" />
+               </div>
+            </div>
+         </fieldset>
+      </form>
+   </div>
 
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-md-6">
-				<input type="submit" value="Submit" class="btn btn-sm btn-primary" />
-			</div>
-		</div>
-	</fieldset>
-</form>
-
+   <div class="col-md-3"></div>
+</div>
 {% endblock %}

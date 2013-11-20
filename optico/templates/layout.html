@@ -125,9 +125,10 @@
 
    <script type="text/javascript">
       var liNum = $('nav .navbar-nav > li').length;
+      var containerWidth = $('.container').width();
 
       $('nav .navbar-nav > li').css({
-         'width': 1140 / liNum + 'px'
+         'width': containerWidth / liNum + 'px'
       });
    </script>
 

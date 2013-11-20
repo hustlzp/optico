@@ -21,7 +21,7 @@
                         {% for p in st.products %}
                            <li class="ps-lv3" data-id="{{ p.id }}">
                               <span class="li-header li-header-grayright"></span><a
-                                 href="{{ url_for('product', product_id=p.id) }}">{{ p.name|truncate(22, True) }}</a>
+                                 href="{{ url_for('product', product_id=p.id) }}">{{ p.name|truncate(20, True) }}</a>
                            </li>
                         {% endfor %}
                      </ul>

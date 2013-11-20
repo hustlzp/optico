@@ -223,7 +223,6 @@ html #page-product .tabbable .tab-content ul {
   padding-left: 25px;
 }
 html #page-product .tabbable .tab-content ul li {
-  list-style-type: square;
   margin-bottom: 5px;
 }
 html #page-product .tabbable .tab-content .para-content em {
@@ -248,25 +247,8 @@ html #page-mtype .mtype-name {
 html #page-manage-carousel .c-img {
   width: 400px;
 }
-html #page-about h4,
-html #page-service h4,
-html #page-careers h4 {
-  margin: 20px 0;
-}
-html #page-about h4 a,
-html #page-service h4 a,
-html #page-careers h4 a {
-  color: #333;
-  text-decoration: none;
-}
 html #page-about p,
 html #page-service p,
 html #page-careers p {
   text-align: justify;
-}
-html .company-info-list {
-  list-style-type: square;
-}
-html .company-info-list li {
-  margin-bottom: 5px;
 }
