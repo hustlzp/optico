@@ -91,22 +91,14 @@
                      About Us <b class="caret"></b>
                   </a>
                   <ul class='dropdown-menu'>
-                     <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
+                     <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
                      <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
                      <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
                      <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
                   </ul>
                </li>
 
-               <li class="dropdown">
-                  <a href="{{ url_for('service') }}" class="dropdown-toggle" data-toggle="dropdown">
-                     Service <b class="caret"></b>
-                  </a>
-                  <ul class='dropdown-menu'>
-                     <li><a href="{{ url_for('service') }}#as">After-Sales Services</a></li>
-                     <li><a href="{{ url_for('service') }}#oo">OEM/ODM</a></li>
-                  </ul>
-               </li>
+               <li><a href="{{ url_for('service') }}">Service</a></li>
 
                <li><a href="{{ url_for('careers') }}">Careers</a></li>
 
