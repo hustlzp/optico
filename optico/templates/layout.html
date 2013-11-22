@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <title>{% block page_title %}Optico Communincation{% endblock %}</title>
    <meta name='description'
          content="{% block description %}Optico Communication manufacture quality and best price products like MTP, CWDM, DWDM, FWDM, PLC splitter, CATV, cat5e, cat6, cat6a, cat7 cable, UTP, FTP, SFTP, SSTP{% endblock %}">
    <meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
+   <title>{% block page_title %}Optico Communincation{% endblock %}</title>
+   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
@@ -62,7 +63,9 @@
       <script type="text/javascript" src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
 
       <form id="search-form" method="post" action="{{ url_for('search_products') }}">
-         <input type="text" name="keyword" id="input-search" placeholder="Search Products"/><input type="submit" id="btn-submit-search" value="Go"/>
+         <input type="text" name="keyword" id="input-search" placeholder="Search Products"/><input type="submit"
+                                                                                                   id="btn-submit-search"
+                                                                                                   value="Go"/>
       </form>
 
       <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
@@ -142,7 +145,7 @@
 
 {% block certificate %}{% endblock %}
 
-<div id="footer" >
+<div id="footer">
    <div class="container">
       <div class="footer-nav">
          <div class="row">
