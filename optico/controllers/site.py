@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 import smtplib
 from email.mime.text import MIMEText
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from optico import app
 from optico.models import Mtype
 import config
@@ -59,7 +59,8 @@ def contact():
         s = smtplib.SMTP(config.SMTP_SERVER, config.SMTP_PORT)
         s.login(config.SMTP_USER, config.SMTP_PASSWORD)
         s.sendmail(config.SMTP_USER, config.EMAIL_SALES, msg.as_string())
-        return redirect(url_for('home'))
+        flash('Thank you for your comments, we will contact with you soon !')
+        return redirect(url_for('contact'))
 
 
 @app.errorhandler(404)

@@ -102,6 +102,14 @@ html body #header .first-row .goog-te-gadget-simple {
   float: right;
   margin-top: 15px;
 }
+html body #flash-messages ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+html body #flash-messages ul .alert {
+  margin: 0;
+}
 html body #main-wap {
   padding-top: 25px;
   padding-bottom: 15px;
