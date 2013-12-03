@@ -53,7 +53,7 @@
       <a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
 
       <!-- google translation -->
-      <div id="google_translate_element"></div>
+      <div id="google_translate_element" class="hidden-xs"></div>
       <script type="text/javascript">
          function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru',
@@ -62,7 +62,7 @@
       </script>
       <script type="text/javascript" src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
 
-      <form id="search-form" method="post" action="{{ url_for('search_products') }}">
+      <form id="search-form" method="post" action="{{ url_for('search_products') }}" class="hidden-xs">
          <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
          <button type="submit" id="btn-submit-search" title="Search"><i class="glyphicon glyphicon-search"></i></button>
       </form>
@@ -72,7 +72,16 @@
 
    <!-- nav -->
    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
          <div class="container">
             <ul class="nav navbar-nav">
                <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -128,6 +137,11 @@
    <script type="text/javascript">
       // 均衡分配nav中的每一项
       function balanceWidth() {
+         if ($(window).width() <= 750) {
+            $('nav .navbar-nav > li').css('width', 'auto');
+            return;
+         }
+
          var liNum = $('nav .navbar-nav > li').length;
          var containerWidth = $('.container').width();
 
