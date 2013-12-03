@@ -126,11 +126,20 @@
    </nav>
 
    <script type="text/javascript">
-      var liNum = $('nav .navbar-nav > li').length;
-      var containerWidth = $('.container').width();
+      // 均衡分配nav中的每一项
+      function balanceWidth() {
+         var liNum = $('nav .navbar-nav > li').length;
+         var containerWidth = $('.container').width();
 
-      $('nav .navbar-nav > li').css({
-         'width': containerWidth / liNum + 'px'
+         $('nav .navbar-nav > li').css({
+            'width': containerWidth / liNum + 'px'
+         });
+      }
+
+      balanceWidth();
+
+      $(window).on('resize', function () {
+         balanceWidth();
       });
    </script>
 
@@ -155,7 +164,6 @@
    {% endwith %}
 </div>
 
-
 <div id="main-wap" class="container">
    {% block body %}{% endblock %}
 </div>
@@ -166,7 +174,7 @@
    <div class="container">
       <div class="footer-nav">
          <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-3">
                <h5>About Us</h5>
                <ul>
                   <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
@@ -175,7 +183,7 @@
                   <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
                </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3">
                <h5>Products</h5>
                <ul>
                   {% for mt in global_mtypes %}
@@ -183,13 +191,13 @@
                   {% endfor %}
                </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3">
                <h5>Downloads</h5>
                <ul>
                   <li><a href="#">File Downloads</a></li>
                </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3">
                <h5>Follow Us</h5>
                <ul class="img-list">
                   <li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}"/></a></li>

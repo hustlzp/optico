@@ -9,12 +9,12 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/optico-ps.js') }}"></script>
 
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-sm-3">
 		{% from 'widget/products_sidebar.html' import show_ps %}
 		{{ show_ps(ps)|safe }}
 	</div>
 
-	<div class="col-md-9">
+	<div class="col-sm-9">
 		<h1>Products</h1>
 
 		{% from 'widget/products.html' import show_products %}

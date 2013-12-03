@@ -25,7 +25,7 @@
    </script>
 
    <div class="row">
-      <div class="col-md-3">
+      <div class="col-sm-3">
          <!-- products treelist -->
          {% from 'widget/products_sidebar.html' import show_ps %}
          {{ show_ps(ps)|safe }}
@@ -36,7 +36,7 @@
          </script>
       </div>
 
-      <div class="col-md-9">
+      <div class="col-sm-9">
          {% if session.user_id == admin_id %}
             <div class="btn-group btn-group-sm pull-right">
                <a href="{{ url_for('delete_product', product_id=p.id) }}" id="btn-delete-product" class="btn btn-primary">
@@ -96,21 +96,21 @@
                   <legend>添加参数</legend>
 
                   <div class="form-group">
-                     <label class="col-md-1 control-label">参数</label>
-                     <div class="col-md-7">
+                     <label class="col-sm-1 control-label">参数</label>
+                     <div class="col-sm-7">
                         <input type="text" class="form-control" name="key"/>
                      </div>
                   </div>
 
                   <div class="form-group">
-                     <label class="col-md-1 control-label">内容</label>
-                     <div class="col-md-7">
+                     <label class="col-sm-1 control-label">内容</label>
+                     <div class="col-sm-7">
                         <textarea class="form-control" rows="10" name="value"></textarea>
                      </div>
                   </div>
 
                   <div class="form-group">
-                     <div class="col-md-offset-1 col-md-6">
+                     <div class="col-sm-offset-1 col-sm-6">
                         <input type="submit" value="提交" class="btn btn-sm btn-primary"/>
                      </div>
                   </div>

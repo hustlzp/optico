@@ -17,7 +17,7 @@
    </script>
 
    <div class="row">
-      <div class="col-md-3">
+      <div class="col-sm-3">
          <!-- products treelist -->
          {% from 'widget/products_sidebar.html' import show_ps %}
          {{ show_ps(ps)|safe }}
@@ -28,7 +28,7 @@
          </script>
       </div>
 
-      <div class="col-md-9">
+      <div class="col-sm-9">
          {% if session.user_id == admin_id %}
             <div class="btn-group btn-group-sm pull-right">
                <a href="{{ url_for('delete_mtype', mtype_id=mt.id) }}" id="btn-delete-mtype" class="btn btn-primary">

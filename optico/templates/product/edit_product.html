@@ -59,47 +59,47 @@
          <legend>编辑产品</legend>
 
          <div class="form-group">
-            <label class="col-md-2 control-label">类别</label>
-            <div class="col-md-3">
+            <label class="col-sm-2 control-label">类别</label>
+            <div class="col-sm-3">
                <select name='mtype_id' id="mtype_id" class="form-control"></select>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3">
                <select name='stype_id' id="stype_id" class="form-control"></select>
             </div>
          </div>
 
          <div class="form-group">
-            <label class="col-md-2 control-label">名称</label>
-            <div class="col-md-6">
+            <label class="col-sm-2 control-label">名称</label>
+            <div class="col-sm-6">
                <input type="text" class="form-control" name="name" value="{{ p.name }}"/>
             </div>
          </div>
 
          <div class="form-group">
-            <label class="col-md-2 control-label">显示次序</label>
-            <div class="col-md-6">
+            <label class="col-sm-2 control-label">显示次序</label>
+            <div class="col-sm-6">
                <input type="text" class="form-control" name="show_order" value="{{ p.show_order }}"/>
                <span class="help-block">填写数字（如0、1、2），数字越大显示位置越靠后</span>
             </div>
          </div>
 
          <div class="form-group">
-            <label class="col-md-2 control-label">图片</label>
-            <div class="col-md-6">
+            <label class="col-sm-2 control-label">图片</label>
+            <div class="col-sm-6">
                <input type="file" name="image"/>
                <img class="p-img" src="{{ p.image_url }}"/>
             </div>
          </div>
 
          <div class="form-group">
-            <label class="col-md-2 control-label">简介</label>
-            <div class="col-md-6">
+            <label class="col-sm-2 control-label">简介</label>
+            <div class="col-sm-6">
                <textarea class="form-control" name="desc" rows='5'>{{ p.desc }}</textarea>
             </div>
          </div>
 
          <div class="form-group">
-            <div class="col-md-offset-2 col-md-6">
+            <div class="col-sm-offset-2 col-sm-6">
                <input type="submit" value="提交" class="btn btn-sm btn-primary"/>
             </div>
          </div>

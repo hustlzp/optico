@@ -1,65 +1,58 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-html body {
-  padding: 0 0 260px 0;
-}
-html body #os-float-window {
+body #os-float-window {
   position: absolute;
   z-index: 1000000;
   top: 200px;
   right: 0px;
   box-shadow: 0 0 5px #666;
 }
-html body #os-float-window div {
+body #os-float-window div {
   font-size: 14px;
   line-height: 14px;
 }
-html body #os-float-window div img {
+body #os-float-window div img {
   margin-right: 2px;
   width: 24px;
   height: 24px;
 }
-html body #os-float-window div a {
+body #os-float-window div a {
   display: block;
   color: #333;
   font-size: 12px;
   text-decoration: none;
 }
-html body #os-float-window .os-title {
+body #os-float-window .os-title {
   padding: 10px 10px;
   font-weight: bold;
   color: white;
   background-color: #6b96ef;
   cursor: default;
 }
-html body #os-float-window .os-msn a,
-html body #os-float-window .os-skype a {
+body #os-float-window .os-msn a,
+body #os-float-window .os-skype a {
   padding: 5px 10px;
   background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
 }
-html body #os-float-window .os-msn a:hover,
-html body #os-float-window .os-skype a:hover {
+body #os-float-window .os-msn a:hover,
+body #os-float-window .os-skype a:hover {
   background-image: linear-gradient(to bottom, #ffffff, #e2e2e2);
   background-image: -webkit-linear-gradient(top, #ffffff, #e2e2e2);
 }
-html body #os-float-window .os-msn a {
+body #os-float-window .os-msn a {
   border-bottom: 1px solid #aaa;
 }
-html body #header .first-row {
+body #header .first-row {
   position: relative;
 }
-html body #header .first-row #logo {
+body #header .first-row #logo {
   float: left;
   margin: 10px 0 15px 0;
 }
-html body #header .first-row #logo img {
+body #header .first-row #logo img {
   height: 100px;
   width: auto;
 }
-html body #header .first-row #request-quote {
+body #header .first-row #request-quote {
   float: right;
   color: #666;
   display: block;
@@ -69,12 +62,12 @@ html body #header .first-row #request-quote {
   top: 20px;
   left: 125px;
 }
-html body #header .first-row #search-form {
+body #header .first-row #search-form {
   float: right;
   margin: 15px 15px 0 0;
   font-size: 0;
 }
-html body #header .first-row #search-form #input-search {
+body #header .first-row #search-form #input-search {
   padding: 11px 5px 12px 5px;
   width: 180px;
   margin: 0;
@@ -86,7 +79,7 @@ html body #header .first-row #search-form #input-search {
   border-right: 0;
   border-radius: 0px;
 }
-html body #header .first-row #search-form #btn-submit-search {
+body #header .first-row #search-form #btn-submit-search {
   vertical-align: top;
   padding: 6px;
   font-style: italic;
@@ -99,165 +92,173 @@ html body #header .first-row #search-form #btn-submit-search {
   border: 0;
   border-radius: 0;
 }
-html body #header .first-row .goog-te-gadget-simple {
+body #header .first-row .goog-te-gadget-simple {
   float: right;
   margin-top: 15px;
 }
-html body #flash-messages ul {
+body #flash-messages ul {
   list-style-type: none;
   padding: 0;
   margin: 20px 0 0 0;
 }
-html body #flash-messages ul .alert {
+body #flash-messages ul .alert {
   margin: 0;
 }
-html body #main-wap {
+body #main-wap {
+  margin-bottom: 30px;
+}
+body #footer {
   padding-bottom: 15px;
 }
-html body #footer {
-  position: absolute;
-  left: 0;
-  bottom: 15px;
-  width: 100%;
-}
-html body #footer .footer-nav {
+body #footer .footer-nav {
   margin-bottom: 40px;
 }
-html body #footer .footer-nav h5 {
+body #footer .footer-nav h5 {
   border-bottom: 1px solid #BBB;
   padding-bottom: 10px;
   font-weight: 600;
 }
-html body #footer .footer-nav ul {
+body #footer .footer-nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-html body #footer .footer-nav ul li {
+body #footer .footer-nav ul li {
   font-size: 13px;
   margin-bottom: 5px;
 }
-html body #footer .footer-nav ul li a {
+body #footer .footer-nav ul li a {
   color: #333;
 }
-html body #footer .footer-nav ul.img-list li {
+body #footer .footer-nav ul.img-list li {
   display: inline-block;
   margin-right: 5px;
 }
-html body #footer .cp {
+body #footer .cp {
   text-align: center;
   font-size: 12px;
 }
-html body #goog-gt-tt + div {
+body #goog-gt-tt + div {
   display: none;
 }
-html #page-home .carousel-wap {
+#page-home #main-wap {
+  margin-bottom: 0;
+}
+#page-home .carousel-wap {
   margin-bottom: 20px;
 }
-html #page-home .carousel-wap .bx-wrapper {
+#page-home .carousel-wap .bx-wrapper {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
-html #page-home .carousel-wap .bx-wrapper .bxslider {
+#page-home .carousel-wap .bx-wrapper .bxslider {
   margin: 0;
   padding: 0;
 }
-html #page-home .carousel-wap .bx-wrapper .bxslider li img {
+#page-home .carousel-wap .bx-wrapper .bxslider img {
   width: 100%;
   height: 350px;
 }
-html #page-home .types {
+#page-home .types {
   margin-bottom: 10px;
 }
-html #page-home .types .mtype-item .thumbnail {
+#page-home .types .mtype-item {
+  margin-bottom: 20px;
+}
+#page-home .types .mtype-item .wapper {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border: 1px solid #CCC;
-  padding: 20px 20px 15px 20px;
-  height: 370px;
+  height: 100px;
+  overflow: visible;
 }
-html #page-home .types .mtype-item .thumbnail .mt-image {
+#page-home .types .mtype-item .wapper .thumbnail {
+  padding: 20px 20px 15px 20px;
+  margin-bottom: 0;
+  border: 0;
+}
+#page-home .types .mtype-item .wapper .thumbnail .mt-image {
   margin-bottom: 10px;
   width: 100%;
-  height: 160px;
 }
-html #page-home .types .mtype-item .thumbnail .mt-name {
+#page-home .types .mtype-item .wapper .thumbnail .mt-name {
   font-weight: bold;
   margin-bottom: 5px;
 }
-html #page-home .types .mtype-item .thumbnail .mt-name a {
+#page-home .types .mtype-item .wapper .thumbnail .mt-name a {
   color: #333;
 }
-html #page-home .types .mtype-item .thumbnail .stypes-list {
+#page-home .types .mtype-item .wapper .thumbnail .stypes-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-html #page-home .types .mtype-item .thumbnail .stypes-list li {
+#page-home .types .mtype-item .wapper .thumbnail .stypes-list li {
   margin-bottom: 5px;
 }
-html #page-home .types .mtype-item .thumbnail .stypes-list li a {
+#page-home .types .mtype-item .wapper .thumbnail .stypes-list li a {
   word-break: break-all;
   color: #333;
   font-size: 13px;
   display: block;
 }
-html #page-home .ce-divider {
+#page-home .ce-divider {
   border: 0;
   border-bottom: 1px solid #aaa;
   margin: 0 0 10px 0;
 }
-html #page-home .certificate {
+#page-home .certificate {
   padding-top: 20px;
+  margin-bottom: 20px;
 }
-html #page-home .certificate img {
+#page-home .certificate img {
   height: 50px;
   float: left;
   margin-right: 35px;
 }
-html #page-product .p-img {
+#page-product .p-img {
   margin-bottom: 25px;
   width: 350px;
   height: 250px;
   float: left;
 }
-html #page-product .p-desc {
+#page-product .p-desc {
   margin-left: 370px;
 }
-html #page-product .tabbable {
+#page-product .tabbable {
   clear: both;
 }
-html #page-product .tabbable .tab-content {
+#page-product .tabbable .tab-content {
   margin-bottom: 20px;
 }
-html #page-product .tabbable .tab-content ul {
+#page-product .tabbable .tab-content ul {
   padding-left: 25px;
 }
-html #page-product .tabbable .tab-content ul li {
+#page-product .tabbable .tab-content ul li {
   margin-bottom: 5px;
 }
-html #page-product .tabbable .tab-content .para-content em {
+#page-product .tabbable .tab-content .para-content em {
   font-style: normal;
   font-weight: bold;
 }
-html #page-product .tabbable .tab-content table tr:first-child {
+#page-product .tabbable .tab-content table tr:first-child {
   font-weight: bold;
 }
-html #page-product .tabbable .tab-content table td {
+#page-product .tabbable .tab-content table td {
   text-align: center;
 }
-html #page-edit-product .p-img {
+#page-edit-product .p-img {
   margin-top: 20px;
   border: 1px solid #999;
 }
-html #page-mtype .mtype-name {
+#page-mtype .mtype-name {
   font-size: 35px;
   line-height: 35px;
   margin-bottom: 35px;
 }
-html #page-manage-carousel .c-img {
+#page-manage-carousel .c-img {
   width: 400px;
 }
-html #page-about p,
-html #page-service p,
-html #page-careers p {
+#page-about p,
+#page-service p,
+#page-careers p {
   text-align: justify;
 }
