@@ -72,6 +72,7 @@ html body #header .first-row #request-quote {
 html body #header .first-row #search-form {
   float: right;
   margin: 15px 15px 0 0;
+  font-size: 0;
 }
 html body #header .first-row #search-form #input-search {
   padding: 11px 5px 12px 5px;
@@ -87,11 +88,11 @@ html body #header .first-row #search-form #input-search {
 }
 html body #header .first-row #search-form #btn-submit-search {
   vertical-align: top;
-  padding: 6px 8px 7px 6px;
+  padding: 6px;
   font-style: italic;
   font-weight: bold;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 1;
   display: inline-block;
   background-color: black;
   color: white;
@@ -111,7 +112,6 @@ html body #flash-messages ul .alert {
   margin: 0;
 }
 html body #main-wap {
-  padding-top: 25px;
   padding-bottom: 15px;
 }
 html body #footer {
@@ -152,15 +152,16 @@ html body #goog-gt-tt + div {
   display: none;
 }
 html #page-home .carousel-wap {
-  width: 100%;
-  margin: 0 auto;
+  margin-bottom: 20px;
+}
+html #page-home .carousel-wap .bx-wrapper {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
-html #page-home .carousel-wap .bxslider {
+html #page-home .carousel-wap .bx-wrapper .bxslider {
   margin: 0;
   padding: 0;
 }
-html #page-home .carousel-wap .bxslider li img {
+html #page-home .carousel-wap .bx-wrapper .bxslider li img {
   width: 100%;
   height: 350px;
 }

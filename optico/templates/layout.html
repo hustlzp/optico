@@ -63,9 +63,8 @@
       <script type="text/javascript" src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
 
       <form id="search-form" method="post" action="{{ url_for('search_products') }}">
-         <input type="text" name="keyword" id="input-search" placeholder="Search Products"/><input type="submit"
-                                                                                                   id="btn-submit-search"
-                                                                                                   value="Go"/>
+         <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
+         <button type="submit" id="btn-submit-search" title="Search"><i class="glyphicon glyphicon-search"></i></button>
       </form>
 
       <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>

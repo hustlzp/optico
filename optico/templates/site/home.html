@@ -8,12 +8,14 @@
    <script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
    <link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
 
-   <div class="carousel-wap">
-      <ul class="bxslider">
-         {% for c in global_carousels %}
-            <li><img class="c-img" src="{{ c.image_url }}"/></li>
-         {% endfor %}
-      </ul>
+   <div class="container">
+      <div class="carousel-wap">
+         <ul class="bxslider">
+            {% for c in global_carousels %}
+               <li><img class="c-img" src="{{ c.image_url }}"/></li>
+            {% endfor %}
+         </ul>
+      </div>
    </div>
 
    <script type="text/javascript">
@@ -21,7 +23,7 @@
          $('.bxslider').bxSlider({
             controls: false,
             mode: 'fade',
-            speed: 1000,
+            speed: 800,
             auto: true
          });
       });
