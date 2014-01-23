@@ -3,3 +3,5 @@ fabfile.py
 venv/
 .idea/
 *.log
+*/config.py
+*/config_remote.py

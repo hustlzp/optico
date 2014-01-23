@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 from flask import session, abort
 import config
 

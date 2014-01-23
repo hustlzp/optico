@@ -1,7 +1,7 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 from flask import render_template, request, redirect, url_for, session
 from optico import app
-import config
+from .. import config
 
 
 @app.route('/login', methods=['GET', 'POST'])

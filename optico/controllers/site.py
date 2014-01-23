@@ -1,10 +1,10 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 import smtplib
 from email.mime.text import MIMEText
 from flask import render_template, request, redirect, url_for, flash
 from optico import app
 from optico.models import Mtype
-import config
+from .. import config
 
 
 @app.route('/')

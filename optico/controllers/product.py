@@ -1,7 +1,6 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 from flask import render_template, request, redirect, url_for, json
 from optico import app, images, db
-import config
 from optico.models import Mtype, Product, ProductParamter
 from optico.utils import check_admin
 

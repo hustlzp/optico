@@ -3,7 +3,8 @@
 <head>
    <meta name='description'
          content="{% block description %}Optico Communication manufacture quality and best price products like MTP, CWDM, DWDM, FWDM, PLC splitter, CATV, cat5e, cat6, cat6a, cat7 cable, UTP, FTP, SFTP, SSTP{% endblock %}">
-   <meta name="google-translate-customization" content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
+   <meta name="google-translate-customization"
+         content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
    <title>{% block page_title %}Optico Communincation{% endblock %}</title>
    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
@@ -50,7 +51,8 @@
 
 <div id="header">
    <div class="container first-row">
-      <a id="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/logo.gif') }}"></a>
+      <a id="logo" href="{{ url_for('home') }}"><img
+            src="{{ url_for('static', filename='img/logo.gif') }}"></a>
 
       <!-- google translation -->
       <div id="google_translate_element" class="hidden-xs"></div>
@@ -60,11 +62,14 @@
                layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
          }
       </script>
-      <script type="text/javascript" src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
+      <script type="text/javascript"
+              src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
 
-      <form id="search-form" method="post" action="{{ url_for('search_products') }}" class="hidden-xs">
+      <form id="search-form" method="post" action="{{ url_for('search_products') }}"
+            class="hidden-xs">
          <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
-         <button type="submit" id="btn-submit-search" title="Search"><i class="glyphicon glyphicon-search"></i></button>
+         <button type="submit" id="btn-submit-search" title="Search"><i
+               class="glyphicon glyphicon-search"></i></button>
       </form>
 
       <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
@@ -73,7 +78,8 @@
    <!-- nav -->
    <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+         <button type="button" class="navbar-toggle" data-toggle="collapse"
+                 data-target="#navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -87,7 +93,8 @@
                <li><a href="{{ url_for('home') }}">Home</a></li>
 
                <li class="dropdown">
-                  <a href="{{ url_for('products') }}" class="dropdown-toggle" data-toggle="dropdown">
+                  <a href="{{ url_for('products') }}" class="dropdown-toggle"
+                     data-toggle="dropdown">
                      Products <b class="caret"></b>
                   </a>
                   <ul class='dropdown-menu'>
@@ -117,7 +124,8 @@
 
                {% if session.user_id == admin_id %}
                   <li class="dropdown">
-                     <a class="dropdown-toggle" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <a class="dropdown-toggle" href="#" class="dropdown-toggle"
+                        data-toggle="dropdown">
                         Admin <b class="caret"></b>
                      </a>
                      <ul class='dropdown-menu'>
@@ -214,10 +222,14 @@
             <div class="col-sm-3">
                <h5>Follow Us</h5>
                <ul class="img-list">
-                  <li><a href=""><img src="{{ url_for('static', filename='img/twitter.png') }}"/></a></li>
-                  <li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}"/></a></li>
-                  <li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}"/></a></li>
-                  <li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}"/></a></li>
+                  <li><a href=""><img
+                        src="{{ url_for('static', filename='img/twitter.png') }}"/></a></li>
+                  <li><a href=""><img src="{{ url_for('static', filename='img/flickr.png') }}"/></a>
+                  </li>
+                  <li><a href=""><img src="{{ url_for('static', filename='img/rss.png') }}"/></a>
+                  </li>
+                  <li><a href=""><img src="{{ url_for('static', filename='img/yahoo.png') }}"/></a>
+                  </li>
                </ul>
             </div>
          </div>

@@ -1,11 +1,9 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 import sys
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.uploads import UploadSet, IMAGES, configure_uploads
-
-sys.path.append('/var/www/flaskconfig/optico')
-import config
+from . import config
 
 # convert python's encoding to utf8
 reload(sys)
@@ -36,8 +34,8 @@ if not app.debug:
     from logging.handlers import SMTPHandler
 
     credentials = (config.SMTP_USER, config.SMTP_PASSWORD)
-    mail_handler = SMTPHandler((config.SMTP_SERVER, config.SMTP_PORT), config.SMTP_USER, config.EMAIL_TECH,
-                               'optico-log', credentials)
+    mail_handler = SMTPHandler((config.SMTP_SERVER, config.SMTP_PORT), config.SMTP_USER,
+                               config.EMAIL_TECH, 'optico-log', credentials)
     mail_handler.setLevel(logging.ERROR)
     app.logger.addHandler(mail_handler)
 
@@ -53,4 +51,5 @@ def inject_vars():
         admin_id=config.ADMIN_ID,
         # 为了避免与其他页面的变量冲突，加上global前缀
         global_mtypes=Mtype.query.order_by(Mtype.show_order).all(),
-        global_carousels=Carousel.query.all())
+        global_carousels=Carousel.query.all()
+    )

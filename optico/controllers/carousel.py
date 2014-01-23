@@ -1,7 +1,6 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 from flask import render_template, request, redirect, url_for
 from optico import app, db, images
-import config
 from optico.models import Carousel
 from optico.utils import check_admin
 

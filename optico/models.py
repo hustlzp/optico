@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# coding: utf-8
 from optico import db, images
 import textile
 import markdown2
