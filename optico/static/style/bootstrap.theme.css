@@ -32,6 +32,9 @@ legend {
 input[type='file'] {
   display: block;
 }
+.navbar .navbar-collapse {
+  padding: 0;
+}
 .navbar .navbar-nav > li {
   text-align: center;
 }

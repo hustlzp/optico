@@ -144,6 +144,9 @@ body #footer .cp {
 body #goog-gt-tt + div {
   display: none;
 }
+#page-home nav {
+  margin-bottom: 0;
+}
 #page-home #main-wap {
   margin-bottom: 0;
 }

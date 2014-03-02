@@ -76,71 +76,75 @@
    </div>
 
    <!-- nav -->
-   <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse"
-                 data-target="#navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-         </button>
-      </div>
+   <div class="container">
+      <nav class="navbar navbar-inverse" role="navigation">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+         </div>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-         <div class="container">
-            <ul class="nav navbar-nav">
-               <li><a href="{{ url_for('home') }}">Home</a></li>
+         <div class="collapse navbar-collapse" id="navbar-collapse">
+{#            <div class="container">#}
+               <ul class="nav navbar-nav">
+                  <li><a href="{{ url_for('home') }}">Home</a></li>
 
-               <li class="dropdown">
-                  <a href="{{ url_for('products') }}" class="dropdown-toggle"
-                     data-toggle="dropdown">
-                     Products <b class="caret"></b>
-                  </a>
-                  <ul class='dropdown-menu'>
-                     {% for mt in global_mtypes %}
-                        <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
-                     {% endfor %}
-                  </ul>
-               </li>
-
-               <li class="dropdown">
-                  <a href="{{ url_for('about') }}" class="dropdown-toggle" data-toggle="dropdown">
-                     About Us <b class="caret"></b>
-                  </a>
-                  <ul class='dropdown-menu'>
-                     <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
-                     <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-                     <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
-                     <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-                  </ul>
-               </li>
-
-               <li><a href="{{ url_for('service') }}">Service</a></li>
-
-               <li><a href="{{ url_for('careers') }}">Careers</a></li>
-
-               <li><a href="{{ url_for('contact') }}">Contact</a></li>
-
-               {% if session.user_id == admin_id %}
                   <li class="dropdown">
-                     <a class="dropdown-toggle" href="#" class="dropdown-toggle"
+                     <a href="{{ url_for('products') }}" class="dropdown-toggle"
                         data-toggle="dropdown">
-                        Admin <b class="caret"></b>
+                        Products <b class="caret"></b>
                      </a>
                      <ul class='dropdown-menu'>
-                        <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
-                        <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
-                        <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
-                        <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-                        <li><a href="{{ url_for('logout') }}">登出</a></li>
+                        {% for mt in global_mtypes %}
+                           <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a>
+                           </li>
+                        {% endfor %}
                      </ul>
                   </li>
-               {% endif %}
-            </ul>
+
+                  <li class="dropdown">
+                     <a href="{{ url_for('about') }}">
+                        About Us
+                     </a>
+                     <ul class='dropdown-menu'>
+                        <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
+                        <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+                        <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a>
+                        </li>
+                        <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+                     </ul>
+                  </li>
+
+                  <li><a href="{{ url_for('service') }}">Service</a></li>
+
+                  <li><a href="{{ url_for('careers') }}">Careers</a></li>
+
+                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                  {% if session.user_id == admin_id %}
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">
+                           Admin <b class="caret"></b>
+                        </a>
+                        <ul class='dropdown-menu'>
+                           <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+                           <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+                           <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+                           <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+                           <li><a href="{{ url_for('logout') }}">登出</a></li>
+                        </ul>
+                     </li>
+                  {% endif %}
+               </ul>
+{#            </div>#}
          </div>
-      </div>
-   </nav>
+      </nav>
+   </div>
 
    <script type="text/javascript">
       // 均衡分配nav中的每一项
@@ -151,7 +155,7 @@
          }
 
          var liNum = $('nav .navbar-nav > li').length;
-         var containerWidth = $('.container').width();
+         var containerWidth = $('.navbar').width();
 
          $('nav .navbar-nav > li').css({
             'width': containerWidth / liNum + 'px'
