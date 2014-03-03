@@ -44,9 +44,7 @@
             <li>
                <a href="{{ url_for('mtype', mtype_id=st.mtype.id) }}">{{ st.mtype.name }}</a>
             </li>
-            <li>
-               <a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name }}</a>
-            </li>
+            <li>{{ st.name }}</li>
          </ul>
 
          <h1>{{ st.name }}</h1>
