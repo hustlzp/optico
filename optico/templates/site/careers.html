@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% from "widget/ui.html" import contact_info %}
 
 {% block page_title %}Careers - Optico Communincation{% endblock %}
 {% block page_id %}page-careers{% endblock %}
@@ -7,19 +8,24 @@
 {% block body %}
 
    <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-12">
          <h1 class="page-title">Careers</h1>
+      </div>
 
-         <h2><a name="bf">Build your bright future with us</a></h2>
+      <div class="col-sm-9">
+         <h2 class="no-margin-top">Build your bright future with us</h2>
 
-         <p>We are marketing wide range of products in above field and targeting customer from region of Europe, South
-            and North America and Middle East. Our major customers are from fields of Telecommunications, Engineering,
+         <p>We are marketing wide range of products in above field and targeting customer from
+            region of Europe, South
+            and North America and Middle East. Our major customers are from fields of
+            Telecommunications, Engineering,
             System Integrators and Research centers.</p>
 
-         <p>With continuously growing and expanding, we are looking for suitable candidate to join us and make a more
+         <p>With continuously growing and expanding, we are looking for suitable candidate to join
+            us and make a more
             complete family.</p>
 
-         <h2><a name="sr">Sales Representitive</a></h2>
+         <h2>Sales Representitive</h2>
 
          <p>Responsibilities:</p>
          <ul>
@@ -49,7 +55,9 @@
 
          <p>Requirements:</p>
          <ul>
-            <li>At least a Diploma/Degree in Business Administration/Accounting/ Secretarial or any related field</li>
+            <li>At least a Diploma/Degree in Business Administration/Accounting/ Secretarial or any
+               related field
+            </li>
             <li>1-2 years of working experience in the related field is better</li>
             <li>With experiences in the same field is much welcome</li>
             <li>Fresh Graduate from University is encouraged to apply</li>
@@ -58,11 +66,13 @@
             <li>Male or female</li>
          </ul>
 
-         <p>Anyone who has interest kindly email us with a resume and a piece of recent photograph to:
-            sales@optico.com.cn </p>
+         <p>Anyone who has interest kindly email us with a resume and a piece of recent photograph
+            to: sales@optico.com.cn </p>
       </div>
 
-      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+         {{ contact_info() }}
+      </div>
    </div>
 
 

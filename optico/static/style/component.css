@@ -71,6 +71,19 @@
   padding: 0;
   display: none;
 }
+.contact-info div {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.contact-info div img {
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  vertical-align: text-bottom;
+}
 .page-title {
   margin-top: 15px;
+}
+.no-margin-top {
+  margin-top: 0;
 }

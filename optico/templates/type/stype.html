@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% from 'widget/ui.html' import show_products, show_ps %}
 
 {% block page_title %}{{ st.name }} - {{ st.mtype.name }} - Products - Optico Communincation{% endblock %}
 {% block page_id %}page-stype{% endblock %}
@@ -18,12 +19,9 @@
 
    <div class="row">
       <div class="col-sm-3">
-         <!-- products treelist -->
-         {% from 'widget/products_sidebar.html' import show_ps %}
          {{ show_ps(ps)|safe }}
 
          <script type="text/javascript">
-            // init sidebar
             init_ps(2, {{ st.id }});
          </script>
       </div>
@@ -49,7 +47,6 @@
 
          <h1>{{ st.name }}</h1>
 
-         {% from 'widget/products.html' import show_products %}
          {{ show_products(st.products)|safe }}
       </div>
    </div>

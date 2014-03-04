@@ -1,79 +1,76 @@
 {% extends "layout.html" %}
+{% from "widget/ui.html" import contact_info %}
 
 {% block page_title %}Contact - Optico Communincation{% endblock %}
-{% block page_id%}page-contact{% endblock %}
+{% block page_id %}page-contact{% endblock %}
 {% block description %}Contact with Optico Communincation{% endblock %}
 
 {% block body %}
-<div class="row">
-	<div class="col-sm-9">
-      <h1 class="page-title">Contact Us</h1>
+   <div class="row">
+      <div class="col-sm-12">
+         <h1 class="page-title">Contact Us</h1>
+      </div>
 
-      <h2>SHENZHEN OPTICO COMMUNICATION CO., LTD.</h2>
+      <div class="col-sm-9">
+         <h2 class="no-margin-top">SHENZHEN OPTICO COMMUNICATION CO., LTD.</h2>
 
-      <table class="table table-bordered table-company-info">
-         <tr>
-            <td><b>Address</b></td>
-            <td>Bldg B, Zhangge Science Park, Dafu Industrial Zone, Guanlan Town, Bao'an Dist, Shenzhen, China</td>
-         </tr>
+         <ul>
+            <li><b>Address</b>: Bldg B, Zhangge Science Park, Dafu Industrial Zone, Guanlan Town,
+               Bao'an Dist, Shenzhen, China
+            </li>
+            <li><b>Email</b>: sales@optico.com.cn</li>
+            <li><b>Telephone</b>: +86-755-26638585</li>
+            <li><b>Fax</b>: +86-755-26638585</li>
+         </ul>
 
-         <tr>
-            <td><b>Email</b></td>
-            <td>sales@optico.com.cn</td>
-         </tr>
+         <form id="form-contact" class="form-horizontal" method="post"
+               action="{{ url_for('contact') }}" role="form">
+            <fieldset>
+               <legend>Contact Details</legend>
 
-         <tr>
-            <td><b>Telephone</b></td>
-            <td>+86-755-26638585</td>
-         </tr>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Name</label>
 
-         <tr>
-            <td><b>Fax</b></td>
-            <td>+86-755-26638585</td>
-         </tr>
-      </table>
-
-      <form id="form-contact" class="form-horizontal" method="post" action="{{ url_for('contact') }}" role="form">
-         <fieldset>
-            <legend>Contact Details</legend>
-
-            <div class="form-group">
-               <label class="col-sm-2 control-label">Name</label>
-               <div class="col-sm-7">
-                  <input type="text" class="form-control" name="name" />
+                  <div class="col-sm-7">
+                     <input type="text" class="form-control" name="name"/>
+                  </div>
                </div>
-            </div>
 
-            <div class="form-group">
-               <label class="col-sm-2 control-label">Your Email</label>
-               <div class="col-sm-7">
-                  <input type="text" class="form-control" name="email" />
-               </div>
-            </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Your Email</label>
 
-            <div class="form-group">
-               <label class="col-sm-2 control-label">Company</label>
-               <div class="col-sm-7">
-                  <input type="text" class="form-control" name="company" />
+                  <div class="col-sm-7">
+                     <input type="text" class="form-control" name="email"/>
+                  </div>
                </div>
-            </div>
 
-            <div class="form-group">
-               <label class="col-sm-2 control-label">Comments</label>
-               <div class="col-sm-7">
-                  <textarea class="form-control" name="comments" rows='10'></textarea>
-               </div>
-            </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Company</label>
 
-            <div class="form-group">
-               <div class="col-sm-offset-2 col-sm-6">
-                  <input type="submit" value="Submit" class="btn btn-sm btn-primary" />
+                  <div class="col-sm-7">
+                     <input type="text" class="form-control" name="company"/>
+                  </div>
                </div>
-            </div>
-         </fieldset>
-      </form>
+
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Comments</label>
+
+                  <div class="col-sm-7">
+                     <textarea class="form-control" name="comments" rows='10'></textarea>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-6">
+                     <input type="submit" value="Submit" class="btn btn-sm btn-primary"/>
+                  </div>
+               </div>
+            </fieldset>
+         </form>
+      </div>
+
+      <div class="col-sm-3">
+         {{ contact_info() }}
+      </div>
    </div>
-
-   <div class="col-sm-3"></div>
-</div>
 {% endblock %}

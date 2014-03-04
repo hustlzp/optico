@@ -1,0 +1,80 @@
+{% macro show_products(products) %}
+   {% for p in products %}
+      <div class="p-item">
+         <a href="{{ url_for('product', product_id=p.id) }}">
+            <img title="{{ p.name }}" alt="{{ p.name }}" class="p-img" src="{{ p.image_url }}"
+                 alt="{{ p.name }}"/>
+         </a>
+
+         <div class="p-info-wap">
+            <div class="p-name"><a href="{{ url_for('product', product_id=p.id) }}">{{ p.name }}</a>
+            </div>
+         </div>
+      </div>
+   {% endfor %}
+{% endmacro %}
+
+
+{% macro show_ps(ps) %}
+   <div class="ps-header">Products</div>
+
+   <!-- level 1 -->
+   <ul class="ps-lv1-list">
+      {% for mt in ps %}
+         <li class="ps-lv1" data-id="{{ mt.id }}">
+            <span class="li-header li-header-right"></span><a
+               href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a>
+
+            <!-- level 2 -->
+            <ul class="ps-lv2-list">
+               {% for st in mt.stypes %}
+                  <li class="ps-lv2" data-id="{{ st.id }}">
+                     <span class="li-header li-header-right"></span><a
+                        href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(20, True) }}</a>
+
+                     <!-- level 3 -->
+                     <ul class="ps-lv3-list">
+                        {% for p in st.products %}
+                           <li class="ps-lv3" data-id="{{ p.id }}">
+                              <span class="li-header li-header-grayright"></span><a
+                                 href="{{ url_for('product', product_id=p.id) }}">{{ p.name|truncate(20, True) }}</a>
+                           </li>
+                        {% endfor %}
+                     </ul>
+                  </li>
+               {% endfor %}
+            </ul>
+         </li>
+      {% endfor %}
+   </ul>
+{% endmacro %}
+
+
+{% macro contact_info() %}
+   <div class="contact-info">
+      <div>
+         <img src="{{ url_for('static', filename='img/phone.png') }}" alt=""/>
+         Tel: 0086-0755-26638585
+      </div>
+
+      <div>
+         <img src="{{ url_for('static', filename='img/fax.png') }}" alt=""/>
+         Fax: 0086-0755-26638585
+      </div>
+
+      <div>
+         <img src="{{ url_for('static', filename='img/msn.png') }}" alt=""/>
+         MSN: optico.communication<br>@hotmail.com
+      </div>
+
+      <div>
+         <img src="{{ url_for('static', filename='img/email.png') }}" alt=""/>
+         Email: sales@optico.com.cn
+      </div>
+
+      <div>
+         <img src="{{ url_for('static', filename='img/skype.png') }}" alt=""/>
+         Skype: optico.communication
+      </div>
+   </div>
+{% endmacro %}

@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
+{% from 'widget/ui.html' import show_ps %}
 
-{% block page_title %}{{ p.name }} - {{ p.stype.name }} - {{ p.stype.mtype.name }} - Products - Optico
-   Communincation{% endblock %}
+{% block page_title %}{{ p.name }} - {{ p.stype.name }} - {{ p.stype.mtype.name }} - Products -
+   Optico Communincation{% endblock %}
 {% block page_id %}page-product{% endblock %}
 {% block description %}{{ p.name }} By Optico Communincation{% endblock %}
 
 {% block body %}
 
-   <script type="text/javascript" src="{{ url_for('static', filename='js/optico-ps.js') }}"></script>
+   <script type="text/javascript"
+           src="{{ url_for('static', filename='js/optico-ps.js') }}"></script>
    <script type="text/javascript">
 
       $(document).ready(function () {
@@ -26,12 +28,9 @@
 
    <div class="row">
       <div class="col-sm-3">
-         <!-- products treelist -->
-         {% from 'widget/products_sidebar.html' import show_ps %}
          {{ show_ps(ps)|safe }}
 
          <script type="text/javascript">
-            // init sidebar
             init_ps(3, {{ p.id }});
          </script>
       </div>
@@ -39,7 +38,8 @@
       <div class="col-sm-9">
          {% if session.user_id == admin_id %}
             <div class="btn-group btn-group-sm pull-right">
-               <a href="{{ url_for('delete_product', product_id=p.id) }}" id="btn-delete-product" class="btn btn-primary">
+               <a href="{{ url_for('delete_product', product_id=p.id) }}" id="btn-delete-product"
+                  class="btn btn-primary">
                   <span class="glyphicon glyphicon-remove"></span> 删除
                </a>
                <a href="{{ url_for('edit_product', product_id=p.id) }}" class="btn btn-primary">
@@ -74,10 +74,12 @@
                   <div class="tab-pane {% if loop.first %}active{% endif %}" id="p_{{ para.id }}">
                      {% if session.user_id == admin_id %}
                         <div class="btn-group btn-group-sm pull-right">
-                           <a class="btn btn-primary btn-delete-para" href="{{ url_for('delete_para', para_id=para.id) }}">
+                           <a class="btn btn-primary btn-delete-para"
+                              href="{{ url_for('delete_para', para_id=para.id) }}">
                               <span class="glyphicon glyphicon-remove"></span> 删除
                            </a>
-                           <a class="btn btn-primary" href="{{ url_for('edit_para', para_id=para.id) }}">
+                           <a class="btn btn-primary"
+                              href="{{ url_for('edit_para', para_id=para.id) }}">
                               <span class="glyphicon glyphicon-pencil"></span> 编辑
                            </a>
                         </div>
@@ -97,6 +99,7 @@
 
                   <div class="form-group">
                      <label class="col-sm-1 control-label">参数</label>
+
                      <div class="col-sm-7">
                         <input type="text" class="form-control" name="key"/>
                      </div>
@@ -104,6 +107,7 @@
 
                   <div class="form-group">
                      <label class="col-sm-1 control-label">内容</label>
+
                      <div class="col-sm-7">
                         <textarea class="form-control" rows="10" name="value"></textarea>
                      </div>
