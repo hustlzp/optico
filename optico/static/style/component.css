@@ -1,18 +1,18 @@
 .p-item {
   margin-bottom: 25px;
-  margin-right: 30px;
+  margin-right: 35px;
   display: inline-block;
   vertical-align: top;
 }
 .p-item .p-img {
-  width: 220px;
+  width: 210px;
   height: 180px;
   margin-bottom: 10px;
   clear: both;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 .p-item .p-info-wap .p-name {
-  width: 220px;
+  width: 210px;
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
@@ -70,4 +70,7 @@
   margin-left: 15px;
   padding: 0;
   display: none;
+}
+.page-title {
+  margin-top: 15px;
 }

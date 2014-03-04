@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
-{% block page_title %}Optico Communincation | MTP, MPO, PLC, CWDM, DWDM, AWG Cat5e, Cat6, Cat6a, Cat7, CATV |
+{% block page_title %}Optico Communincation | MTP, MPO, PLC, CWDM, DWDM, AWG Cat5e, Cat6, Cat6a,
+   Cat7, CATV |
    Professional Networking Communication Company{% endblock %}
 {% block page_id %}page-home{% endblock %}
 
@@ -8,14 +9,12 @@
    <script src="{{ url_for('static', filename='js/jquery.bxslider.js') }}"></script>
    <link rel="stylesheet" href="{{ url_for('static', filename='style/jquery.bxslider.css') }}">
 
-   <div class="container">
-      <div class="carousel-wap">
-         <ul class="bxslider">
-            {% for c in global_carousels %}
-               <li><img class="c-img" src="{{ c.image_url }}"/></li>
-            {% endfor %}
-         </ul>
-      </div>
+   <div class="carousel-wap">
+      <ul class="bxslider">
+         {% for c in global_carousels %}
+            <li><img class="c-img" src="{{ c.image_url }}"/></li>
+         {% endfor %}
+      </ul>
    </div>
 
    <script type="text/javascript">
@@ -38,14 +37,18 @@
             <div class="wapper">
                <div class="thumbnail">
                   <a href="{{ url_for('mtype', mtype_id=mt.id) }}">
-                     <img class="mt-image" src="{{ mt.image_url }}" alt="{{ mt.name }}" title="{{ mt.name }}"/>
+                     <img class="mt-image" src="{{ mt.image_url }}" alt="{{ mt.name }}"
+                          title="{{ mt.name }}"/>
                   </a>
 
-                  <div class="mt-name"><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></div>
+                  <div class="mt-name"><a
+                        href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></div>
 
                   <ul class="stypes-list">
                      {% for st in mt.stypes %}
-                        <li><a href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(30, true) }}</a></li>
+                        <li><a
+                              href="{{ url_for('stype', stype_id=st.id) }}">{{ st.name|truncate(30, true) }}</a>
+                        </li>
                      {% endfor %}
                   </ul>
                </div>
@@ -83,10 +86,6 @@
 
    </script>
 
-{% endblock %}
-
-{% block certificate %}
-
    <hr class="ce-divider">
 
    <div class="certificate container">
@@ -96,5 +95,4 @@
       <img src="{{ url_for('static', filename='img/TLC.png') }}" alt="TLC" title="TLC">
       <img src="{{ url_for('static', filename='img/SGS.bmp') }}" alt="SGS" title="SGS">
    </div>
-
 {% endblock %}

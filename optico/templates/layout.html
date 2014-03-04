@@ -49,34 +49,34 @@
    }
 </script>
 
-<div id="header">
-   <div class="container first-row">
-      <a id="logo" href="{{ url_for('home') }}"><img
-            src="{{ url_for('static', filename='img/logo.gif') }}"></a>
+<div class="container" id="page">
+   <div id="header">
+      <div class="first-row clearfix">
+         <a id="logo" href="{{ url_for('home') }}"><img
+               src="{{ url_for('static', filename='img/logo.gif') }}"></a>
 
-      <!-- google translation -->
-      <div id="google_translate_element" class="hidden-xs"></div>
-      <script type="text/javascript">
-         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru',
-               layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-         }
-      </script>
-      <script type="text/javascript"
-              src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
+         <!-- google translation -->
+         <div id="google_translate_element" class="hidden-xs"></div>
+         <script type="text/javascript">
+            function googleTranslateElementInit() {
+               new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru',
+                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+         </script>
+         <script type="text/javascript"
+                 src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
 
-      <form id="search-form" method="post" action="{{ url_for('search_products') }}"
-            class="hidden-xs">
-         <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
-         <button type="submit" id="btn-submit-search" title="Search"><i
-               class="glyphicon glyphicon-search"></i></button>
-      </form>
+         <form id="search-form" method="post" action="{{ url_for('search_products') }}"
+               class="hidden-xs">
+            <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
+            <button type="submit" id="btn-submit-search" title="Search"><i
+                  class="glyphicon glyphicon-search"></i></button>
+         </form>
 
-      <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
-   </div>
+         <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
+      </div>
 
-   <!-- nav -->
-   <div class="container">
+      <!-- nav -->
       <nav class="navbar navbar-inverse" role="navigation">
          <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -89,115 +89,108 @@
          </div>
 
          <div class="collapse navbar-collapse" id="navbar-collapse">
-{#            <div class="container">#}
-               <ul class="nav navbar-nav">
-                  <li><a href="{{ url_for('home') }}">Home</a></li>
+            <ul class="nav navbar-nav">
+               <li><a href="{{ url_for('home') }}">Home</a></li>
 
-                  <li class="dropdown">
-                     <a href="{{ url_for('products') }}" class="dropdown-toggle"
-                        data-toggle="dropdown">
-                        Products <b class="caret"></b>
-                     </a>
-                     <ul class='dropdown-menu'>
-                        {% for mt in global_mtypes %}
-                           <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a>
-                           </li>
-                        {% endfor %}
-                     </ul>
-                  </li>
-
-                  <li class="dropdown">
-                     <a href="{{ url_for('about') }}">
-                        About Us
-                     </a>
-                     <ul class='dropdown-menu'>
-                        <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
-                        <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-                        <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a>
+               <li class="dropdown">
+                  <a href="{{ url_for('products') }}" class="dropdown-toggle"
+                     data-toggle="dropdown">
+                     Products <b class="caret"></b>
+                  </a>
+                  <ul class='dropdown-menu'>
+                     {% for mt in global_mtypes %}
+                        <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a>
                         </li>
-                        <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+                     {% endfor %}
+                  </ul>
+               </li>
+
+               <li class="dropdown">
+                  <a href="{{ url_for('about') }}">
+                     About Us
+                  </a>
+                  <ul class='dropdown-menu'>
+                     <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
+                     <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+                     <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a>
+                     </li>
+                     <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+                  </ul>
+               </li>
+
+               <li><a href="{{ url_for('service') }}">Service</a></li>
+
+               <li><a href="{{ url_for('careers') }}">Careers</a></li>
+
+               <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+               {% if session.user_id == admin_id %}
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" href="#" class="dropdown-toggle"
+                        data-toggle="dropdown">
+                        Admin <b class="caret"></b>
+                     </a>
+                     <ul class='dropdown-menu'>
+                        <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+                        <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+                        <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+                        <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+                        <li><a href="{{ url_for('logout') }}">登出</a></li>
                      </ul>
                   </li>
-
-                  <li><a href="{{ url_for('service') }}">Service</a></li>
-
-                  <li><a href="{{ url_for('careers') }}">Careers</a></li>
-
-                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
-
-                  {% if session.user_id == admin_id %}
-                     <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" class="dropdown-toggle"
-                           data-toggle="dropdown">
-                           Admin <b class="caret"></b>
-                        </a>
-                        <ul class='dropdown-menu'>
-                           <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
-                           <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
-                           <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
-                           <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-                           <li><a href="{{ url_for('logout') }}">登出</a></li>
-                        </ul>
-                     </li>
-                  {% endif %}
-               </ul>
-{#            </div>#}
+               {% endif %}
+            </ul>
          </div>
       </nav>
-   </div>
 
-   <script type="text/javascript">
-      // 均衡分配nav中的每一项
-      function balanceWidth() {
-         if ($(window).width() <= 750) {
-            $('nav .navbar-nav > li').css('width', 'auto');
-            return;
+      <script type="text/javascript">
+         // 均衡分配nav中的每一项
+         function balanceWidth() {
+            if ($(window).width() <= 750) {
+               $('nav .navbar-nav > li').css('width', 'auto');
+               return;
+            }
+
+            var liNum = $('nav .navbar-nav > li').length;
+            var containerWidth = $('.navbar').width();
+
+            $('nav .navbar-nav > li').css({
+               'width': containerWidth / liNum + 'px'
+            });
          }
 
-         var liNum = $('nav .navbar-nav > li').length;
-         var containerWidth = $('.navbar').width();
-
-         $('nav .navbar-nav > li').css({
-            'width': containerWidth / liNum + 'px'
-         });
-      }
-
-      balanceWidth();
-
-      $(window).on('resize', function () {
          balanceWidth();
-      });
-   </script>
 
-   <!-- Carousels -->
-   {% block carousel %}{% endblock %}
-</div>
+         $(window).on('resize', function () {
+            balanceWidth();
+         });
+      </script>
 
+      <!-- Carousels -->
+      {% block carousel %}{% endblock %}
+   </div>
 
-<div id="flash-messages" class="container">
-   {% with messages = get_flashed_messages() %}
-      {% if messages %}
-         <ul>
-            {% for message in messages %}
-               <li>
-                  <div class="alert alert-success">
-                     {{ message }}
-                  </div>
-               </li>
-            {% endfor %}
-         </ul>
-      {% endif %}
-   {% endwith %}
-</div>
+   <div id="flash-messages" class="container">
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+                  <li>
+                     <div class="alert alert-success">
+                        {{ message }}
+                     </div>
+                  </li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
+   </div>
 
-<div id="main-wap" class="container">
-   {% block body %}{% endblock %}
-</div>
+   <div id="main-wap">
+      {% block body %}{% endblock %}
+   </div>
 
-{% block certificate %}{% endblock %}
-
-<div id="footer">
-   <div class="container">
+   <div id="footer">
       <div class="footer-nav">
          <div class="row">
             <div class="col-sm-3">
@@ -242,6 +235,5 @@
       <div class="cp">Copyright © 2013 by OPTICO</div>
    </div>
 </div>
-
 </body>
 </html>

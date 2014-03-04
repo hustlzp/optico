@@ -1,3 +1,6 @@
+body {
+  background: url(http://gb.gigalight.com.cn/images/images/bg.jpg) repeat;
+}
 body #os-float-window {
   position: absolute;
   z-index: 1000000;
@@ -40,6 +43,12 @@ body #os-float-window .os-skype a:hover {
 }
 body #os-float-window .os-msn a {
   border-bottom: 1px solid #aaa;
+}
+body #page {
+  background-color: white;
+  box-shadow: 0px -1px 3px 1px #b7b7b7;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 body #header .first-row {
   position: relative;
@@ -96,8 +105,12 @@ body #header .first-row .goog-te-gadget-simple {
   float: right;
   margin-top: 15px;
 }
-body #header .navbar-nav .dropdown-menu {
-  background-color: rgba(255, 255, 255, 0.8);
+body #header nav {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+body #header nav .navbar-nav .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 body #flash-messages ul {
   list-style-type: none;
@@ -152,9 +165,8 @@ body #goog-gt-tt + div {
 }
 #page-home .carousel-wap {
   margin-bottom: 20px;
-}
-#page-home .carousel-wap .bx-wrapper {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  margin-left: -25px;
+  margin-right: -25px;
 }
 #page-home .carousel-wap .bx-wrapper .bxslider {
   margin: 0;
@@ -171,8 +183,8 @@ body #goog-gt-tt + div {
   margin-bottom: 20px;
 }
 #page-home .types .mtype-item .wapper {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  border: 1px solid #CCC;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
   height: 100px;
   overflow: visible;
 }
@@ -208,7 +220,7 @@ body #goog-gt-tt + div {
 }
 #page-home .ce-divider {
   border: 0;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #BBBBBB;
   margin: 0 0 10px 0;
 }
 #page-home .certificate {
