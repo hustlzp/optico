@@ -1,5 +1,5 @@
 body {
-  background: url(http://gb.gigalight.com.cn/images/images/bg.jpg) repeat;
+  background: url(/static/img/bg.jpg) repeat;
 }
 body #os-float-window {
   position: absolute;

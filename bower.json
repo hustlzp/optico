@@ -1,0 +1,14 @@
+{
+  "name": "optico",
+  "version": "0.1.0",
+  "homepage": "https://github.com/hustlzp/optico",
+  "authors": [
+    "hustlzp <hustlzp@qq.com>"
+  ],
+  "description": "Website for OPTICO company",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "font-awesome": "4.0.3"
+  }
+}

@@ -9,6 +9,7 @@
    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/font-awesome/css/font-awesome.min.css') }}"/>
    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.theme.css') }}">
    <link rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
@@ -91,37 +92,10 @@
          <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
                <li><a href="{{ url_for('home') }}">Home</a></li>
-
-               <li class="dropdown">
-                  <a href="{{ url_for('products') }}" class="dropdown-toggle"
-                     data-toggle="dropdown">
-                     Products <b class="caret"></b>
-                  </a>
-                  <ul class='dropdown-menu'>
-                     {% for mt in global_mtypes %}
-                        <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a>
-                        </li>
-                     {% endfor %}
-                  </ul>
-               </li>
-
-               <li class="dropdown">
-                  <a href="{{ url_for('about') }}">
-                     About Us
-                  </a>
-                  <ul class='dropdown-menu'>
-                     <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
-                     <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-                     <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a>
-                     </li>
-                     <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-                  </ul>
-               </li>
-
+               <li><a href="{{ url_for('products') }}">Products</a></li>
+               <li><a href="{{ url_for('about') }}">About Us</a></li>
                <li><a href="{{ url_for('service') }}">Service</a></li>
-
                <li><a href="{{ url_for('careers') }}">Careers</a></li>
-
                <li><a href="{{ url_for('contact') }}">Contact</a></li>
 
                {% if session.user_id == admin_id %}
