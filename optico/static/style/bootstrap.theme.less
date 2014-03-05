@@ -49,21 +49,31 @@ input[type='file'] {
   .navbar-nav > li {
     text-align: center;
 
-    .dropdown-menu {
-      padding: 0;
-      min-width: 100%;
-      list-style-type: none;
-
-      & > li {
-        text-align: left;
-
-        & > a {
-          padding: 10px 20px;
-          border-bottom: 1px solid #BBB;
+    &.dropdown {
+      &:hover {
+        .dropdown-menu {
+          visibility: visible;
         }
+      }
 
-        &:last-child > a {
-          border-bottom: 0;
+      .dropdown-menu {
+        padding: 0;
+        min-width: 100%;
+        list-style-type: none;
+        display: block;
+        visibility: hidden;
+
+        & > li {
+          text-align: left;
+
+          & > a {
+            padding: 10px 20px;
+            border-bottom: 1px solid #BBB;
+          }
+
+          &:last-child > a {
+            border-bottom: 0;
+          }
         }
       }
     }

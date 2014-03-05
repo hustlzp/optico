@@ -38,19 +38,24 @@ input[type='file'] {
 .navbar .navbar-nav > li {
   text-align: center;
 }
-.navbar .navbar-nav > li .dropdown-menu {
+.navbar .navbar-nav > li.dropdown:hover .dropdown-menu {
+  visibility: visible;
+}
+.navbar .navbar-nav > li.dropdown .dropdown-menu {
   padding: 0;
   min-width: 100%;
   list-style-type: none;
+  display: block;
+  visibility: hidden;
 }
-.navbar .navbar-nav > li .dropdown-menu > li {
+.navbar .navbar-nav > li.dropdown .dropdown-menu > li {
   text-align: left;
 }
-.navbar .navbar-nav > li .dropdown-menu > li > a {
+.navbar .navbar-nav > li.dropdown .dropdown-menu > li > a {
   padding: 10px 20px;
   border-bottom: 1px solid #BBB;
 }
-.navbar .navbar-nav > li .dropdown-menu > li:last-child > a {
+.navbar .navbar-nav > li.dropdown .dropdown-menu > li:last-child > a {
   border-bottom: 0;
 }
 .nav-tabs {

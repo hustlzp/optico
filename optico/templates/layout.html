@@ -110,8 +110,7 @@
             <li><a href="{{ url_for('home') }}">Home</a></li>
 
             <li class="dropdown">
-               <a href="{{ url_for('products') }}" class="dropdown-toggle"
-                  data-toggle="dropdown">Products</a>
+               <a href="{{ url_for('products') }}">Products</a>
                <ul class='dropdown-menu'>
                   {% for mt in global_mtypes %}
                      <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
@@ -120,8 +119,7 @@
             </li>
 
             <li class="dropdown">
-               <a href="{{ url_for('about') }}" class="dropdown-toggle"
-                  data-toggle="dropdown">About Us</a>
+               <a href="{{ url_for('about') }}">About Us</a>
                <ul class='dropdown-menu'>
                   <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
                   <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
@@ -136,8 +134,7 @@
 
             {% if session.user_id == admin_id %}
                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle"data-toggle="dropdown">
-                     Admin <b class="caret"></b></a>
+                  <a href="#">Admin</a>
                   <ul class='dropdown-menu'>
                      <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
                      <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
