@@ -51,6 +51,8 @@
 
 
 {% macro contact_info() %}
+   <h4 class="no-margin-top">Online Service</h4>
+
    <div class="contact-info">
       <div>
          <img src="{{ url_for('static', filename='img/phone.png') }}" alt=""/>
@@ -63,11 +65,6 @@
       </div>
 
       <div>
-         <img src="{{ url_for('static', filename='img/msn.png') }}" alt=""/>
-         MSN: optico.communication<br>@hotmail.com
-      </div>
-
-      <div>
          <img src="{{ url_for('static', filename='img/email.png') }}" alt=""/>
          Email: sales@optico.com.cn
       </div>
@@ -75,6 +72,13 @@
       <div>
          <img src="{{ url_for('static', filename='img/skype.png') }}" alt=""/>
          Skype: optico.communication
+      </div>
+
+      <div>
+         <img src="{{ url_for('static', filename='img/msn.png') }}" alt=""/>
+         MSN: optico.communication<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@hotmail.com
       </div>
    </div>
 {% endmacro %}
