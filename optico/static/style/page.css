@@ -236,7 +236,7 @@ body #goog-gt-tt + div {
 }
 #page-home .certificate {
   padding-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 #page-home .certificate img {
   height: 50px;
@@ -290,6 +290,9 @@ body #goog-gt-tt + div {
 #page-service p,
 #page-careers p {
   text-align: justify;
+}
+#page-contact .company-info {
+  margin-bottom: 30px;
 }
 #page-contact .company-info li {
   margin-bottom: 5px;
