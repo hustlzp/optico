@@ -39,9 +39,7 @@
          {% endif %}
 
          <ul class="breadcrumb">
-            <li>
-               <a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a>
-            </li>
+            <li>{{ mt.name }}</li>
          </ul>
 
          <h1>{{ mt.name }}</h1>
