@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+   <title>{% block page_title %}Optico Communincation{% endblock %}</title>
    <meta name='description'
-         content="{% block description %}Optico Communication manufacture quality and best price products like MTP, CWDM, DWDM, FWDM, PLC splitter, CATV, cat5e, cat6, cat6a, cat7 cable, UTP, FTP, SFTP, SSTP{% endblock %}">
+         content="{% block description %}Professional Networking Communication Company{% endblock %}">
    <meta name="google-translate-customization"
          content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
-   <title>{% block page_title %}Optico Communincation{% endblock %}</title>
    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
@@ -68,6 +68,10 @@
          <a href="callto://optico.communication" class="skype" title="Skype">
             <img src="{{ url_for('static', filename='img/skype.png') }}"/>
          </a>
+
+         <a href="mailto:sales@optico.com.cn" class="email" title="Email">
+            <img src="{{ url_for('static', filename='img/email-lg.png') }}"/>
+         </a>
       </div>
 
       {# google translation #}
@@ -88,7 +92,6 @@
          <button type="submit" id="btn-submit-search" title="Search"><i
                class="glyphicon glyphicon-search"></i></button>
       </form>
-
 
       <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
    </div>

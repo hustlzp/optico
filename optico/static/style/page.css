@@ -79,7 +79,8 @@ body #header .first-row #online-service {
 body #header .first-row #online-service a {
   text-decoration: none;
 }
-body #header .first-row #online-service a.skype {
+body #header .first-row #online-service a.skype,
+body #header .first-row #online-service a.email {
   margin-left: 4px;
 }
 body #header .first-row #search-form {

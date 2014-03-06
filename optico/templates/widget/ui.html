@@ -51,9 +51,11 @@
 
 
 {% macro contact_info() %}
-   <h4 class="no-margin-top">Online Service</h4>
+
 
    <div class="contact-info">
+      <p class="title"><b>Online Service</b></p>
+
       <div>
          <img src="{{ url_for('static', filename='img/phone.png') }}" alt=""/>
          Tel: 0086-0755-26638585
@@ -76,9 +78,7 @@
 
       <div>
          <img src="{{ url_for('static', filename='img/msn.png') }}" alt=""/>
-         MSN: optico.communication<br>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@hotmail.com
+         MSN: opticocomm@hotmail.com
       </div>
    </div>
 {% endmacro %}
