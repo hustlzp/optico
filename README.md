@@ -3,7 +3,7 @@ OPTICO
 
 http://www.optico.com.cn
 
-Website for OPTICO company.
+Website for OPTICO Communication.
 
 Lovely build with Flask & Bootstrap3.
 
