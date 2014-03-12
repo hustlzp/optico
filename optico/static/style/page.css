@@ -62,14 +62,6 @@ body #header .first-row #logo img {
   height: 100px;
   width: auto;
 }
-body #header .first-row #new-logo {
-  float: left;
-  margin: 20px 0 25px 0;
-}
-body #header .first-row #new-logo img {
-  height: 60px;
-  width: auto;
-}
 body #header .first-row #request-quote {
   float: right;
   color: #666;
@@ -77,8 +69,8 @@ body #header .first-row #request-quote {
   font-size: 13px;
   line-height: 13px;
   position: absolute;
-  top: 25px;
-  left: 210px;
+  top: 20px;
+  left: 125px;
 }
 body #header .first-row #online-service {
   float: right;
