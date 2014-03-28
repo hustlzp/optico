@@ -298,3 +298,7 @@ body #goog-gt-tt + div {
 #page-contact .company-info li {
   margin-bottom: 5px;
 }
+#page-contact .company-info li b {
+  display: inline-block;
+  width: 38px;
+}
