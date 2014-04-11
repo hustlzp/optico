@@ -26,7 +26,9 @@ class Stype(db.Model):
     show_order = db.Column(db.Integer)
 
     mtype_id = db.Column(db.Integer, db.ForeignKey('mtype.id'))
-    mtype = db.relationship('Mtype', backref=db.backref('stypes', lazy='dynamic', order_by="Stype.show_order"))
+    mtype = db.relationship('Mtype', backref=db.backref('stypes', lazy='dynamic',
+                                                        order_by="Stype.show_order",
+                                                        cascade="all, delete, delete-orphan"))
 
     def __repr__(self):
         return '<Stype %s>' % self.name
@@ -41,7 +43,9 @@ class Product(db.Model):
     show_order = db.Column(db.Integer)
 
     stype_id = db.Column(db.Integer, db.ForeignKey('stype.id'))
-    stype = db.relationship('Stype', backref=db.backref('products', lazy='dynamic', order_by="Product.show_order"))
+    stype = db.relationship('Stype', backref=db.backref('products', lazy='dynamic',
+                                                        order_by="Product.show_order",
+                                                        cascade="all, delete, delete-orphan"))
 
     @property
     def friendly_desc(self):
@@ -62,7 +66,8 @@ class ProductParamter(db.Model):
     value = db.Column(db.Text)
 
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    product = db.relationship('Product', backref=db.backref('paramters', lazy='dynamic'))
+    product = db.relationship('Product', backref=db.backref('paramters', lazy='dynamic',
+                                                            cascade="all, delete, delete-orphan"))
 
     @property
     def friendly_value(self):
