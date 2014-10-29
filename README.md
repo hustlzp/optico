@@ -15,6 +15,6 @@ Lovely build with Flask & Bootstrap3.
     * virtualenv venv
     * . venv/bin/activate
     * pip install -r requirements.txt
-4. 将`optico/config.py.sample`另存为`optico/config.py`，并填充其中所有的缺失配置项
+4. 将`optico/config.py.sample`另存为`optico/config.py`，并按需填充其中的配置项
 5. 配置Nginx以能通过配置项UPLOADED_IMAGES_URL的路径访问图片
 6. python run.py
