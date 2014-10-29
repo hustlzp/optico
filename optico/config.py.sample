@@ -1,0 +1,35 @@
+# coding: utf-8
+
+# Host
+HOST_STRING = 'root@11.22.33.44'
+
+# Admin
+ADMIN_ID = 13141314
+ADMIN = ''
+PWD = ''
+
+# Upload path and url
+UPLOADED_IMAGES_DEST = "/Library/WebServer/Documents/opticoimgs"
+UPLOADED_IMAGES_URL = "http://localhost/opticoimgs/"
+
+# App config
+DEBUG = True
+SECRET_KEY = "qefdvddfadwdsdsadas"
+PERMANENT_SESSION_LIFETIME = 3600*24*7
+SESSION_COOKIE_NAME = 'optico_session'
+
+# DB config
+DB_HOST = "localhost"
+DB_USER = "root"
+DB_PASSWORD = ""
+DB_NAME = "optico"
+
+# SMTP config
+SMTP_SERVER = ""
+SMTP_PORT = 25
+SMTP_USER = ""
+SMTP_PASSWORD = ""
+
+# Tech & Sales email address
+EMAIL_TECH = "hustlzp@qq.com"
+EMAIL_SALES = ""
