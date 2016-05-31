@@ -16,7 +16,7 @@ def manage_carousel():
     else:
         # Save image
         max_id = db.session.query(db.func.max(Carousel.id).label('max_id')).one().max_id
-        filename = images.save(request.files['image'], name='c%s.' % str(max_id + 1))
+        filename = images.save(request.files['image'], name='c%s.' % str((max_id or 0) + 1))
 
         # add carousel
         carousel = Carousel(image=filename)
