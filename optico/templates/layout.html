@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <title>{% block page_title %}Optico Communincation{% endblock %}</title>
-   <meta name='description'
-         content="{% block description %}Professional Networking Communication Company{% endblock %}">
-   <meta name="google-translate-customization"
-         content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
-   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-   <link rel="stylesheet"
-         href="{{ url_for('static', filename='bower_components/font-awesome/css/font-awesome.min.css') }}"/>
-   <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
-   <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.theme.css') }}">
-   <link rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
-   <link rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
+    <title>{% block page_title %}Optico Communincation{% endblock %}</title>
+    <meta name='description'
+          content="{% block description %}Professional Networking Communication Company{% endblock %}">
+    <meta name="google-translate-customization"
+          content="61ca14ffd629e351-f54b4e51ef194995-ge2b4eba0fabaeb28-11">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='bower_components/font-awesome/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/component.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
 </head>
 
 <body id="{% block page_id %}{% endblock %}">
@@ -53,209 +53,219 @@
 {#</script>#}
 
 <div class="container" id="page">
-<div id="header">
-   <div class="first-row clearfix">
-      {# Logo #}
-      <a id="logo" href="{{ url_for('home') }}"><img
-            src="{{ url_for('static', filename='img/logo.gif') }}"></a>
-{#      <a id="new-logo" href="{{ url_for('home') }}"><img#}
-{#            src="{{ url_for('static', filename='img/logo_new.png') }}"></a>#}
+    <div id="header">
+        <div class="first-row clearfix">
+            {# Logo #}
+            <a id="logo" href="{{ url_for('home') }}"><img
+                    src="{{ url_for('static', filename='img/logo.gif') }}"></a>
+            {#      <a id="new-logo" href="{{ url_for('home') }}"><img#}
+            {#            src="{{ url_for('static', filename='img/logo_new.png') }}"></a>#}
 
-      {# online service #}
-      <div id="online-service">
-         <a href="msnim:chat?contact=opticocom@hotmail.com" title="MSN">
-            <img src="{{ url_for('static', filename='img/msn.png') }}"/>
-         </a>
+            {# online service #}
+            <div id="online-service">
+                <a href="msnim:chat?contact=opticocom@hotmail.com" title="MSN">
+                    <img src="{{ url_for('static', filename='img/msn.png') }}"/>
+                </a>
 
-         <a href="callto://optico.communication" class="skype" title="Skype">
-            <img src="{{ url_for('static', filename='img/skype.png') }}"/>
-         </a>
+                <a href="callto://optico.communication" class="skype" title="Skype">
+                    <img src="{{ url_for('static', filename='img/skype.png') }}"/>
+                </a>
 
-         <a href="mailto:sales@optico.com.cn" class="email" title="Email">
-            <img src="{{ url_for('static', filename='img/email-lg.png') }}"/>
-         </a>
-      </div>
+                <a href="mailto:sales@optico.com.cn" class="email" title="Email">
+                    <img src="{{ url_for('static', filename='img/email-lg.png') }}"/>
+                </a>
+            </div>
 
-      {# google translation #}
-      <div id="google_translate_element" class="hidden-xs"></div>
-      <script type="text/javascript">
-         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru,pl',
-               layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-         }
-      </script>
-      <script type="text/javascript"
-              src="{{ url_for('static', filename='js/google-translate.js') }}"></script>
+            {# google translation #}
+            <div id="google_translate_element" class="hidden-xs"></div>
+            <script type="text/javascript">
+                {#                function googleTranslateElementInit() {#}
+                {#                    new google.translate.TranslateElement({#}
+                {#                        pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru,pl',#}
+                {#                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE#}
+                {#                    }, 'google_translate_element');#}
+                new google.translate.TranslateElement({
+                    pageLanguage: 'zh-CN',
+                    includedLanguages: 'ar,es,fr,pl,pt,ru',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'google_translate_element');
+                {#                }#}
+                {#            </script>#}
+            </script>
+            <script type="text/javascript"
+                    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            {#      <script type="text/javascript"#}
+            {#              src="{{ url_for('static', filename='js/google-translate.js') }}"></script>#}
 
-      {# search form #}
-      <form id="search-form" method="post" action="{{ url_for('search_products') }}"
-            class="hidden-xs">
-         <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
-         <button type="submit" id="btn-submit-search" title="Search"><i
-               class="glyphicon glyphicon-search"></i></button>
-      </form>
+            {# search form #}
+            <form id="search-form" method="post" action="{{ url_for('search_products') }}"
+                  class="hidden-xs">
+                <input type="text" name="keyword" id="input-search" placeholder="Search Products"/>
+                <button type="submit" id="btn-submit-search" title="Search"><i
+                        class="glyphicon glyphicon-search"></i></button>
+            </form>
 
-      <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
-   </div>
+            <a href="{{ url_for('contact') }}" id="request-quote">> Request Quote</a>
+        </div>
 
-   <!-- nav -->
-   <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse"
-                 data-target="#navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-         </button>
-      </div>
+        <!-- nav -->
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-         <ul class="nav navbar-nav">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
 
-            <li class="dropdown">
-               <a href="{{ url_for('products') }}">Products</a>
-               <ul class='dropdown-menu'>
-                  {% for mt in global_mtypes %}
-                     <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
-                  {% endfor %}
-               </ul>
-            </li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('products') }}">Products</a>
+                        <ul class='dropdown-menu'>
+                            {% for mt in global_mtypes %}
+                                <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
 
-            <li class="dropdown">
-               <a href="{{ url_for('about') }}">About Us</a>
-               <ul class='dropdown-menu'>
-                  <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
-                  <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-                  <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
-                  <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-               </ul>
-            </li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('about') }}">About Us</a>
+                        <ul class='dropdown-menu'>
+                            <li><a href="{{ url_for('about') }}">Product Highlights</a></li>
+                            <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+                            <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
+                            <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+                        </ul>
+                    </li>
 
-            <li><a href="{{ url_for('service') }}">Service</a></li>
-            <li><a href="{{ url_for('careers') }}">Careers</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('service') }}">Service</a></li>
+                    <li><a href="{{ url_for('careers') }}">Careers</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
 
-            {% if session.user_id == admin_id %}
-               <li class="dropdown">
-                  <a href="#">Admin</a>
-                  <ul class='dropdown-menu'>
-                     <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
-                     <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
-                     <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
-                     <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
-                     <li><a href="{{ url_for('logout') }}">登出</a></li>
-                  </ul>
-               </li>
+                    {% if session.user_id == admin_id %}
+                        <li class="dropdown">
+                            <a href="#">Admin</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href="{{ url_for('add_product') }}">添加产品</a></li>
+                                <li><a href="{{ url_for('add_mtype') }}">添加主类</a></li>
+                                <li><a href="{{ url_for('add_stype') }}">添加子类</a></li>
+                                <li><a href="{{ url_for('manage_carousel') }}">管理轮播</a></li>
+                                <li><a href="{{ url_for('logout') }}">登出</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <script type="text/javascript">
+            // 均衡分配nav中的每一项
+            function balanceWidth() {
+                if ($(window).width() <= 750) {
+                    $('nav .navbar-nav > li').css('width', 'auto');
+                    return;
+                }
+
+                var liNum = $('nav .navbar-nav > li').length;
+                var containerWidth = $('.navbar').width();
+
+                $('nav .navbar-nav > li').css({
+                    'width': containerWidth / liNum + 'px'
+                });
+            }
+
+            balanceWidth();
+
+            $(window).on('resize', function () {
+                balanceWidth();
+            });
+        </script>
+
+        <!-- Carousels -->
+        {% block carousel %}{% endblock %}
+    </div>
+
+    <div id="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
             {% endif %}
-         </ul>
-      </div>
-   </nav>
+        {% endwith %}
+    </div>
 
-   <script type="text/javascript">
-      // 均衡分配nav中的每一项
-      function balanceWidth() {
-         if ($(window).width() <= 750) {
-            $('nav .navbar-nav > li').css('width', 'auto');
-            return;
-         }
+    <div id="main-wap">
+        {% block body %}{% endblock %}
+    </div>
 
-         var liNum = $('nav .navbar-nav > li').length;
-         var containerWidth = $('.navbar').width();
+    <div id="footer">
+        <div class="footer-nav">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>About Us</h5>
+                    <ul>
+                        <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
+                        <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
+                        <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
+                        <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Products</h5>
+                    <ul>
+                        {% for mt in global_mtypes %}
+                            <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Downloads</h5>
+                    <ul>
+                        <li><a href="#">File Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Follow Us</h5>
+                    <ul class="img-list">
+                        <li>
+                            <a href="">
+                                <img src="{{ url_for('static', filename='img/twitter.png') }}"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="{{ url_for('static', filename='img/flickr.png') }}"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="{{ url_for('static', filename='img/rss.png') }}"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="{{ url_for('static', filename='img/yahoo.png') }}"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-         $('nav .navbar-nav > li').css({
-            'width': containerWidth / liNum + 'px'
-         });
-      }
-
-      balanceWidth();
-
-      $(window).on('resize', function () {
-         balanceWidth();
-      });
-   </script>
-
-   <!-- Carousels -->
-   {% block carousel %}{% endblock %}
-</div>
-
-<div id="flash-messages">
-   {% with messages = get_flashed_messages() %}
-      {% if messages %}
-         <ul>
-            {% for message in messages %}
-               <li>
-                  <div class="alert alert-success">
-                     {{ message }}
-                  </div>
-               </li>
-            {% endfor %}
-         </ul>
-      {% endif %}
-   {% endwith %}
-</div>
-
-<div id="main-wap">
-   {% block body %}{% endblock %}
-</div>
-
-<div id="footer">
-   <div class="footer-nav">
-      <div class="row">
-         <div class="col-sm-3">
-            <h5>About Us</h5>
-            <ul>
-               <li><a href="{{ url_for('about') }}#ph">Product Highlights</a></li>
-               <li><a href="{{ url_for('about') }}#mc">Market and Clients</a></li>
-               <li><a href="{{ url_for('about') }}#cc">Craftmanship and Certification</a></li>
-               <li><a href="{{ url_for('about') }}#vv">Values and Vision</a></li>
-            </ul>
-         </div>
-         <div class="col-sm-3">
-            <h5>Products</h5>
-            <ul>
-               {% for mt in global_mtypes %}
-                  <li><a href="{{ url_for('mtype', mtype_id=mt.id) }}">{{ mt.name }}</a></li>
-               {% endfor %}
-            </ul>
-         </div>
-         <div class="col-sm-3">
-            <h5>Downloads</h5>
-            <ul>
-               <li><a href="#">File Downloads</a></li>
-            </ul>
-         </div>
-         <div class="col-sm-3">
-            <h5>Follow Us</h5>
-            <ul class="img-list">
-               <li>
-                  <a href="">
-                     <img src="{{ url_for('static', filename='img/twitter.png') }}"/>
-                  </a>
-               </li>
-               <li>
-                  <a href="">
-                     <img src="{{ url_for('static', filename='img/flickr.png') }}"/>
-                  </a>
-               </li>
-               <li>
-                  <a href="">
-                     <img src="{{ url_for('static', filename='img/rss.png') }}"/>
-                  </a>
-               </li>
-               <li>
-                  <a href="">
-                     <img src="{{ url_for('static', filename='img/yahoo.png') }}"/>
-                  </a>
-               </li>
-            </ul>
-         </div>
-      </div>
-   </div>
-
-   <div class="cp">© 2001-2017 by OPTICO</div>
-</div>
+        <div class="cp">© 2001-2017 by OPTICO</div>
+    </div>
 </div>
 </body>
 </html>
