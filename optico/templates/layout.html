@@ -77,26 +77,6 @@
             </div>
 
             {# google translation #}
-            <div id="google_translate_element" class="hidden-xs"></div>
-            <script type="text/javascript">
-                {#                function googleTranslateElementInit() {#}
-                {#                    new google.translate.TranslateElement({#}
-                {#                        pageLanguage: 'en', includedLanguages: 'ar,es,fr,pt,ru,pl',#}
-                {#                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE#}
-                {#                    }, 'google_translate_element');#}
-                new google.translate.TranslateElement({
-                    pageLanguage: 'zh-CN',
-                    includedLanguages: 'ar,es,fr,pl,pt,ru',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-                {#                }#}
-                {#            </script>#}
-            </script>
-            <script type="text/javascript"
-                    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-            {#      <script type="text/javascript"#}
-            {#              src="{{ url_for('static', filename='js/google-translate.js') }}"></script>#}
-
             <div id="google_translate_element"></div>
             <script type="text/javascript"
                     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
